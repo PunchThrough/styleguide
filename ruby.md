@@ -6,9 +6,6 @@ group: navigation
 ---
 {% include JB/setup %}
 
-
-# The Ruby Style Guide
-
 Much of this was taken from https://github.com/bbatsov/ruby-style-guide and https://github.com/styleguide/ruby.
 
 ## Table of Contents
@@ -86,9 +83,9 @@ Much of this was taken from https://github.com/bbatsov/ruby-style-guide and http
     [1, 2, 3].each { |e| puts e }
     ```
 
-* The only exceptions, are the exponent operator and embedded expressions:
+* The only exceptions, are the exponent operator and string interpolation:
 
-* Exponent
+* The exponent operator should have no spaces around it.
 
     ```ruby
     # bad
@@ -98,7 +95,7 @@ Much of this was taken from https://github.com/bbatsov/ruby-style-guide and http
     e = M * c**2
     ```
 
-* Embedded
+* String interpolation should have no spaces after `#{` or before `}`.
 
     ```ruby
     # bad
