@@ -920,15 +920,15 @@ at all.
       end
 
       # protected and private methods are grouped near the end
-      protected
+
 
       def some_protected_method
       end
-
-      private
+      protected :some_protected_method
 
       def some_private_method
       end
+      private :some_private_method
     end
     ```
 
@@ -1045,13 +1045,10 @@ in inheritance.
 in accordance with their intended usage. Don't go off leaving
 everything `public` (which is the default).
 
-* Indent the `public`, `protected`, and `private` methods as much the
-  method definitions they apply to. Leave one blank line above the
-  visibility modifier
-  and one blank line below in order to emphasize that it applies to all
-  methods below it.
+* Pass the method name to `public`, `protected`, and `private` methods one line below the visibility controlled method
 
     ```ruby
+    #bad
     class SomeClass
       def public_method
         # ...
@@ -1066,6 +1063,23 @@ everything `public` (which is the default).
       def another_private_method
         # ...
       end
+    end
+
+    #good
+    class SomeClass
+      def public_method
+        # ...
+      end
+
+      def private_method
+        # ...
+      end
+      private :private_method
+
+      def another_private_method
+        # ...
+      end
+      private :private_method
     end
     ```
 
