@@ -771,15 +771,14 @@ sure to document them in your project&#39;s <code>README</code> or similar.</p>
   <span class="k">end</span>
 
   <span class="c1"># protected and private methods are grouped near the end</span>
-  <span class="kp">protected</span>
 
   <span class="k">def</span> <span class="nf">some_protected_method</span>
   <span class="k">end</span>
-
-  <span class="kp">private</span>
+  <span class="kp">protected</span> <span class="ss">:some_protected_method</span>
 
   <span class="k">def</span> <span class="nf">some_private_method</span>
   <span class="k">end</span>
+  <span class="kp">private</span> <span class="ss">:some_private_method</span>
 <span class="k">end</span>
 </code></pre></div></li><li id='L_94'><a class='reference' href='#L_94'><i class='icon-map-marker'></i></a><p>Prefer modules to classes with only class methods. Classes should be
 used only when it makes sense to create instances out of them.</p>
@@ -876,12 +875,9 @@ in inheritance.</p>
 </code></pre></div></li><li id='L_98'><a class='reference' href='#L_98'><i class='icon-map-marker'></i></a><p>Assign proper visibility levels to methods (<code>private</code>, <code>protected</code>)
 in accordance with their intended usage. Don&#39;t go off leaving
 everything <code>public</code> (which is the default).</p>
-</li><li id='L_99'><a class='reference' href='#L_99'><i class='icon-map-marker'></i></a><p>Indent the <code>public</code>, <code>protected</code>, and <code>private</code> methods as much the
-method definitions they apply to. Leave one blank line above the
-visibility modifier
-and one blank line below in order to emphasize that it applies to all
-methods below it.</p>
-<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SomeClass</span>
+</li><li id='L_99'><a class='reference' href='#L_99'><i class='icon-map-marker'></i></a><p>Pass the method name to <code>public</code>, <code>protected</code>, and <code>private</code> methods one line below the visibility controlled method</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1">#bad</span>
+<span class="k">class</span> <span class="nc">SomeClass</span>
   <span class="k">def</span> <span class="nf">public_method</span>
     <span class="c1"># ...</span>
   <span class="k">end</span>
@@ -895,6 +891,23 @@ methods below it.</p>
   <span class="k">def</span> <span class="nf">another_private_method</span>
     <span class="c1"># ...</span>
   <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1">#good</span>
+<span class="k">class</span> <span class="nc">SomeClass</span>
+  <span class="k">def</span> <span class="nf">public_method</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">private_method</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+  <span class="kp">private</span> <span class="ss">:private_method</span>
+
+  <span class="k">def</span> <span class="nf">another_private_method</span>
+    <span class="c1"># ...</span>
+  <span class="k">end</span>
+  <span class="kp">private</span> <span class="ss">:private_method</span>
 <span class="k">end</span>
 </code></pre></div></li><li id='L_100'><a class='reference' href='#L_100'><i class='icon-map-marker'></i></a><p>Avoid class &lt;&lt; self except when necessary, e.g. single accessors and aliased attributes.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">TestClass</span>
