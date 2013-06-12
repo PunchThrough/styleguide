@@ -1255,6 +1255,20 @@ everything `public` (which is the default).
 * Favor the use of exceptions for the standard library over
 introducing new exception classes.
 
+* Favor error classes over exception classes.
+
+* Favor inheriting from `StandardError` over `Exception` when defining new errors/exceptions.
+
+* Basic errors should be defined on a single line using `Class.new`.
+
+    ```ruby
+    #bad
+    class AwesomeError < StandardError; end
+
+    #good
+    AwesomeError = Class.new(StandardError)
+    ```
+
 ## Collections
 
 * Prefer literal array and hash creation notation (unless you need to
