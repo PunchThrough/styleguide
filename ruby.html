@@ -1051,10 +1051,18 @@ silently thrown away.</p>
 <span class="k">end</span>
 </code></pre></div></li><li id='L_108'><a class='reference' href='#L_108'><i class='icon-map-marker'></i></a><p>Favor the use of exceptions for the standard library over
 introducing new exception classes.</p>
-</li></ul>
+</li><li id='L_109'><a class='reference' href='#L_109'><i class='icon-map-marker'></i></a><p>Favor error classes over exception classes.</p>
+</li><li id='L_110'><a class='reference' href='#L_110'><i class='icon-map-marker'></i></a><p>Favor inheriting from <code>StandardError</code> over <code>Exception</code> when defining new errors/exceptions.</p>
+</li><li id='L_111'><a class='reference' href='#L_111'><i class='icon-map-marker'></i></a><p>Basic errors should be defined on a single line using <code>Class.new</code>.</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1">#bad</span>
+<span class="k">class</span> <span class="nc">AwesomeError</span> <span class="o">&lt;</span> <span class="no">StandardError</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="c1">#good</span>
+<span class="no">AwesomeError</span> <span class="o">=</span> <span class="no">Class</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">StandardError</span><span class="p">)</span>
+</code></pre></div></li></ul>
 <h2 id='collections'><a class='reference' href='#collections'><i class='icon-map-marker'></i></a>Collections</h2>
 <ul>
-<li id='L_109'><a class='reference' href='#L_109'><i class='icon-map-marker'></i></a><p>Prefer literal array and hash creation notation (unless you need to
+<li id='L_112'><a class='reference' href='#L_112'><i class='icon-map-marker'></i></a><p>Prefer literal array and hash creation notation (unless you need to
 pass parameters to their constructors, that is).</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span>
@@ -1063,7 +1071,7 @@ pass parameters to their constructors, that is).</p>
 <span class="c1"># good</span>
 <span class="n">arr</span> <span class="o">=</span> <span class="o">[]</span>
 <span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span>
-</code></pre></div></li><li id='L_110'><a class='reference' href='#L_110'><i class='icon-map-marker'></i></a><p>Prefer <code>%w</code> to the literal array syntax when you need an array of
+</code></pre></div></li><li id='L_113'><a class='reference' href='#L_113'><i class='icon-map-marker'></i></a><p>Prefer <code>%w</code> to the literal array syntax when you need an array of
 words(non-empty strings without spaces and special characters in them).
 Apply this rule only to arrays with two or more elements.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
@@ -1071,24 +1079,24 @@ Apply this rule only to arrays with two or more elements.</p>
 
 <span class="c1"># good</span>
 <span class="no">STATES</span> <span class="o">=</span> <span class="sx">%w(draft open closed)</span>
-</code></pre></div></li><li id='L_111'><a class='reference' href='#L_111'><i class='icon-map-marker'></i></a><p>Avoid the creation of huge gaps in arrays.</p>
+</code></pre></div></li><li id='L_114'><a class='reference' href='#L_114'><i class='icon-map-marker'></i></a><p>Avoid the creation of huge gaps in arrays.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">arr</span> <span class="o">=</span> <span class="o">[]</span>
 <span class="n">arr</span><span class="o">[</span><span class="mi">100</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># now you have an array with lots of nils</span>
-</code></pre></div></li><li id='L_112'><a class='reference' href='#L_112'><i class='icon-map-marker'></i></a><p>When accessing the first or last element from an array, prefer <code>first</code> or <code>last</code> over <code>[0]</code> or <code>[-1]</code>.</p>
-</li><li id='L_113'><a class='reference' href='#L_113'><i class='icon-map-marker'></i></a><p>Prefer symbols instead of strings as hash keys.</p>
+</code></pre></div></li><li id='L_115'><a class='reference' href='#L_115'><i class='icon-map-marker'></i></a><p>When accessing the first or last element from an array, prefer <code>first</code> or <code>last</code> over <code>[0]</code> or <code>[-1]</code>.</p>
+</li><li id='L_116'><a class='reference' href='#L_116'><i class='icon-map-marker'></i></a><p>Prefer symbols instead of strings as hash keys.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;one&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
 
 <span class="c1"># good</span>
 <span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">two</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">three</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
-</code></pre></div></li><li id='L_114'><a class='reference' href='#L_114'><i class='icon-map-marker'></i></a><p>Avoid the use of mutable objects as hash keys.</p>
-</li><li id='L_115'><a class='reference' href='#L_115'><i class='icon-map-marker'></i></a><p>Use the hash literal syntax when your hash keys are symbols.</p>
+</code></pre></div></li><li id='L_117'><a class='reference' href='#L_117'><i class='icon-map-marker'></i></a><p>Avoid the use of mutable objects as hash keys.</p>
+</li><li id='L_118'><a class='reference' href='#L_118'><i class='icon-map-marker'></i></a><p>Use the hash literal syntax when your hash keys are symbols.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">:one</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:two</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:three</span> <span class="o">=&gt;</span> <span class="mi">3</span> <span class="p">}</span>
 
 <span class="c1"># good</span>
 <span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">one</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">two</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">three</span><span class="p">:</span> <span class="mi">3</span> <span class="p">}</span>
-</code></pre></div></li><li id='L_116'><a class='reference' href='#L_116'><i class='icon-map-marker'></i></a><p>Use <code>fetch</code> when dealing with hash keys that should be present.</p>
+</code></pre></div></li><li id='L_119'><a class='reference' href='#L_119'><i class='icon-map-marker'></i></a><p>Use <code>fetch</code> when dealing with hash keys that should be present.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">heroes</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">batman</span><span class="p">:</span> <span class="s1">&#39;Bruce Wayne&#39;</span><span class="p">,</span> <span class="ss">superman</span><span class="p">:</span> <span class="s1">&#39;Clark Kent&#39;</span> <span class="p">}</span>
 <span class="c1"># bad - if we make a mistake we might not spot it right away</span>
 <span class="n">heroes</span><span class="o">[</span><span class="ss">:batman</span><span class="o">]</span> <span class="c1"># =&gt; &quot;Bruce Wayne&quot;</span>
@@ -1096,7 +1104,7 @@ Apply this rule only to arrays with two or more elements.</p>
 
 <span class="c1"># good - fetch raises a KeyError making the problem obvious</span>
 <span class="n">heroes</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:supermann</span><span class="p">)</span>
-</code></pre></div></li><li id='L_117'><a class='reference' href='#L_117'><i class='icon-map-marker'></i></a><p>Use <code>fetch</code> with second argument to use a default value</p>
+</code></pre></div></li><li id='L_120'><a class='reference' href='#L_120'><i class='icon-map-marker'></i></a><p>Use <code>fetch</code> with second argument to use a default value</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="n">batman</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">name</span><span class="p">:</span> <span class="s1">&#39;Bruce Wayne&#39;</span><span class="p">,</span> <span class="n">is_evil</span><span class="p">:</span> <span class="kp">false</span> <span class="p">}</span>
 
 <span class="c1"># bad - if we just use || operator with falsy value we won&#39;t get the expected result</span>
@@ -1104,23 +1112,23 @@ Apply this rule only to arrays with two or more elements.</p>
 
 <span class="c1"># good - fetch work correctly with falsy values</span>
 <span class="n">batman</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="ss">:is_evil</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span> <span class="c1"># =&gt; false</span>
-</code></pre></div></li><li id='L_118'><a class='reference' href='#L_118'><i class='icon-map-marker'></i></a><p>Rely on the fact that as of Ruby 1.9 hashes are ordered.</p>
+</code></pre></div></li><li id='L_121'><a class='reference' href='#L_121'><i class='icon-map-marker'></i></a><p>Rely on the fact that as of Ruby 1.9 hashes are ordered.</p>
 </li></ul>
 <h2 id='strings'><a class='reference' href='#strings'><i class='icon-map-marker'></i></a>Strings</h2>
 <ul>
-<li id='L_119'><a class='reference' href='#L_119'><i class='icon-map-marker'></i></a><p>Prefer string interpolation instead of string concatenation:</p>
+<li id='L_122'><a class='reference' href='#L_122'><i class='icon-map-marker'></i></a><p>Prefer string interpolation instead of string concatenation:</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">email_with_name</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; &lt;&#39;</span> <span class="o">+</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">+</span> <span class="s1">&#39;&gt;&#39;</span>
 
 <span class="c1"># good</span>
 <span class="n">email_with_name</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> &lt;</span><span class="si">#{</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="si">}</span><span class="s2">&gt;&quot;</span>
-</code></pre></div></li><li id='L_120'><a class='reference' href='#L_120'><i class='icon-map-marker'></i></a><p>Prefer double-quoted strings. Interpolation and escaped characters will always work without a delimiter change, and &#39; is a lot more common than &quot; in string literals.</p>
+</code></pre></div></li><li id='L_123'><a class='reference' href='#L_123'><i class='icon-map-marker'></i></a><p>Prefer double-quoted strings. Interpolation and escaped characters will always work without a delimiter change, and &#39; is a lot more common than &quot; in string literals.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="nb">name</span> <span class="o">=</span> <span class="s1">&#39;Bozhidar&#39;</span>
 
 <span class="c1"># good</span>
 <span class="nb">name</span> <span class="o">=</span> <span class="s2">&quot;Bozhidar&quot;</span>
-</code></pre></div></li><li id='L_121'><a class='reference' href='#L_121'><i class='icon-map-marker'></i></a><p>Don&#39;t leave out <code>{}</code> around instance and global variables being
+</code></pre></div></li><li id='L_124'><a class='reference' href='#L_124'><i class='icon-map-marker'></i></a><p>Don&#39;t leave out <code>{}</code> around instance and global variables being
 interpolated into a string.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Person</span>
   <span class="kp">attr_reader</span> <span class="ss">:first_name</span><span class="p">,</span> <span class="ss">:last_name</span>
@@ -1150,12 +1158,12 @@ interpolated into a string.</p>
 </code></pre></div></li></ul>
 <h2 id='regular-expressions'><a class='reference' href='#regular-expressions'><i class='icon-map-marker'></i></a>Regular Expressions</h2>
 <ul>
-<li id='L_122'><a class='reference' href='#L_122'><i class='icon-map-marker'></i></a><p>Don&#39;t use regular expressions if you just need plain text search in string:
+<li id='L_125'><a class='reference' href='#L_125'><i class='icon-map-marker'></i></a><p>Don&#39;t use regular expressions if you just need plain text search in string:
 <code>string[&#39;text&#39;]</code></p>
-</li><li id='L_123'><a class='reference' href='#L_123'><i class='icon-map-marker'></i></a><p>Use non-capturing groups when you don&#39;t use captured result of parentheses.</p>
+</li><li id='L_126'><a class='reference' href='#L_126'><i class='icon-map-marker'></i></a><p>Use non-capturing groups when you don&#39;t use captured result of parentheses.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="sr">/(first|second)/</span>   <span class="c1"># bad</span>
 <span class="sr">/(?:first|second)/</span> <span class="c1"># good</span>
-</code></pre></div></li><li id='L_124'><a class='reference' href='#L_124'><i class='icon-map-marker'></i></a><p>Avoid using $1-9 as it can be hard to track what they contain. Named groups
+</code></pre></div></li><li id='L_127'><a class='reference' href='#L_127'><i class='icon-map-marker'></i></a><p>Avoid using $1-9 as it can be hard to track what they contain. Named groups
 can be used instead.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="sr">/(regexp)/</span> <span class="o">=~</span> <span class="n">string</span>
@@ -1169,7 +1177,7 @@ can be used instead.</p>
 </code></pre></div></li></ul>
 <h2 id='percent-literals'><a class='reference' href='#percent-literals'><i class='icon-map-marker'></i></a>Percent Literals</h2>
 <ul>
-<li id='L_125'><a class='reference' href='#L_125'><i class='icon-map-marker'></i></a><p>Use <code>%()</code>(it&#39;s a shorthand for <code>%Q</code>) for single-line strings which require both interpolation
+<li id='L_128'><a class='reference' href='#L_128'><i class='icon-map-marker'></i></a><p>Use <code>%()</code>(it&#39;s a shorthand for <code>%Q</code>) for single-line strings which require both interpolation
 and embedded double-quotes. For multi-line strings, prefer heredocs.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad (no interpolation needed)</span>
 <span class="sx">%(&lt;div class=&quot;text&quot;&gt;Some text&lt;/div&gt;)</span>
@@ -1188,13 +1196,13 @@ and embedded double-quotes. For multi-line strings, prefer heredocs.</p>
 </code></pre></div></li></ul>
 <h2 id='misc'><a class='reference' href='#misc'><i class='icon-map-marker'></i></a>Misc</h2>
 <ul>
-<li id='L_126'><a class='reference' href='#L_126'><i class='icon-map-marker'></i></a>Avoid hashes as optional parameters. Does the method do too much? (Object initializers are exceptions for this rule).
-</li><li id='L_127'><a class='reference' href='#L_127'><i class='icon-map-marker'></i></a>Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will be shorter than
+<li id='L_129'><a class='reference' href='#L_129'><i class='icon-map-marker'></i></a>Avoid hashes as optional parameters. Does the method do too much? (Object initializers are exceptions for this rule).
+</li><li id='L_130'><a class='reference' href='#L_130'><i class='icon-map-marker'></i></a>Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will be shorter than
 5 LOC. Empty lines do not contribute to the relevant LOC.
-</li><li id='L_128'><a class='reference' href='#L_128'><i class='icon-map-marker'></i></a>Avoid parameter lists longer than three or four parameters.
-</li><li id='L_129'><a class='reference' href='#L_129'><i class='icon-map-marker'></i></a>If you really need &quot;global&quot; methods, add them to Kernel
+</li><li id='L_131'><a class='reference' href='#L_131'><i class='icon-map-marker'></i></a>Avoid parameter lists longer than three or four parameters.
+</li><li id='L_132'><a class='reference' href='#L_132'><i class='icon-map-marker'></i></a>If you really need &quot;global&quot; methods, add them to Kernel
 and make them private.
-</li><li id='L_130'><a class='reference' href='#L_130'><i class='icon-map-marker'></i></a><p>Use module instance variables instead of global variables.</p>
+</li><li id='L_133'><a class='reference' href='#L_133'><i class='icon-map-marker'></i></a><p>Use module instance variables instead of global variables.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="vg">$foo_bar</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -1206,23 +1214,23 @@ and make them private.
 <span class="k">end</span>
 
 <span class="no">Foo</span><span class="o">.</span><span class="n">bar</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre></div></li><li id='L_131'><a class='reference' href='#L_131'><i class='icon-map-marker'></i></a><p>Avoid <code>alias</code> when <code>alias_method</code> will do.</p>
-</li><li id='L_132'><a class='reference' href='#L_132'><i class='icon-map-marker'></i></a><p>Use <code>OptionParser</code> for parsing complex command line options and
+</code></pre></div></li><li id='L_134'><a class='reference' href='#L_134'><i class='icon-map-marker'></i></a><p>Avoid <code>alias</code> when <code>alias_method</code> will do.</p>
+</li><li id='L_135'><a class='reference' href='#L_135'><i class='icon-map-marker'></i></a><p>Use <code>OptionParser</code> for parsing complex command line options and
 <code>ruby -s</code> for trivial command line options.</p>
-</li><li id='L_133'><a class='reference' href='#L_133'><i class='icon-map-marker'></i></a><p>Code in a functional way, avoiding mutation when that makes sense.</p>
-</li><li id='L_134'><a class='reference' href='#L_134'><i class='icon-map-marker'></i></a><p>Do not mutate arguments unless that is the purpose of the method.</p>
-</li><li id='L_135'><a class='reference' href='#L_135'><i class='icon-map-marker'></i></a><p>Avoid more than three levels of block nesting.</p>
-</li><li id='L_136'><a class='reference' href='#L_136'><i class='icon-map-marker'></i></a><p>Be consistent. In an ideal world, be consistent with these guidelines.</p>
-</li><li id='L_137'><a class='reference' href='#L_137'><i class='icon-map-marker'></i></a><p>Use common sense.</p>
+</li><li id='L_136'><a class='reference' href='#L_136'><i class='icon-map-marker'></i></a><p>Code in a functional way, avoiding mutation when that makes sense.</p>
+</li><li id='L_137'><a class='reference' href='#L_137'><i class='icon-map-marker'></i></a><p>Do not mutate arguments unless that is the purpose of the method.</p>
+</li><li id='L_138'><a class='reference' href='#L_138'><i class='icon-map-marker'></i></a><p>Avoid more than three levels of block nesting.</p>
+</li><li id='L_139'><a class='reference' href='#L_139'><i class='icon-map-marker'></i></a><p>Be consistent. In an ideal world, be consistent with these guidelines.</p>
+</li><li id='L_140'><a class='reference' href='#L_140'><i class='icon-map-marker'></i></a><p>Use common sense.</p>
 </li></ul>
 <h2 id='never-ever'><a class='reference' href='#never-ever'><i class='icon-map-marker'></i></a>Never Ever</h2>
 <ul>
-<li id='L_138'><a class='reference' href='#L_138'><i class='icon-map-marker'></i></a><p>Never use <code>if x: ...</code> - as of Ruby 1.9 it has been removed. Use the ternary operator instead.</p>
-</li><li id='L_139'><a class='reference' href='#L_139'><i class='icon-map-marker'></i></a><p>Never use <code>if x; ...</code>. Use the ternary operator instead.</p>
-</li><li id='L_140'><a class='reference' href='#L_140'><i class='icon-map-marker'></i></a><p>Use <code>when x then ...</code> for one-line cases. The alternative syntax
+<li id='L_141'><a class='reference' href='#L_141'><i class='icon-map-marker'></i></a><p>Never use <code>if x: ...</code> - as of Ruby 1.9 it has been removed. Use the ternary operator instead.</p>
+</li><li id='L_142'><a class='reference' href='#L_142'><i class='icon-map-marker'></i></a><p>Never use <code>if x; ...</code>. Use the ternary operator instead.</p>
+</li><li id='L_143'><a class='reference' href='#L_143'><i class='icon-map-marker'></i></a><p>Use <code>when x then ...</code> for one-line cases. The alternative syntax
 <code>when x: ...</code> has been removed as of Ruby 1.9.</p>
-</li><li id='L_141'><a class='reference' href='#L_141'><i class='icon-map-marker'></i></a><p>Never use <code>when x; ...</code>. See the previous rule.</p>
-</li><li id='L_142'><a class='reference' href='#L_142'><i class='icon-map-marker'></i></a><p>Don&#39;t use <code>;</code> to separate statements and expressions. As a
+</li><li id='L_144'><a class='reference' href='#L_144'><i class='icon-map-marker'></i></a><p>Never use <code>when x; ...</code>. See the previous rule.</p>
+</li><li id='L_145'><a class='reference' href='#L_145'><i class='icon-map-marker'></i></a><p>Don&#39;t use <code>;</code> to separate statements and expressions. As a
 corollary - use one expression per line. In general, don&#39;t use semicolons.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="nb">puts</span> <span class="s1">&#39;foobar&#39;</span><span class="p">;</span> <span class="c1"># superfluous semicolon</span>
@@ -1236,15 +1244,15 @@ corollary - use one expression per line. In general, don&#39;t use semicolons.</
 <span class="nb">puts</span> <span class="s1">&#39;bar&#39;</span>
 
 <span class="nb">puts</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="c1"># this applies to puts in particular</span>
-</code></pre></div></li><li id='L_143'><a class='reference' href='#L_143'><i class='icon-map-marker'></i></a><p>Never use <code>for</code></p>
-</li><li id='L_144'><a class='reference' href='#L_144'><i class='icon-map-marker'></i></a><p>Avoid using Perl-style special variables (like <code>$0-9</code>, <code>$</code>, etc. )</p>
-</li><li id='L_145'><a class='reference' href='#L_145'><i class='icon-map-marker'></i></a><p>Never put a space between a method name and the opening parenthesis.</p>
+</code></pre></div></li><li id='L_146'><a class='reference' href='#L_146'><i class='icon-map-marker'></i></a><p>Never use <code>for</code></p>
+</li><li id='L_147'><a class='reference' href='#L_147'><i class='icon-map-marker'></i></a><p>Avoid using Perl-style special variables (like <code>$0-9</code>, <code>$</code>, etc. )</p>
+</li><li id='L_148'><a class='reference' href='#L_148'><i class='icon-map-marker'></i></a><p>Never put a space between a method name and the opening parenthesis.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">f</span> <span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
 
 <span class="c1"># good</span>
 <span class="n">f</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-</code></pre></div></li><li id='L_146'><a class='reference' href='#L_146'><i class='icon-map-marker'></i></a><p>Use <code>sprintf</code> instead of <code>String#%</code> method.</p>
+</code></pre></div></li><li id='L_149'><a class='reference' href='#L_149'><i class='icon-map-marker'></i></a><p>Use <code>sprintf</code> instead of <code>String#%</code> method.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="s1">&#39;%d %d&#39;</span> <span class="o">%</span> <span class="o">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
 <span class="c1"># =&gt; &#39;20 10&#39;</span>
@@ -1252,7 +1260,7 @@ corollary - use one expression per line. In general, don&#39;t use semicolons.</
 <span class="c1"># good</span>
 <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%d %d&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="c1"># =&gt; &#39;20 10&#39;</span>
-</code></pre></div></li><li id='L_147'><a class='reference' href='#L_147'><i class='icon-map-marker'></i></a><p>Use <code>Array#join</code> instead of <code>Array#*</code> with
+</code></pre></div></li><li id='L_150'><a class='reference' href='#L_150'><i class='icon-map-marker'></i></a><p>Use <code>Array#join</code> instead of <code>Array#*</code> with
 a string argument.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
 <span class="sx">%w(one two three)</span> <span class="o">*</span> <span class="s1">&#39;, &#39;</span>
