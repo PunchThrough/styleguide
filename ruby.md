@@ -257,6 +257,8 @@ Much of this was taken from https://github.com/bbatsov/ruby-style-guide and http
     # another comment line
     ```
 
+* Leave an empty line at the end of files.
+
 ## Syntax
 
 * Use `::` only to reference constants(this includes classes and
@@ -1460,7 +1462,6 @@ Apply this rule only to arrays with two or more elements.
 
 ## Misc
 
-* Avoid hashes as optional parameters. Does the method do too much? (Object initializers are exceptions for this rule).
 * Avoid methods longer than 10 LOC (lines of code). Ideally, most methods will be shorter than
   5 LOC. Empty lines do not contribute to the relevant LOC.
 * Avoid parameter lists longer than three or four parameters.
