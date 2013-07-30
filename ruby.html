@@ -1156,6 +1156,19 @@ interpolated into a string.</p>
 
 <span class="c1"># good</span>
 <span class="nb">puts</span> <span class="s2">&quot;$global = </span><span class="si">#{</span><span class="vg">$global</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div></li><li id='strings_L4'><a class='reference' href='#strings_L4'><i class='icon-map-marker'></i></a><p>Don&#39;t pass herdoc strings to methods. Use a temporary variable.</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">execute</span><span class="p">(</span><span class="o">&lt;&lt;-</span><span class="no">QUERY</span><span class="p">)</span>
+<span class="sh">  UPDATE users SET username = &quot;Bob&quot; WHERE id=1;</span>
+<span class="sh">  UPDATE users SET username = &quot;Billy&quot; WHERE id=2;</span>
+<span class="no">QUERY</span>
+
+<span class="c1"># good</span>
+<span class="n">query</span> <span class="o">=</span> <span class="o">&lt;&lt;-</span><span class="no">QUERY</span>
+<span class="sh">  UPDATE users SET username = &quot;Bob&quot; WHERE id=1;</span>
+<span class="sh">  UPDATE users SET username = &quot;Billy&quot; WHERE id=2;</span>
+<span class="no">QUERY</span>
+<span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
 </code></pre></div></li></ul>
 <h2 id='regular-expressions'><a class='reference' href='#regular-expressions'><i class='icon-map-marker'></i></a>Regular Expressions</h2>
 <ul>
