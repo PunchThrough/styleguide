@@ -1409,6 +1409,24 @@ Apply this rule only to arrays with two or more elements.
     puts "$global = #{$global}"
     ```
 
+* Don't pass herdoc strings to methods. Use a temporary variable.
+
+    ```ruby
+    # bad
+    execute(<<-QUERY)
+      UPDATE users SET username = "Bob" WHERE id=1;
+      UPDATE users SET username = "Billy" WHERE id=2;
+    QUERY
+
+    # good
+    query = <<-QUERY
+      UPDATE users SET username = "Bob" WHERE id=1;
+      UPDATE users SET username = "Billy" WHERE id=2;
+    QUERY
+    execute(query)
+  ```
+
+
 ## Regular Expressions
 
 
