@@ -13,3 +13,13 @@ This project is built with jekyll. To run locally on port 4000:
 bundle
 jekyll server -w
 ```
+
+## Deploying to github pages
+
+Commit all changes and push to the master branch.
+
+```sh
+rake deploy
+```
+
+Then add the _site directory and commit.
