@@ -690,8 +690,8 @@ or the singular form of the mapped variable.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">+</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
   <span class="c1"># body omitted</span>
 <span class="k">end</span>
-</code></pre></div></li><li id='naming_L10'><a class='reference' href='#naming_L10'><i class='icon-map-marker'></i></a><p>Prefer <code>map</code> over <code>collect</code>, <code>find</code> over <code>detect</code>, <code>select</code> over
-<code>find_all</code>, <code>reduce</code> over <code>inject</code> and <code>size</code> over <code>length</code>.</p>
+</code></pre></div></li><li id='naming_L10'><a class='reference' href='#naming_L10'><i class='icon-map-marker'></i></a><p>Prefer <code>map</code> over <code>collect</code>, <code>reduce</code> over <code>inject</code>, <code>detect</code> over <code>find</code>, <code>select</code> over
+<code>find_all</code>, and <code>size</code> over <code>length</code>.</p>
 </li><li id='naming_L11'><a class='reference' href='#naming_L11'><i class='icon-map-marker'></i></a><p>Use <code>flat_map</code> instead of <code>map</code> + <code>flatten</code>.
 This does not apply for arrays with a depth greater than 2, i.e.
 if <code>users.first.songs == [&#39;a&#39;, [&#39;b&#39;,&#39;c&#39;]]</code>, then use <code>map + flatten</code> rather than <code>flat_map</code>.
