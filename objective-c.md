@@ -34,34 +34,34 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 ## Organization
 * Use `#pragma mark`s to categorize methods into functional groupings and protocol implementations, following this general structure:
 
-```objc
-#pragma mark - lifecycle
+    ```objc
+    #pragma mark - lifecycle
 
-+ (id)objectWithThing:(id)thing
-...
-- (id)init
-...
+    + (id)objectWithThing:(id)thing
+    ...
+    - (id)init
+    ...
 
-#pragma mark - drawing
+    #pragma mark - drawing
 
-- (void)drawRect:(CGRect)
-...
+    - (void)drawRect:(CGRect)
+    ...
 
-#pragma mark - SuperclassName
+    #pragma mark - SuperclassName
 
-- (void)someOverriddenMethod
-...
+    - (void)someOverriddenMethod
+    ...
 
-#pragma mark - NSCopying
+    #pragma mark - NSCopying
 
-- (id)copyWithZone:(NSZone *)zone
-...
+    - (id)copyWithZone:(NSZone *)zone
+    ...
 
-#pragma mark NSObject
+    #pragma mark - NSObject
 
-- (NSString *)description {}
-...
-```
+    - (NSString *)description {}
+    ...
+    ```
 
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
