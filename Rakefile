@@ -280,7 +280,7 @@ end
 task :deploy do
   commit = `git rev-parse HEAD`.strip
   `jekyll build --config _prod_config.yml`
-  `(cd _site && git add -u && git commit -m "Deploy #{commit}" && git pull --rebase && git push)`
+  `(cd _site && git add -A && git commit -m "Deploy #{commit}" && git pull --rebase && git push)`
   `git add -u && git commit -m "Deployed #{commit}"`
 end
 
