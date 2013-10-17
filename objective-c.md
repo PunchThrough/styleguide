@@ -68,7 +68,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 ## Spacing
 
-* Indent using 4 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
+* Indent using 4 spaces. Do not indent with tabs. Be sure to set this preference in Xcode.
 * Never use spaces between parentheses and their contents.
 * Asterisks indicating pointers belong with the variable. They should have one space to their left and none to their right.
 
