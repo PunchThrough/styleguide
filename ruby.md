@@ -3,6 +3,7 @@ layout: page
 title: Ruby
 header: Ruby Style Guide
 group: navigation
+category: ruby
 ---
 {% include JB/setup %}
 
