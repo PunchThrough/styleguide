@@ -284,6 +284,12 @@ task :deploy do
   `git add -u && git commit -m "Deployed #{commit}"`
 end
 
+task :setup do
+  `git submodule init`
+  `git submodule update`
+  `(cd _site && git checkout gh-pages && git pull)`
+end
+
 
 # Internal: Process theme package manifest file.
 #
