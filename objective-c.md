@@ -350,4 +350,28 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 ## Xcode Project
 
 * The filesystem directories should be kept in sync with the Xcode file groups.
+* Files within groups should be kept alphabetized (case-insensitively, with groups before files).
+* A GitHub Xcode project repository should follow this structure:
+   * base folder (contains Gemfile, Podfile, lock files, .automation.yml, MobileAutomation.yml, .rvmrc as necessary)
+      * `Pods/` (if using CocoaPods)
+      * `ProjectName/`
+      * `ProjectNameTests/`
+      * `ProjectName.xcodeproj/`
+      * `ProjectName.xcodeworkspace/` (if using CocoaPods)
+* Within an Xcode ProjectName directory, the folders (and corresponding groups) should follow this structure:
+   * `Models/`
+      * `Editable/` (if using mogenerator)
+      * `Generated/` (if using mogenerator)
+      * `ProjectName.xcdatamodeld` (if using Core Data)
+   * `Views/` (contains `.xib`s, storyboards, and UI subclasses within a folder structure that mirrors the app navigation)
+   * `Controllers/` (contains view controllers within a folder structure that mirrors the app navigation)
+   * `Shared/`
+      * `Views/` (contains `.xib`s and UI subclasses used throughout the app)
+      * `Controllers/` (contains view controllers used or subclassed throughout the app)
+      * `Utilities/` (contains utility classes and singletons)
+   * `Resources/`
+      * `Fonts/`
+      * `Images/` (contains some sort of internal folder structure and uses sane naming conventions)
+      * `Localizatons/` (contains plists for localized strings)
+   * `Supporting Files/` (AppDelegate, InfoPlist, Images.xcassets, ProjectName-Info.plist, ProjectName-Prefix.pch)
 * When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
