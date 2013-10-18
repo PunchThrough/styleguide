@@ -258,22 +258,22 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     // bad
     #define COMPANY_NAME @"Sport Ngin"
     ...
-    [SNLSyncTimer timerWithInterval:10
-                        maxInterval:900
-                           hostname:@"api.stage.ngin-staging.com"
-                            handler:^{ [self pull]; }];
+    [SNSyncTimer timerWithInterval:10
+                       maxInterval:900
+                          hostname:@"api.host.com"
+                           handler:^{ [self pull]; }];
 
     // good
     static const NSString * CompanyName = @"SportNgin";
     ...
     static const NSInteger TimerInterval = 10;
     static const NSInteger MaxInterval = 900;
-    static const NSString *APIHostName = 10;
+    static const NSString *APIHostName = @"api.host.com";
     ...
-    [SNLSyncTimer timerWithInterval:TimerInterval
-                        maxInterval:MaxInterval
-                           hostname:@"api.stage.ngin-staging.com"
-                            handler:^{ [self pull]; }];
+    [SNSyncTimer timerWithInterval:TimerInterval
+                       maxInterval:MaxInterval
+                          hostname:APIHostName
+                           handler:^{ [self pull]; }];
     ```
 
 ## Booleans
