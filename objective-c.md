@@ -223,7 +223,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for` loops.
 * Apple naming conventions should be adhered to wherever possible (camelCase for variables, method names, and method name segments, CamelCase with an initial capital for class names, constant variables, and enumerated types).
 * Property names should be camelCase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should have _camelCase name with a leading underscore and lowercase letter. This is the same format as Xcode's default synthesis.
-* When developing a CocoaPod, prefix the project name and all its classes with `SN`. When developing an app, do not use a prefix.
+* When developing a CocoaPod, prefix the project name and all its classes with a namespace. When developing an app, do not use a prefix.
 
 ## Comments
 
@@ -356,7 +356,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * The filesystem directories should be kept in sync with the Xcode file groups.
 * Files within groups should be kept alphabetized (case-insensitively, with groups before files).
 * A GitHub Xcode project repository should follow this structure:
-   * base folder (contains Gemfile, Podfile, lock files, .automation.yml, MobileAutomation.yml, .rvmrc as necessary)
+   * base folder (contains Gemfile, Podfile, lock files, .rvmrc, other non-Xcode configuration files as necessary)
       * `Pods/` (if using CocoaPods)
       * `ProjectName/`
       * `ProjectNameTests/`
