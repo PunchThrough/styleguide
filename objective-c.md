@@ -220,6 +220,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for` loops.
 * Apple naming conventions should be adhered to wherever possible (camelCase for variables, method names, and method name segments, CamelCase with an initial capital for class names, constant variables, and enumerated types).
 * Property names should be camelCase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should have _camelCase name with a leading underscore and lowercase letter. This is the same format as Xcode's default synthesis.
+* When developing a CocoaPod, prefix the project name and all its classes with `SN`. When developing an app, do not use a prefix.
 
 ## Comments
 
@@ -264,7 +265,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
                            handler:^{ [self pull]; }];
 
     // good
-    static const NSString * CompanyName = @"SportNgin";
+    static const NSString * CompanyName = @"Sport Ngin";
     ...
     static const NSInteger TimerInterval = 10;
     static const NSInteger MaxInterval = 900;
