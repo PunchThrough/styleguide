@@ -169,7 +169,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 ## Conditionals
 
-* Conditional bodies should always use braces even when a conditional body could be written (on a single line) without braces to prevent errors. (See [the NYT guide](https://github.com/NYTimes/objective-c-style-guide/blob/master/README.md#conditionals) for examples of errors.)
+* Conditional bodies should always use braces even when the body is written on a single line. (See [the NYT guide](https://github.com/NYTimes/objective-c-style-guide/blob/master/README.md#conditionals) for examples of errors that can result from violating this.)
 
     ```objc
     // bad
@@ -183,6 +183,9 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     if (!error) {
         return success;
     }
+
+    // also good
+    if (!error) { return success; }
     ```
 
 * The ternary operator `?` should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables. The condition of a ternary expression should be enclosed in parentheses for clarity.
