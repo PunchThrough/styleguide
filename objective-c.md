@@ -19,7 +19,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 * [Organization](#organization)
 * [Spacing](#spacing)
-* [Dot-Notation Syntax](#dot-notation-syntax)
+* [Syntax Choices](#syntax-choices)
 * [Conditionals](#conditionals)
 * [Variables](#variables)
 * [Naming](#naming)
@@ -152,7 +152,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     }
     ```
 
-## Dot-Notation Syntax
+## Syntax Choices
 
 * Dot-notation should always be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
 
@@ -165,6 +165,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     view.backgroundColor = [UIColor orangeColor];
     [UIApplication sharedApplication].delegate;
     ```
+* When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not begin with underscores.
 
 ## Conditionals
 
@@ -219,7 +220,6 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for` loops.
 * Apple naming conventions should be adhered to wherever possible (camelCase for variables, method names, and method name segments, CamelCase with an initial capital for class names, constant variables, and enumerated types).
 * Property names should be camelCase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should have _camelCase name with a leading underscore and lowercase letter. This is the same format as Xcode's default synthesis.
-* When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not begin with underscores.
 
 ## Comments
 
