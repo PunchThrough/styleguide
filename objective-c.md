@@ -268,11 +268,11 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
                            handler:^{ [self pull]; }];
 
     // good
-    static const NSString * CompanyName = @"Sport Ngin";
+    static NSString * const CompanyName = @"Sport Ngin";
     ...
-    static const NSInteger TimerInterval = 10;
-    static const NSInteger MaxInterval = 900;
-    static const NSString *APIHostName = @"api.host.com";
+    static NSInteger const TimerInterval = 10;
+    static NSInteger const MaxInterval = 900;
+    static NSString * const APIHostName = @"api.host.com";
     ...
     [SNSyncTimer timerWithInterval:TimerInterval
                        maxInterval:MaxInterval
