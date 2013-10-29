@@ -29,6 +29,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * [Booleans](#booleans)
 * [Enumerated Types](#enumerated-types)
 * [Common Method Structures](#common-method-structures)
+* [Miscellany](#miscellany)
 * [Xcode Project](#xcode-project)
 
 ## Organization
@@ -344,12 +345,19 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
       static id __sharedInstance = nil;
       static dispatch_once_t onceToken;
       dispatch_once(&onceToken, ^{
-          __sharedInstance = [[self alloc] init];
+          __sharedInstance = [[self alloc] init];  // or call custom designated initializer
       });
 
       return __sharedInstance;
     }
     ```
+
+## Miscellany
+
+* Don't commit code that will never execute; just delete it. You probably won't ever want it back, and if you do, you'll likely want to rewrite it anyway. And you can always retrieve it from an earlier commit if you have to. This applies to:
+   * Commented-out code
+   * Code protected by impossible `if` or `switch` statements
+   * Code wrapped in `#ifdef`s that have no associated preprocessor macros defined in any of the build targets
 
 ## Xcode Project
 
