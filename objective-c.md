@@ -405,7 +405,6 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
         * Followed by name of the destination controller (sans the “ViewController" part of the name)
         * End with “Segue”
         * Example: an unwind seque from an instance of AuthenticationViewController back to an instance of LoginViewController = "UnwindLoginSegue"
-
 * Segue ID Naming (only necessary if you are doing a segue from code or you linked the segue to the controller to be called on dismissing the controller)
     * Presentation Segue ID - specific to an instance of the segue
         * Start with the source controller name  (sans the “ViewController" part of the name)
@@ -420,4 +419,3 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
         * Followed by the destination controller name  (sans the “ViewController" part of the name)
         * End with “SegueId”
         * Example: an unwind segue from AuthenticationViewController to LoginViewController = “AuthenticationToLoginSegueId”
-
