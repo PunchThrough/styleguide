@@ -230,7 +230,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 * `NSString`, `NSDictionary`, `NSArray`, and `NSNumber` literals should be used whenever creating immutable instances of those objects. Pay special attention to prevent `nil` values from being passed into `NSArray` and `NSDictionary` literals, as this will cause a crash.
 * Spaces belong between the braces of array and dictionary literals and their contents; between each member of the collection; and between keys, colons, and values of a dictionary literal.
-* Spaces belong between the braces of a subscripted array when the index is a variable.
+* Spaces belong between the braces of a subscripted array and the index when the index is a variable.
 * Long or complex array and dictionary literals may be broken into several lines.
 
     ```objc
