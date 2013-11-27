@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Objective-C
-header: Objective-C Styleguide
+header: Objective-C Style Guide
 group: navigation
 ---
 {% include JB/setup %}
@@ -19,7 +19,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 * [Organization](#organization)
 * [Spacing](#spacing)
-* [Dot-Notation Syntax](#dot-notation-syntax)
+* [Syntax Choices](#syntax-choices)
 * [Conditionals](#conditionals)
 * [Variables](#variables)
 * [Naming](#naming)
@@ -29,48 +29,49 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * [Booleans](#booleans)
 * [Enumerated Types](#enumerated-types)
 * [Common Method Structures](#common-method-structures)
+* [Miscellany](#miscellany)
 * [Xcode Project](#xcode-project)
 
 ## Organization
 * Use `#pragma mark`s to categorize methods into functional groupings and protocol implementations, following this general structure:
 
-```objc
-#pragma mark - lifecycle
+    ```objc
+    #pragma mark - lifecycle
 
-+ (id)objectWithThing:(id)thing
-...
-- (id)init
-...
+    + (id)objectWithThing:(id)thing
+    ...
+    - (id)init
+    ...
 
-#pragma mark - drawing
+    #pragma mark - drawing
 
-- (void)drawRect:(CGRect)
-...
+    - (void)drawRect:(CGRect)
+    ...
 
-#pragma mark - SuperclassName
+    #pragma mark - SuperclassName
 
-- (void)someOverriddenMethod
-...
+    - (void)someOverriddenMethod
+    ...
 
-#pragma mark - NSCopying
+    #pragma mark - NSCopying
 
-- (id)copyWithZone:(NSZone *)zone
-...
+    - (id)copyWithZone:(NSZone *)zone
+    ...
 
-#pragma mark NSObject
+    #pragma mark - NSObject
 
-- (NSString *)description {}
-...
-```
+    - (NSString *)description {}
+    ...
+    ```
 
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
 * `@synthesize` and `@dynamic` should each be declared on new lines in the implementation.
 
 ## Spacing
 
-* Indent using 4 spaces. Never indent with tabs. Be sure to set this preference in Xcode.
+* Indent using 4 spaces. Do not indent with tabs. Be sure to set this preference in Xcode.
 * Never use spaces between parentheses and their contents.
-* Asterisks indicating pointers belong with the variable. They should have one space to their right and none to their left.
+* Asterisks indicating pointers belong with the variable. They should have one space to their left and none to their right.
 
     ```objc
     // bad
@@ -152,7 +153,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     }
     ```
 
-## Dot-Notation Syntax
+## Syntax Choices
 
 * Dot-notation should always be used for accessing and mutating properties. Bracket notation is preferred in all other instances.
 
@@ -165,10 +166,11 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     view.backgroundColor = [UIColor orangeColor];
     [UIApplication sharedApplication].delegate;
     ```
+* When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not begin with underscores.
 
 ## Conditionals
 
-* Conditional bodies should always use braces even when a conditional body could be written (on a single line) without braces to prevent errors. (See [the NYT guide](https://github.com/NYTimes/objective-c-style-guide/blob/master/README.md#conditionals) for examples of errors.)
+* Conditional bodies should always use braces even when the body is written on a single line. (See [the NYT guide](https://github.com/NYTimes/objective-c-style-guide/blob/master/README.md#conditionals) for examples of errors that can result from violating this.)
 
     ```objc
     // bad
@@ -182,6 +184,9 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     if (!error) {
         return success;
     }
+
+    // also good
+    if (!error) { return success; }
     ```
 
 * The ternary operator `?` should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables. The condition of a ternary expression should be enclosed in parentheses for clarity.
@@ -196,7 +201,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 ## Variables
 
-* Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in initializer methods (`init`, `initWithCoder:`, etc…), `dealloc` methods and within custom setters and getters.
+* Property definitions should be used in place of naked instance variables whenever possible. Direct instance variable access should be avoided except in initializer methods (`init`, `initWithCoder:`, etc.), `dealloc` methods and within custom setters and getters.
 
     ```objc
     // bad
@@ -218,8 +223,8 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 * Long, descriptive method names are good.
 * Variables should be named as descriptively as possible. Single letter variable names should be avoided except in `for` loops.
 * Apple naming conventions should be adhered to wherever possible (camelCase for variables, method names, and method name segments, CamelCase with an initial capital for class names, constant variables, and enumerated types).
-* Property names should be camelCase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should be camel-case with the leading word being lowercase and a leading underscore. This is the same format as Xcode's default synthesis.
-* When using properties, instance variables should always be accessed and mutated using `self.`. This means that all properties will be visually distinct, as they will all be prefaced with `self.`. Local variables should not begin with underscores.
+* Property names should be camelCase. **If Xcode can automatically synthesize the variable, then let it.** Otherwise, in order to be consistent, the backing instance variables for these properties should have _camelCase name with a leading underscore and lowercase letter. This is the same format as Xcode's default synthesis.
+* When developing a CocoaPod, prefix the project name and all its classes with a namespace. When developing an app, do not use a prefix.
 
 ## Comments
 
@@ -263,22 +268,22 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     // bad
     #define COMPANY_NAME @"Sport Ngin"
     ...
-    [SNLSyncTimer timerWithInterval:10
-                        maxInterval:900
-                           hostname:@"api.stage.ngin-staging.com"
-                            handler:^{ [self pull]; }];
+    [SNSyncTimer timerWithInterval:10
+                       maxInterval:900
+                          hostname:@"api.host.com"
+                           handler:^{ [self pull]; }];
 
     // good
-    static const NSString * CompanyName = @"SportNgin";
+    static NSString * const CompanyName = @"Sport Ngin";
     ...
-    static const NSInteger TimerInterval = 10;
-    static const NSInteger MaxInterval = 900;
-    static const NSString *APIHostName = 10;
+    static NSInteger const TimerInterval = 10;
+    static NSInteger const MaxInterval = 900;
+    static NSString * const APIHostName = @"api.host.com";
     ...
-    [SNLSyncTimer timerWithInterval:TimerInterval
-                        maxInterval:MaxInterval
-                           hostname:@"api.stage.ngin-staging.com"
-                            handler:^{ [self pull]; }];
+    [SNSyncTimer timerWithInterval:TimerInterval
+                       maxInterval:MaxInterval
+                          hostname:APIHostName
+                           handler:^{ [self pull]; }];
     ```
 
 ## Booleans
@@ -345,14 +350,49 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
       static id __sharedInstance = nil;
       static dispatch_once_t onceToken;
       dispatch_once(&onceToken, ^{
-          __sharedInstance = [[self alloc] init];
+          __sharedInstance = [[self alloc] init];  // or call custom designated initializer
       });
 
       return __sharedInstance;
     }
     ```
 
+## Miscellany
+
+* Don't commit code that will never execute; just delete it. You probably won't ever want it back, and if you do, you'll likely want to rewrite it anyway. And you can always retrieve it from an earlier commit if you have to. This applies to:
+   * Methods that are never called
+   * Commented-out code
+   * Code protected by impossible `if` or `switch` statements
+   * Code wrapped in `#ifdef`s that have no associated preprocessor macros defined in any of the build targets
+* Don't commit code that serves no purpose. This applies to:
+   * Code automatically generated by Xcode that does nothing except call `super`
+
 ## Xcode Project
 
 * The filesystem directories should be kept in sync with the Xcode file groups.
+* Files within groups should be kept alphabetized (case-insensitively, with groups before files).
+* A GitHub Xcode project repository should follow this structure:
+   * base folder (contains Gemfile, Podfile, lock files, .rvmrc, other non-Xcode configuration files as necessary)
+      * `Pods/` (if using CocoaPods)
+      * `ProjectName/`
+      * `ProjectNameTests/`
+      * `ProjectName.xcodeproj/`
+      * `ProjectName.xcodeworkspace/` (if using CocoaPods)
+* There should be no files directly within an Xcode ProjectName directory. The subfolders (and corresponding groups) should follow this structure:
+   * `Models/`
+      * `Editable/` (if using mogenerator)
+      * `Generated/` (if using mogenerator)
+      * `ProjectName.xcdatamodeld` (if using Core Data)
+   * `Views/` (contains `.xib`s, storyboards, and UI subclasses within a folder structure that mirrors the app navigation)
+   * `Controllers/` (contains view controllers within a folder structure that mirrors the app navigation)
+   * `Base.lproj/` (if using localized storyboards)
+   * `Shared/`
+      * `Views/` (contains `.xib`s and UI subclasses used throughout the app)
+      * `Controllers/` (contains view controllers used or subclassed throughout the app)
+      * `Utilities/` (contains utility classes and singletons)
+   * `Resources/`
+      * `Fonts/`
+      * `Images/` (contains some sort of internal folder structure and uses sane naming conventions)
+      * `Strings/` (contains plists for localized strings)
+   * `Supporting Files/` (AppDelegate, InfoPlist, Images.xcassets, ProjectName-Info.plist, ProjectName-Prefix.pch)
 * When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
