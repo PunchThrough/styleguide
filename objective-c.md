@@ -308,7 +308,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
 
 * Use the `NS_ENUM()` macro to define `enum`s.
 * Each enumerated value should begin with the type name.
-* The first value should be 1; exceptions to the rule would be when the enum represents an index to an array, or some sort of "false" state, in which case 0 is appropriate.
+* The first value should be 1, unless it represents some sort of "false" state, or if the values represent array indexes, in which case 0 is appropriate.
 
     ```objc
     typedef NS_ENUM(NSInteger, PeriodType) {
