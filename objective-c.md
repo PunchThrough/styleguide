@@ -237,7 +237,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     // bad
     NSString *greeting = [NSString stringWithUTF8String:"hello"];
     NSArray *names = [NSArray arrayWithObjects:@"Joe", @"Mark", @"Michael", @"Mike", @"Shivani", nil];
-    NSInteger indexOfShivani = 3;
+    NSInteger indexOfShivani = 4;
     NSString *shivani = names[indexOfShivani];
     NSDictionary *appOwners = [NSDictionary dictionaryWithObjectsAndKeys: @"Mike", @"iScout", @"Michael", @"Scorekeeper", @"Mark", @"Tournament", nil];
     NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];
@@ -246,7 +246,7 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
     // good
     NSString *greeting = @"Hello";
     NSArray *names = @[ @"Joe", @"Mark", @"Michael", @"Mike", @"Shivani" ];
-    NSInteger indexOfShivani = 3;
+    NSInteger indexOfShivani = 4;
     NSString *shivani = names[ indexOfShivani ];
     NSDictionary *productManagers = @{ @"iScout" : @"Mike",
                                        @"Scorekeeper" : @"Michael",
