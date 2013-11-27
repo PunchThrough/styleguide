@@ -278,13 +278,13 @@ line continuations at all.</p>
 <li id='syntax_L1'><a class='reference' href='#syntax_L1'><i class='icon-map-marker'></i></a><p>Use <code>::</code> only to reference constants(this includes classes and
 modules). Never use <code>::</code> for method invocation.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
-<span class="ss">SomeClass</span><span class="p">:</span><span class="ss">:some_method</span>
+<span class="no">SomeClass</span><span class="o">::</span><span class="n">some_method</span>
 <span class="n">some_object</span><span class="o">::</span><span class="n">some_method</span>
 
 <span class="c1"># good</span>
 <span class="no">SomeClass</span><span class="o">.</span><span class="n">some_method</span>
 <span class="n">some_object</span><span class="o">.</span><span class="n">some_method</span>
-<span class="ss">SomeModule</span><span class="p">:</span><span class="ss">:SomeClass</span><span class="o">::</span><span class="no">SOME_CONST</span>
+<span class="no">SomeModule</span><span class="o">::</span><span class="no">SomeClass</span><span class="o">::</span><span class="no">SOME_CONST</span>
 </code></pre></div></li><li id='syntax_L2'><a class='reference' href='#syntax_L2'><i class='icon-map-marker'></i></a><p>Use <code>def</code> with parentheses when there are arguments. Omit the
 parentheses when the method doesn&#39;t accept any arguments.</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
