@@ -298,13 +298,13 @@ Failing that, follow <a href="http://en.wikipedia.org/wiki/The_C_Programming_Lan
 
 <span class="c1">// good</span>
 <span class="n">NSString</span> <span class="o">*</span><span class="n">greeting</span> <span class="o">=</span> <span class="s">@&quot;Hello&quot;</span><span class="p">;</span>
-<span class="n">NSArray</span> <span class="o">*</span><span class="n">names</span> <span class="o">=</span> <span class="p">@[</span> <span class="s">@&quot;Joe&quot;</span><span class="p">,</span> <span class="s">@&quot;Mark&quot;</span><span class="p">,</span> <span class="s">@&quot;Michael&quot;</span><span class="p">,</span> <span class="s">@&quot;Mike&quot;</span><span class="p">,</span> <span class="s">@&quot;Shivani&quot;</span> <span class="p">];</span>
+<span class="n">NSArray</span> <span class="o">*</span><span class="n">names</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span> <span class="s">@&quot;Joe&quot;</span><span class="p">,</span> <span class="s">@&quot;Mark&quot;</span><span class="p">,</span> <span class="s">@&quot;Michael&quot;</span><span class="p">,</span> <span class="s">@&quot;Mike&quot;</span><span class="p">,</span> <span class="s">@&quot;Shivani&quot;</span> <span class="p">];</span>
 <span class="n">NSInteger</span> <span class="n">indexOfShivani</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 <span class="n">NSString</span> <span class="o">*</span><span class="n">shivani</span> <span class="o">=</span> <span class="n">names</span><span class="p">[</span> <span class="n">indexOfShivani</span> <span class="p">];</span>
-<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">productManagers</span> <span class="o">=</span> <span class="p">@{</span> <span class="s">@&quot;iScout&quot;</span> <span class="o">:</span> <span class="s">@&quot;Mike&quot;</span><span class="p">,</span>
+<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">productManagers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span> <span class="s">@&quot;iScout&quot;</span> <span class="o">:</span> <span class="s">@&quot;Mike&quot;</span><span class="p">,</span>
                                    <span class="s">@&quot;Scorekeeper&quot;</span> <span class="o">:</span> <span class="s">@&quot;Michael&quot;</span><span class="p">,</span>
                                    <span class="s">@&quot;Tournament&quot;</span> <span class="o">:</span> <span class="s">@&quot;Mark&quot;</span> <span class="p">};</span>
-<span class="n">NSNumber</span> <span class="o">*</span><span class="n">shouldUseLiterals</span> <span class="o">=</span> <span class="p">@</span><span class="nb">YES</span><span class="p">;</span>
+<span class="n">NSNumber</span> <span class="o">*</span><span class="n">shouldUseLiterals</span> <span class="o">=</span> <span class="err">@</span><span class="nb">YES</span><span class="p">;</span>
 <span class="n">NSNumber</span> <span class="o">*</span><span class="n">buildingZIPCode</span> <span class="o">=</span> <span class="mi">@10018</span><span class="p">;</span>
 </code></pre></div></li></ul>
 <h2 id='constants'><a class='reference' href='#constants'><i class='icon-map-marker'></i></a>Constants</h2>
@@ -369,19 +369,17 @@ Failing that, follow <a href="http://en.wikipedia.org/wiki/The_C_Programming_Lan
     <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// custom initialization</span>
     <span class="p">}</span>
-
     <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></li><li id='common-method-structures_L2'><a class='reference' href='#common-method-structures_L2'><i class='icon-map-marker'></i></a><p>Singleton objects should use a thread-safe pattern for creating their shared instance.</p>
 <div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span>
 <span class="p">{</span>
-  <span class="k">static</span> <span class="kt">id</span> <span class="n">__sharedInstance</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
-  <span class="k">static</span> <span class="kt">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
-  <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
-      <span class="n">__sharedInstance</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>  <span class="c1">// or call custom designated initializer</span>
-  <span class="p">});</span>
-
-  <span class="k">return</span> <span class="n">__sharedInstance</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">id</span> <span class="n">__sharedInstance</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">__sharedInstance</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>  <span class="c1">// or call custom designated initializer</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">__sharedInstance</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></li></ul>
 <h2 id='miscellany'><a class='reference' href='#miscellany'><i class='icon-map-marker'></i></a>Miscellany</h2>
@@ -394,10 +392,11 @@ Failing that, follow <a href="http://en.wikipedia.org/wiki/The_C_Programming_Lan
 </li><li id='miscellany_L3'><a class='reference' href='#miscellany_L3'><i class='icon-map-marker'></i></a>Code protected by impossible <code>if</code> or <code>switch</code> statements
 </li><li id='miscellany_L4'><a class='reference' href='#miscellany_L4'><i class='icon-map-marker'></i></a>Code wrapped in <code>#ifdef</code>s that have no associated preprocessor macros defined in any of the build targets
 </li></ul>
-</li><li id='miscellany_L7'><a class='reference' href='#miscellany_L7'><i class='icon-map-marker'></i></a>Don&#39;t commit code that serves no purpose. This applies to:
+</li><li id='miscellany_L8'><a class='reference' href='#miscellany_L8'><i class='icon-map-marker'></i></a>Don&#39;t commit code that serves no purpose. This applies to:
 
 <ul>
 <li id='miscellany_L6'><a class='reference' href='#miscellany_L6'><i class='icon-map-marker'></i></a>Code automatically generated by Xcode that does nothing except call <code>super</code>
+</li><li id='miscellany_L7'><a class='reference' href='#miscellany_L7'><i class='icon-map-marker'></i></a>Empty conditional bodies (<code>if (foo) { }</code> or <code>else { }</code>)
 </li></ul>
 </li></ul>
 <h2 id='xcode-project'><a class='reference' href='#xcode-project'><i class='icon-map-marker'></i></a>Xcode Project</h2>
