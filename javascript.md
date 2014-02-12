@@ -125,6 +125,13 @@ single letter name in the scope of a very small function probably isn't a big de
   }
   ```
 
+* In addition to the previous rule on `switch` format, be mindful in the use of `switch` at all. `switch` statements in
+  JavaScript, C, and other languages (excluding Ruby) exhibit behavior akin to [goto statements](http://en.wikipedia.org/wiki/Goto)
+  due to their fallthrough nature. This goes against principles of [structured programming](http://en.wikipedia.org/wiki/Structured_programming).
+  There is always a different control structure which will do the job. Unless it is blatantly obvious to use `switch`, don't use it. 
+  Read [Dijkstra's paper](https://files.ifi.uzh.ch/rerg/arvo/courses/kvse/uebungen/Dijkstra_Goto.pdf) on goto and structured programming
+  if you're curious about this topic.
+
 ## Comments
 * Block comments should only be used as a banner for a file, or as documentation of a function.
 
