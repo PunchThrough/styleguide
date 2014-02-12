@@ -36,12 +36,12 @@ If you can't find an answer in here, use your best judgement and keep things rea
   - Contents of a multiline object literal
   - Contents of a multiline array literal
 
-* **Line length:** Try and stay under 80 characters per line. Don't break up expressions within an if statement 
+* **Line length:** Try and stay under 80 characters per line. Don't break up expressions within an if statement
   whenever possible.
 
 ## Naming
-* Don't use single letter variable names if you can avoid it. It's not necessary to be overly descriptive either. A 
-single letter name in the scope of a very small function probably isn't a big deal. Nor is using i for an iterator. 
+* Don't use single letter variable names if you can avoid it. It's not necessary to be overly descriptive either. A
+single letter name in the scope of a very small function probably isn't a big deal. Nor is using i for an iterator.
 *Just don't be a bad programmer and everything will be fine.*
 
 * Variables and functions use lower camel case: `thisIsLowerCamelCase`
@@ -59,7 +59,7 @@ single letter name in the scope of a very small function probably isn't a big de
 
 ## Block style
 * Conditional blocks should be formatted with an *'uncuddled'* `else` in the case of larger blocks of code:
-  
+
   ```javascript
   if (x == y) {
       doSomthing(x)
@@ -75,7 +75,7 @@ single letter name in the scope of a very small function probably isn't a big de
   }
   ```
 * In the case of smaller blocks containing only one or two lines, use a *'cuddled'* `else`:
-  
+
   ```javascript
   if (x == y) {
       return x
@@ -92,6 +92,37 @@ single letter name in the scope of a very small function probably isn't a big de
       return x
   else
       return y
+  ```
+
+* All `switch` statement cases must end with `break`, `throw`, `return`, or a comment indicating a fall-through.
+
+  ```javascript
+  //bad
+  switch(value) {
+    case 1:
+        doSomething();
+
+    case 2:
+        doSomethingElse();
+        break;
+
+    default:
+        doDefaultThing();
+  }
+
+  //good
+  switch(value) {
+      case 1:
+          doSomething();
+          //falls through
+
+      case 2:
+          doSomethingElse();
+          break;
+
+      default:
+          doDefaultThing();
+  }
   ```
 
 ## Comments
@@ -114,11 +145,11 @@ single letter name in the scope of a very small function probably isn't a big de
   function doStuff(paramName, paramName2) {
       ...
       return something
-  } 
+  }
   ```
-  
+
   **Examples**
-  
+
   ```javascript
   /**
    * Squares the given number
@@ -162,7 +193,7 @@ single letter name in the scope of a very small function probably isn't a big de
   }
   ```
 
-* **Anonymous functions:** No spacebetween function and opening paren. One space after each comma in the signature. 
+* **Anonymous functions:** No spacebetween function and opening paren. One space after each comma in the signature.
   One space after the closing paren.
 
   ```javascript
@@ -195,7 +226,7 @@ single letter name in the scope of a very small function probably isn't a big de
   x == 4 ? x++ : x--
   ```
 
-  **Exceptions:** When converting a type (Date to String, for example) the addition operator is often used as a 
+  **Exceptions:** When converting a type (Date to String, for example) the addition operator is often used as a
   shortcut. It is permissible to omit the space between the operator and operand in this case. Example:
 
   ```javascript
@@ -205,16 +236,16 @@ single letter name in the scope of a very small function probably isn't a big de
 ## Object Literals
 * New empty object literals should be instantiated with `{}` instead of `new Object()`
 
-* With data, place a space after the opening brace, before the ending brace, and after each comma. Spaces around 
+* With data, place a space after the opening brace, before the ending brace, and after each comma. Spaces around
   the colon can be omitted for brevity and still remain quite readable.
 
   ```javascript
   var myObj = { name:'John', city:'Minneapolis' }
   ```
 
-* If the declaration runs over 80 characters, or contains an anonymous function declaration, it is best to break 
-  the statement up into multiple lines. Line breaks should appear after the opening brace, after each comma and 
-  before the closing brace. The content of the object literal should be indented two spaces and the closing brace 
+* If the declaration runs over 80 characters, or contains an anonymous function declaration, it is best to break
+  the statement up into multiple lines. Line breaks should appear after the opening brace, after each comma and
+  before the closing brace. The content of the object literal should be indented two spaces and the closing brace
   should not be indented.
 
   ```javascript
@@ -226,7 +257,7 @@ single letter name in the scope of a very small function probably isn't a big de
   }
   ```
 
-* A blank space should precede each function property if the object is a definition for a class prototype or 
+* A blank space should precede each function property if the object is a definition for a class prototype or
   contains several function properties.
 
   ```javascript
@@ -250,8 +281,8 @@ single letter name in the scope of a very small function probably isn't a big de
   var myArr = [ 5, 4, 5, 6, 7, 1 ]
   ```
 
-* If the declaration runs over 80 characters or contains anonymous functions, it is best to break the statement 
-  up into multiple lines. Line breaks should appear after the opening bracket, after each comma, and before the 
+* If the declaration runs over 80 characters or contains anonymous functions, it is best to break the statement
+  up into multiple lines. Line breaks should appear after the opening bracket, after each comma, and before the
   closing bracket. The array content should be indented two spaces and the closing bracket should not be indented.
 
   ```javascript
