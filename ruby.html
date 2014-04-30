@@ -615,6 +615,21 @@ an array.</p>
 
 <span class="c1"># good</span>
 <span class="n">do_something</span> <span class="k">if</span> <span class="p">(</span><span class="mi">1000</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="mi">2000</span><span class="p">)</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></li><li id='syntax_L27'><a class='reference' href='#syntax_L27'><i class='icon-map-marker'></i></a><p>Prefer the <code>-&gt;</code> operator over <code>lambda</code> for creating Procs</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">be_awesome</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="p">{</span><span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2"> is awesome!&quot;</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">be_awesome</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2"> is awesome!&quot;</span> <span class="p">}</span>
+</code></pre></div></li></ul>
+
+<ul>
+<li id='syntax_L28'><a class='reference' href='#syntax_L28'><i class='icon-map-marker'></i></a><p>Never put a space between <code>-&gt;</code> and the leading parenthesis for it&#39;s parameters</p>
+<div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">print_something</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">something</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">print_something</span> <span class="o">=</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">something</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">something</span> <span class="p">}</span>
 </code></pre></div></li></ul>
 <h2 id='naming'><a class='reference' href='#naming'><i class='icon-map-marker'></i></a>Naming</h2>
 <ul>
