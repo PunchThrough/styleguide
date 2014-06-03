@@ -203,14 +203,14 @@ paragraphs.</p>
 <span class="k">def</span> <span class="nf">some_method</span>
   <span class="n">result</span>
 <span class="k">end</span>
-</code></pre></div></li><li id='source-code-layout_L12'><a class='reference' href='#source-code-layout_L12'><i class='icon-map-marker'></i></a><p>Use spaces around the <code>=</code> operator when assigning default values to method parameters:</p>
+</code></pre></div></li><li id='source-code-layout_L12'><a class='reference' href='#source-code-layout_L12'><i class='icon-map-marker'></i></a><p>Don&#39;t use spaces around the <code>=</code> operator when assigning default values to method parameters:</p>
 <div class="highlight"><pre><code class="ruby language-ruby" data-lang="ruby"><span class="c1"># bad</span>
-<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="ss">:default</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="n">arg3</span><span class="o">=[]</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">arg1</span> <span class="o">=</span> <span class="ss">:default</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">arg3</span> <span class="o">=</span> <span class="o">[]</span><span class="p">)</span>
   <span class="c1"># do something...</span>
 <span class="k">end</span>
 
 <span class="c1"># good</span>
-<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">arg1</span> <span class="o">=</span> <span class="ss">:default</span><span class="p">,</span> <span class="n">arg2</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">arg3</span> <span class="o">=</span> <span class="o">[]</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">some_method</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="ss">:default</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="kp">nil</span><span class="p">,</span> <span class="n">arg3</span><span class="o">=[]</span><span class="p">)</span>
   <span class="c1"># do something...</span>
 <span class="k">end</span>
 </code></pre></div></li><li id='source-code-layout_L13'><a class='reference' href='#source-code-layout_L13'><i class='icon-map-marker'></i></a><p>Avoid line continuation <code>\</code> where not required. In practice, avoid using
