@@ -153,16 +153,16 @@ Much of this was taken from https://github.com/bbatsov/ruby-style-guide and http
     end
     ```
 
-* Use spaces around the `=` operator when assigning default values to method parameters:
+* Don't Use spaces around the `=` operator when assigning default values to method parameters:
 
     ```ruby
     # bad
-    def some_method(arg1=:default, arg2=nil, arg3=[])
+    def some_method(arg1 = :default, arg2 = nil, arg3 = [])
       # do something...
     end
 
     # good
-    def some_method(arg1 = :default, arg2 = nil, arg3 = [])
+    def some_method(arg1=:default, arg2=nil, arg3=[])
       # do something...
     end
     ```
