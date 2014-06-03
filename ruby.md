@@ -153,7 +153,7 @@ Much of this was taken from https://github.com/bbatsov/ruby-style-guide and http
     end
     ```
 
-* Don't Use spaces around the `=` operator when assigning default values to method parameters:
+* Don't use spaces around the `=` operator when assigning default values to method parameters:
 
     ```ruby
     # bad
