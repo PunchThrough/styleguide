@@ -382,8 +382,9 @@ Failing that, follow [Kernighan & Ritchie C style](http://en.wikipedia.org/wiki/
       * `Editable/` (if using mogenerator)
       * `Generated/` (if using mogenerator)
       * `ProjectName.xcdatamodeld` (if using Core Data)
-   * `Views/` (contains `.xib`s, storyboards, and UI subclasses within a folder structure that mirrors the app navigation)
+   * `Views/` (contains `.xib`s, and UI subclasses within a folder structure that mirrors the app navigation)
    * `Controllers/` (contains view controllers within a folder structure that mirrors the app navigation)
+   * `Storyboards/` (contains storybards within a folder structure that mirrors the app navigation)
    * `Base.lproj/` (if using localized storyboards)
    * `Shared/`
       * `Views/` (contains `.xib`s and UI subclasses used throughout the app)
