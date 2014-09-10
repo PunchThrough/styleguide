@@ -44,6 +44,14 @@
   
     
       
+      	
+      	<li><a href="http://sportngin.github.io/styleguide/android.html">Android</a></li>
+      	
+      
+    
+  
+    
+      
     
   
     
@@ -424,7 +432,7 @@ Failing that, follow <a href="http://en.wikipedia.org/wiki/The_C_Programming_Lan
 </li><li id='xcode-project_L7'><a class='reference' href='#xcode-project_L7'><i class='icon-map-marker'></i></a><code>ProjectName.xcodeworkspace/</code> (if using CocoaPods)
 </li></ul>
 </li></ul>
-</li><li id='xcode-project_L26'><a class='reference' href='#xcode-project_L26'><i class='icon-map-marker'></i></a>There should be no files directly within an Xcode ProjectName directory. The subfolders (and corresponding groups) should follow this structure:
+</li><li id='xcode-project_L27'><a class='reference' href='#xcode-project_L27'><i class='icon-map-marker'></i></a>There should be no files directly within an Xcode ProjectName directory. The subfolders (and corresponding groups) should follow this structure:
 
 <ul>
 <li id='xcode-project_L13'><a class='reference' href='#xcode-project_L13'><i class='icon-map-marker'></i></a><code>Models/</code>
@@ -434,26 +442,27 @@ Failing that, follow <a href="http://en.wikipedia.org/wiki/The_C_Programming_Lan
 </li><li id='xcode-project_L11'><a class='reference' href='#xcode-project_L11'><i class='icon-map-marker'></i></a><code>Generated/</code> (if using mogenerator)
 </li><li id='xcode-project_L12'><a class='reference' href='#xcode-project_L12'><i class='icon-map-marker'></i></a><code>ProjectName.xcdatamodeld</code> (if using Core Data)
 </li></ul>
-</li><li id='xcode-project_L14'><a class='reference' href='#xcode-project_L14'><i class='icon-map-marker'></i></a><code>Views/</code> (contains <code>.xib</code>s, storyboards, and UI subclasses within a folder structure that mirrors the app navigation)
+</li><li id='xcode-project_L14'><a class='reference' href='#xcode-project_L14'><i class='icon-map-marker'></i></a><code>Views/</code> (contains <code>.xib</code>s, and UI subclasses within a folder structure that mirrors the app navigation)
 </li><li id='xcode-project_L15'><a class='reference' href='#xcode-project_L15'><i class='icon-map-marker'></i></a><code>Controllers/</code> (contains view controllers within a folder structure that mirrors the app navigation)
-</li><li id='xcode-project_L16'><a class='reference' href='#xcode-project_L16'><i class='icon-map-marker'></i></a><code>Base.lproj/</code> (if using localized storyboards)
-</li><li id='xcode-project_L20'><a class='reference' href='#xcode-project_L20'><i class='icon-map-marker'></i></a><code>Shared/</code>
+</li><li id='xcode-project_L16'><a class='reference' href='#xcode-project_L16'><i class='icon-map-marker'></i></a><code>Storyboards/</code> (contains storybards within a folder structure that mirrors the app navigation)
+</li><li id='xcode-project_L17'><a class='reference' href='#xcode-project_L17'><i class='icon-map-marker'></i></a><code>Base.lproj/</code> (if using localized storyboards)
+</li><li id='xcode-project_L21'><a class='reference' href='#xcode-project_L21'><i class='icon-map-marker'></i></a><code>Shared/</code>
 
 <ul>
-<li id='xcode-project_L17'><a class='reference' href='#xcode-project_L17'><i class='icon-map-marker'></i></a><code>Views/</code> (contains <code>.xib</code>s and UI subclasses used throughout the app)
-</li><li id='xcode-project_L18'><a class='reference' href='#xcode-project_L18'><i class='icon-map-marker'></i></a><code>Controllers/</code> (contains view controllers used or subclassed throughout the app)
-</li><li id='xcode-project_L19'><a class='reference' href='#xcode-project_L19'><i class='icon-map-marker'></i></a><code>Utilities/</code> (contains utility classes and singletons)
+<li id='xcode-project_L18'><a class='reference' href='#xcode-project_L18'><i class='icon-map-marker'></i></a><code>Views/</code> (contains <code>.xib</code>s and UI subclasses used throughout the app)
+</li><li id='xcode-project_L19'><a class='reference' href='#xcode-project_L19'><i class='icon-map-marker'></i></a><code>Controllers/</code> (contains view controllers used or subclassed throughout the app)
+</li><li id='xcode-project_L20'><a class='reference' href='#xcode-project_L20'><i class='icon-map-marker'></i></a><code>Utilities/</code> (contains utility classes and singletons)
 </li></ul>
-</li><li id='xcode-project_L24'><a class='reference' href='#xcode-project_L24'><i class='icon-map-marker'></i></a><code>Resources/</code>
+</li><li id='xcode-project_L25'><a class='reference' href='#xcode-project_L25'><i class='icon-map-marker'></i></a><code>Resources/</code>
 
 <ul>
-<li id='xcode-project_L21'><a class='reference' href='#xcode-project_L21'><i class='icon-map-marker'></i></a><code>Fonts/</code>
-</li><li id='xcode-project_L22'><a class='reference' href='#xcode-project_L22'><i class='icon-map-marker'></i></a><code>Images/</code> (contains some sort of internal folder structure and uses sane naming conventions)
-</li><li id='xcode-project_L23'><a class='reference' href='#xcode-project_L23'><i class='icon-map-marker'></i></a><code>Strings/</code> (contains plists for localized strings)
+<li id='xcode-project_L22'><a class='reference' href='#xcode-project_L22'><i class='icon-map-marker'></i></a><code>Fonts/</code>
+</li><li id='xcode-project_L23'><a class='reference' href='#xcode-project_L23'><i class='icon-map-marker'></i></a><code>Images/</code> (contains some sort of internal folder structure and uses sane naming conventions)
+</li><li id='xcode-project_L24'><a class='reference' href='#xcode-project_L24'><i class='icon-map-marker'></i></a><code>Strings/</code> (contains plists for localized strings)
 </li></ul>
-</li><li id='xcode-project_L25'><a class='reference' href='#xcode-project_L25'><i class='icon-map-marker'></i></a><code>Supporting Files/</code> (AppDelegate, InfoPlist, Images.xcassets, ProjectName-Info.plist, ProjectName-Prefix.pch)
+</li><li id='xcode-project_L26'><a class='reference' href='#xcode-project_L26'><i class='icon-map-marker'></i></a><code>Supporting Files/</code> (AppDelegate, InfoPlist, Images.xcassets, ProjectName-Info.plist, ProjectName-Prefix.pch)
 </li></ul>
-</li><li id='xcode-project_L27'><a class='reference' href='#xcode-project_L27'><i class='icon-map-marker'></i></a>When possible, always turn on &quot;Treat Warnings as Errors&quot; in the target&#39;s Build Settings and enable as many <a href="http://boredzo.org/blog/archives/2009-11-07/warnings">additional warnings</a> as possible. If you need to ignore a specific warning, use <a href="http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas">Clang&#39;s pragma feature</a>.
+</li><li id='xcode-project_L28'><a class='reference' href='#xcode-project_L28'><i class='icon-map-marker'></i></a>When possible, always turn on &quot;Treat Warnings as Errors&quot; in the target&#39;s Build Settings and enable as many <a href="http://boredzo.org/blog/archives/2009-11-07/warnings">additional warnings</a> as possible. If you need to ignore a specific warning, use <a href="http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas">Clang&#39;s pragma feature</a>.
 </li></ul>
 
   </div>

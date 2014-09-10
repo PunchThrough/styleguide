@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Android</title>
+    
+    <meta name="author" content="Sport Ngin">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="http://sportngin.github.io/styleguide/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="http://sportngin.github.io/styleguide/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="http://sportngin.github.io/styleguide/assets/themes/twitter/css/github.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="http://sportngin.github.io/styleguide">Sport Ngin Style Guide</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li class="active"><a href="http://sportngin.github.io/styleguide/android.html" class="active">Android</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="http://sportngin.github.io/styleguide/javascript.html">JavaScript</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="http://sportngin.github.io/styleguide/objective-c.html">Objective-C</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="http://sportngin.github.io/styleguide/ruby.html">Ruby</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    <a href="http://github.com/sportngin/styleguide">
+      <img style="position: absolute; top: 0; right: 0; border: 0;"
+           src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"
+           alt="Fork me on GitHub">
+    </a>
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Android </h1>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <p>This style-guide was created from content from <a href="https://google-styleguide.googlecode.com/svn/trunk/javaguide.html">Google&#39;s Java style-guide</a>
+as well as the <a href="https://source.android.com/source/code-style.html">Android Open Source Project&#39;s style-guide</a>.
+If you can&#39;t find an answer in here, use your best judgement and keep things readable. Strive for terse, readable code.</p>
+<h2 id='table-of-contents'><a class='reference' href='#table-of-contents'><i class='icon-map-marker'></i></a>Table of Contents</h2>
+<ul>
+<li id='table-of-contents_L12'><a class='reference' href='#table-of-contents_L12'><i class='icon-map-marker'></i></a><a href="#java-language-rules">Java Rules</a>
+
+<ul>
+<li id='table-of-contents_L1'><a class='reference' href='#table-of-contents_L1'><i class='icon-map-marker'></i></a><a href="#do-not-ignore-exceptions">Don&#39;t Ignore Exceptions</a>
+</li><li id='table-of-contents_L2'><a class='reference' href='#table-of-contents_L2'><i class='icon-map-marker'></i></a><a href="#fully-qualify-imports">Fully Qualify Imports</a>
+</li><li id='table-of-contents_L3'><a class='reference' href='#table-of-contents_L3'><i class='icon-map-marker'></i></a><a href="#order-import-statements">Order Import Statements</a>
+</li><li id='table-of-contents_L4'><a class='reference' href='#table-of-contents_L4'><i class='icon-map-marker'></i></a><a href="#write-short-methods">Write short methods</a>
+</li><li id='table-of-contents_L5'><a class='reference' href='#table-of-contents_L5'><i class='icon-map-marker'></i></a><a href="#variable-declarations">Variable Declarations</a>
+</li><li id='table-of-contents_L6'><a class='reference' href='#table-of-contents_L6'><i class='icon-map-marker'></i></a><a href="#limit-variable-scope">Limit Variable Scope</a>
+</li><li id='table-of-contents_L7'><a class='reference' href='#table-of-contents_L7'><i class='icon-map-marker'></i></a><a href="#use-standard-brace-style">Use Standard Brace Style</a>
+</li><li id='table-of-contents_L8'><a class='reference' href='#table-of-contents_L8'><i class='icon-map-marker'></i></a><a href="#limit-line-length">Limit Line Length</a>
+</li><li id='table-of-contents_L9'><a class='reference' href='#table-of-contents_L9'><i class='icon-map-marker'></i></a><a href="#treat-acronyms-as-words">Treat Acronyms as Words</a>
+</li><li id='table-of-contents_L10'><a class='reference' href='#table-of-contents_L10'><i class='icon-map-marker'></i></a><a href="#use-todo-comments">Use TODO Comments</a>
+</li><li id='table-of-contents_L11'><a class='reference' href='#table-of-contents_L11'><i class='icon-map-marker'></i></a><a href="#use-spaces-for-indentation">Use Spaces for Indentation</a>
+</li></ul>
+</li><li id='table-of-contents_L17'><a class='reference' href='#table-of-contents_L17'><i class='icon-map-marker'></i></a><a href="#android-rules">Android Rules</a>
+
+<ul>
+<li id='table-of-contents_L13'><a class='reference' href='#table-of-contents_L13'><i class='icon-map-marker'></i></a><a href="#loading-resources">Loading Resources</a>
+</li><li id='table-of-contents_L14'><a class='reference' href='#table-of-contents_L14'><i class='icon-map-marker'></i></a><a href="#resource-files">Resource Files</a>
+</li><li id='table-of-contents_L15'><a class='reference' href='#table-of-contents_L15'><i class='icon-map-marker'></i></a><a href="#resource-ids">Resource Ids</a>
+</li><li id='table-of-contents_L16'><a class='reference' href='#table-of-contents_L16'><i class='icon-map-marker'></i></a><a href="#strings">Strings</a>
+</li></ul>
+</li></ul>
+
+<hr>
+<h2 id='java-language-rules'><a class='reference' href='#java-language-rules'><i class='icon-map-marker'></i></a>Java Language Rules</h2><h3 id='do-not-ignore-exceptions'><a class='reference' href='#do-not-ignore-exceptions'><i class='icon-map-marker'></i></a>Do not Ignore Exceptions</h3>
+<p>Either throw a new exception or handle the error in the catch block. If you do ignore an exception, rename the catch expression to <code>ignored</code>.</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kt">void</span> <span class="nf">setServerPort</span><span class="o">(</span><span class="n">String</span> <span class="n">value</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">serverPort</span> <span class="o">=</span> <span class="n">Integer</span><span class="o">.</span><span class="na">parseInt</span><span class="o">(</span><span class="n">value</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NumberFormatException</span> <span class="n">ignored</span><span class="o">)</span> <span class="o">{</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<hr>
+<h3 id='fully-qualify-imports'><a class='reference' href='#fully-qualify-imports'><i class='icon-map-marker'></i></a>Fully Qualify Imports</h3>
+<p>When importing a class, use the fully qualified package. Donot use a wildcard for imports. Better yet, use Android Studio&#39;s &quot;Organize Imports&quot; to fully qualify the imports and order them correctly.</p>
+
+<hr>
+<h3 id='order-import-statements'><a class='reference' href='#order-import-statements'><i class='icon-map-marker'></i></a>Order Import Statements</h3>
+<p>The ordering of import statements is:</p>
+
+<ol>
+<li id='order-import-statements_L1'><a class='reference' href='#order-import-statements_L1'><i class='icon-map-marker'></i></a>Android imports
+</li><li id='order-import-statements_L2'><a class='reference' href='#order-import-statements_L2'><i class='icon-map-marker'></i></a>Imports from third parties (<code>com</code>, <code>junit</code>, <code>net</code>, <code>org</code>)
+</li><li id='order-import-statements_L3'><a class='reference' href='#order-import-statements_L3'><i class='icon-map-marker'></i></a><code>java</code> and <code>javax</code>
+</li></ol>
+
+<p>To exactly match the IDE settings, the imports should be:</p>
+
+<ul>
+<li id='order-import-statements_L4'><a class='reference' href='#order-import-statements_L4'><i class='icon-map-marker'></i></a>Alphabetical within each grouping, with capital letters before lower case letters (e.g. Z before a).
+</li><li id='order-import-statements_L5'><a class='reference' href='#order-import-statements_L5'><i class='icon-map-marker'></i></a>There should be a blank line between each major grouping (<code>android</code>, <code>com</code>, <code>junit</code>, <code>net</code>, <code>org</code>, <code>java</code>, <code>javax</code>).
+</li></ul>
+
+<p>Better yet, use Android Studio&#39;s &quot;Organize Imports&quot; to fully qualify the imports and order them correctly.</p>
+
+<hr>
+<h3 id='write-short-methods'><a class='reference' href='#write-short-methods'><i class='icon-map-marker'></i></a>Write Short Methods</h3>
+<p>To the extent that it is feasible, methods should be kept small and focused. It is, however, recognized that long methods are sometimes appropriate, so no hard limit is placed on method length. If a method exceeds 40 lines or so, think about whether it can be broken up without harming the structure of the program.</p>
+
+<hr>
+<h3 id='variable-declarations'><a class='reference' href='#variable-declarations'><i class='icon-map-marker'></i></a>Variable Declarations</h3>
+<ul>
+<li id='variable-declarations_L1'><a class='reference' href='#variable-declarations_L1'><i class='icon-map-marker'></i></a>Fields should be defined at the top of the file. Do not define fields in between methods. 
+</li><li id='variable-declarations_L2'><a class='reference' href='#variable-declarations_L2'><i class='icon-map-marker'></i></a>Non-public, non-static field names start with <code>m</code>.
+</li><li id='variable-declarations_L3'><a class='reference' href='#variable-declarations_L3'><i class='icon-map-marker'></i></a>Static field names start with <code>s</code>.
+</li><li id='variable-declarations_L4'><a class='reference' href='#variable-declarations_L4'><i class='icon-map-marker'></i></a>Other fields start with a lower case letter
+</li><li id='variable-declarations_L5'><a class='reference' href='#variable-declarations_L5'><i class='icon-map-marker'></i></a>Public static final fields (constants) are ALL_CAPS_WITH_UNDERSCORES.
+</li><li id='variable-declarations_L6'><a class='reference' href='#variable-declarations_L6'><i class='icon-map-marker'></i></a>All variables should use camel case for naming
+</li></ul>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">SOME_CONSTANT</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="n">publicField</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">MyClass</span> <span class="n">sSingleton</span><span class="o">;</span>
+    <span class="kt">int</span> <span class="n">mPackagePrivate</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">mPrivate</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="kt">int</span> <span class="n">mProtected</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">someMethod</span><span class="o">()</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<hr>
+<h3 id='limit-variable-scope'><a class='reference' href='#limit-variable-scope'><i class='icon-map-marker'></i></a>Limit Variable Scope</h3>
+<p>The scope of local variables should be kept to a minimum (Effective Java Item 29). By doing so, you increase the readability and maintainability of your code and reduce the likelihood of error. Each variable should be declared in the innermost block that encloses all uses of the variable.</p>
+
+<p>Local variables should be declared at the point they are first used. Nearly every local variable declaration should contain an initializer. If you don&#39;t yet have enough information to initialize a variable sensibly, you should postpone the declaration until you do.</p>
+
+<p>One exception to this rule concerns try-catch statements. If a variable is initialized with the return value of a method that throws a checked exception, it must be initialized inside a try block. If the value must be used outside of the try block, then it must be declared before the try block, where it cannot yet be sensibly initialized:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// Instantiate class cl, which represents some sort of Set </span>
+<span class="n">Set</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">Set</span><span class="o">)</span> <span class="n">cl</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="n">cl</span> <span class="o">+</span> <span class="s">&quot; not accessible&quot;</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">InstantiationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="n">cl</span> <span class="o">+</span> <span class="s">&quot; not instantiable&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// Exercise the set </span>
+<span class="n">s</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+</code></pre></div>
+<p>But even this case can be avoided by encapsulating the try-catch block in a method:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="n">Set</span> <span class="nf">createSet</span><span class="o">(</span><span class="n">Class</span> <span class="n">cl</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Instantiate class cl, which represents some sort of Set </span>
+    <span class="k">try</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">Set</span><span class="o">)</span> <span class="n">cl</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="n">cl</span> <span class="o">+</span> <span class="s">&quot; not accessible&quot;</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">InstantiationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="n">cl</span> <span class="o">+</span> <span class="s">&quot; not instantiable&quot;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="o">...</span>
+
+<span class="c1">// Exercise the set </span>
+<span class="n">Set</span> <span class="n">s</span> <span class="o">=</span> <span class="n">createSet</span><span class="o">(</span><span class="n">cl</span><span class="o">);</span>
+<span class="n">s</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">args</span><span class="o">));</span>
+</code></pre></div>
+<p>Loop variables should be declared in the for statement itself unless there is a compelling reason to do otherwise:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">doSomething</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>and</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="k">for</span> <span class="o">(</span><span class="n">Iterator</span> <span class="n">i</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span> <span class="n">i</span><span class="o">.</span><span class="na">hasNext</span><span class="o">();</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">doSomethingElse</span><span class="o">(</span><span class="n">i</span><span class="o">.</span><span class="na">next</span><span class="o">());</span>
+<span class="o">}</span>
+</code></pre></div>
+<hr>
+<h3 id='use-standard-brace-style'><a class='reference' href='#use-standard-brace-style'><i class='icon-map-marker'></i></a>Use Standard Brace Style</h3>
+<p>Braces do not go on their own line; they go on the same line as the code before them. So:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">func</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">something</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// ...</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">somethingElse</span><span class="o">)</span> <span class="o">{</span>
+            <span class="c1">// ...</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="c1">// ...</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>We require braces around the statements for a conditional. Except, if the entire conditional (the condition and the body) fit on one line, you may (but are not obligated to) put it all on one line. That is, this is legal:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">body</span><span class="o">();</span> 
+<span class="o">}</span>
+</code></pre></div>
+<p>and this is legal:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">condition</span><span class="o">)</span> <span class="n">body</span><span class="o">();</span>
+</code></pre></div>
+<p>but this is still illegal:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">condition</span><span class="o">)</span>
+    <span class="n">body</span><span class="o">();</span>  <span class="c1">// bad!</span>
+</code></pre></div>
+<hr>
+<h3 id='limit-line-length'><a class='reference' href='#limit-line-length'><i class='icon-map-marker'></i></a>Limit Line Length</h3>
+<p>Each line of text in your code should be at most 100 characters long.</p>
+
+<p>Exception: if a comment line contains an example command or a literal URL longer than 100 characters, that line may be longer than 100 characters for ease of cut and paste.</p>
+
+<p>Exception: import lines can go over the limit because humans rarely see them. This also simplifies tool writing.</p>
+
+<p>Use Android Studio&#39;s wrapping option to automatically wrap your lines while typing.</p>
+
+<p><img src="assets/img/android/wrap_lines.png" alt="Wrap Lines"></p>
+
+<hr>
+<h3 id='treat-acronyms-as-words'><a class='reference' href='#treat-acronyms-as-words'><i class='icon-map-marker'></i></a>Treat Acronyms as Words</h3>
+<p>Treat acronyms and abbreviations as words in naming variables, methods, and classes. The names are much more readable:</p>
+
+<table><thead>
+<tr>
+<th>Good</th>
+<th>Bad</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>XmlHttpRequest</td>
+<td>XMLHTTPRequest</td>
+</tr>
+<tr>
+<td>getCustomerId</td>
+<td>getCustomerID</td>
+</tr>
+<tr>
+<td>class Html</td>
+<td>class HTML</td>
+</tr>
+<tr>
+<td>String url</td>
+<td>String URL</td>
+</tr>
+<tr>
+<td>long id</td>
+<td>long ID</td>
+</tr>
+</tbody></table>
+
+<hr>
+<h3 id='use-todo-comments'><a class='reference' href='#use-todo-comments'><i class='icon-map-marker'></i></a>Use TODO Comments</h3>
+<p>Use TODO comments for code that is temporary, a short-term solution, or good-enough but not perfect.</p>
+
+<p>TODOs should include the string TODO in all caps, followed by a colon:</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// TODO: Remove this code after the UrlTable2 has been checked in.</span>
+</code></pre></div>
+<p>and</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="c1">// TODO: Change this to use a flag instead of a constant.</span>
+</code></pre></div>
+<p>If your TODO is of the form &quot;At a future date do something&quot; make sure that you either include a very specific date (&quot;Fix by November 2014&quot;) or a very specific event (&quot;Remove this code after tested on production&quot;).</p>
+<h3 id='use-spaces-for-indentation'><a class='reference' href='#use-spaces-for-indentation'><i class='icon-map-marker'></i></a>Use Spaces for Indentation</h3>
+<p>We use 4 space indents for blocks. We never use tabs. When in doubt, be consistent with code around you.</p>
+
+<p>We use 8 space indents for line wraps, including function calls and assignments. Use the code style settings in Android Studio to set this for you:</p>
+
+<p><img src="assets/img/android/indentation.png" alt="Indents"></p>
+
+<hr>
+<h2 id='android-rules'><a class='reference' href='#android-rules'><i class='icon-map-marker'></i></a>Android Rules</h2><h3 id='loading-resources'><a class='reference' href='#loading-resources'><i class='icon-map-marker'></i></a>Loading Resources</h3>
+<p>Loading something from a resource adds a small delay. So always load resource objects in an <code>onCreate</code> or <code>onCreateView</code> and store it within the class. It should never be loaded when a view is already on screen.</p>
+
+<hr>
+<h3 id='resource-files'><a class='reference' href='#resource-files'><i class='icon-map-marker'></i></a>Resource Files</h3>
+<ul>
+<li id='resource-files_L1'><a class='reference' href='#resource-files_L1'><i class='icon-map-marker'></i></a>Use descriptive names for resource files
+</li><li id='resource-files_L2'><a class='reference' href='#resource-files_L2'><i class='icon-map-marker'></i></a>Use undescore naming
+</li><li id='resource-files_L3'><a class='reference' href='#resource-files_L3'><i class='icon-map-marker'></i></a>Prefix a file with prefix where it makes sense. Eg: For layout files, prefix Fragments with <code>fragment_</code>, activities with <code>activity_</code>, list item rows with <code>row_</code>.
+</li></ul>
+
+<hr>
+<h3 id='resource-ids'><a class='reference' href='#resource-ids'><i class='icon-map-marker'></i></a>Resource Ids</h3>
+<ul>
+<li id='resource-ids_L1'><a class='reference' href='#resource-ids_L1'><i class='icon-map-marker'></i></a>Use descriptive strings for resource Ids
+</li><li id='resource-ids_L2'><a class='reference' href='#resource-ids_L2'><i class='icon-map-marker'></i></a>Use undescore naming
+</li><li id='resource-ids_L8'><a class='reference' href='#resource-ids_L8'><i class='icon-map-marker'></i></a>Prefix a name with the type.
+
+<ul>
+<li id='resource-ids_L3'><a class='reference' href='#resource-ids_L3'><i class='icon-map-marker'></i></a><code>layout_</code> for a layout (there is no need to be specific about the type of layout)<br>
+</li><li id='resource-ids_L4'><a class='reference' href='#resource-ids_L4'><i class='icon-map-marker'></i></a><code>tv_</code> for <code>TextView</code>
+</li><li id='resource-ids_L5'><a class='reference' href='#resource-ids_L5'><i class='icon-map-marker'></i></a><code>iv_</code> for <code>ImageView</code>
+</li><li id='resource-ids_L6'><a class='reference' href='#resource-ids_L6'><i class='icon-map-marker'></i></a><code>lv_</code> for <code>ListView</code>
+</li><li id='resource-ids_L7'><a class='reference' href='#resource-ids_L7'><i class='icon-map-marker'></i></a><code>menu_</code> for Menu Items
+</li></ul>
+</li></ul>
+
+<hr>
+<h3 id='strings'><a class='reference' href='#strings'><i class='icon-map-marker'></i></a>Strings</h3>
+<ul>
+<li id='strings_L1'><a class='reference' href='#strings_L1'><i class='icon-map-marker'></i></a>Place all strings that are localizable in <code>strings.xml</code>.
+</li><li id='strings_L2'><a class='reference' href='#strings_L2'><i class='icon-map-marker'></i></a><p>Place all strings that are not localizable in <code>strings_do_not_translate.xml</code>. These strings should also include the attribute <code>translatable=&quot;false&quot;</code></p>
+
+<p>eg:</p>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;API_BASE_URL&quot;</span> <span class="na">translatable=</span><span class="s">&quot;false&quot;</span> <span class="na">tools:ignore=</span><span class="s">&quot;UnusedResources&quot;</span><span class="nt">&gt;</span>https://api.stage.com/<span class="nt">&lt;/string&gt;</span>
+</code></pre></div></li><li id='strings_L3'><a class='reference' href='#strings_L3'><i class='icon-map-marker'></i></a><p>Place all strings whose ids are verbatim of the string in <code>strings_verbatim.xml</code>. Always check to see if a verbatim string already exists before creating a new resource.</p>
+
+<p>eg:</p>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"><span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;cancel&quot;</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;edit&quot;</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/string&gt;</span>
+</code></pre></div></li><li id='strings_L4'><a class='reference' href='#strings_L4'><i class='icon-map-marker'></i></a><p>Use a comment to section out the <code>strings.xml</code> based on where they go in the app.</p>
+
+<p>eg:</p>
+<div class="highlight"><pre><code class="xml language-xml" data-lang="xml"> <span class="c">&lt;!-- Left Drawer --&gt;</span>
+<span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;navigation_drawer_open&quot;</span><span class="nt">&gt;</span>Open navigation drawer<span class="nt">&lt;/string&gt;</span>
+<span class="nt">&lt;string</span> <span class="na">name=</span><span class="s">&quot;navigation_drawer_close&quot;</span><span class="nt">&gt;</span>Close navigation drawer<span class="nt">&lt;/string&gt;</span>
+</code></pre></div></li></ul>
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
+
