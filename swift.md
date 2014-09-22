@@ -6,10 +6,10 @@ group: navigation
 ---
 {% include JB/setup %}
 
-Inspired by (and stolen shamelessly from) [github/swift-style-guide](https://https://github.com/github/swift-style-guide) and [The Official raywenderlich.com Swift Style Guide.](https://github.com/raywenderlich/swift-style-guide) (with some
+Inspired by (and stolen shamelessly from) [github/swift-style-guide](https://github.com/github/swift-style-guide) and [The Official raywenderlich.com Swift Style Guide.](https://github.com/raywenderlich/swift-style-guide) (with some
 personal bias thrown in for good measure).
 Where the guide is silent, default to [Apple's Coding Guidelines for
-Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html).
+Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html) and [Swift Programming Guide](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/)
 
 
 ## Table of Contents
@@ -18,7 +18,6 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * [Spacing](#spacing)
 * [Syntax Choices](#syntax-choices)
 * [Conditionals](#conditionals)
-* [Variables](#variables)
 * [Naming](#naming)
 * [Comments](#comments)
 * [Types](#types)
@@ -67,16 +66,9 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Never use spaces between parentheses and their contents.
 
 * Method braces and other braces (if/else/switch/while etc.) always open on the same line as the statement but close on a new line.
-	Preferred:
 	
 	```
-	if user.isHappy {
-	  //Do something
-	} else {
-	  //Do something else
-	}
-	Not Preferred:
-	
+	// bad
 	if user.isHappy
 	{
 	    //Do something
@@ -84,6 +76,14 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 	else {
 	    //Do something else
 	}
+		
+	// good
+	if user.isHappy {
+	  //Do something
+	} else {
+	  //Do something else
+	}
+
 	```
 
 * There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
@@ -153,11 +153,6 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
     result = (a > b) ? x : y
     ```
 
-## Variables
-
-
-
-
 ## Naming
 
 * Long, descriptive method names are good.
@@ -180,18 +175,18 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
 
 	```
-	Preferred:
+	// bad
 
-	let width = 120.0                                    //Double
-	let widthString = (width as NSNumber).stringValue    //String
+	let width: NSNumber = 120.0                                 // NSNumber
+	let widthString: NSString = width.stringValue               // NSString
+	
+	// good
 
-	Not Preferred:
-
-	let width: NSNumber = 120.0                                 //NSNumber
-	let widthString: NSString = width.stringValue               //NSString
+	let width = 120.0                                    // Double
+	let widthString = (width as NSNumber).stringValue    // String
 	```
 	
-### When specifying a type, always associate the colon with the identifier
+* When specifying a type, always associate the colon with the identifier
 
 * When specifying the type of an identifier, always put the colon immediately after the identifier, followed by a space and then the type name.
 
@@ -243,7 +238,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	So, write these:
 
-	```
+	```	
 	var myGreatProperty: Int {
    	  return 4
 	}
