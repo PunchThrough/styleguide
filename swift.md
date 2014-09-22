@@ -185,8 +185,6 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 	let width = 120.0                                    // Double
 	let widthString = (width as NSNumber).stringValue    // String
 	```
-	
-* When specifying a type, always associate the colon with the identifier
 
 * When specifying the type of an identifier, always put the colon immediately after the identifier, followed by a space and then the type name.
 
