@@ -211,8 +211,8 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 	
 	```
 	
-### Only include the explicit keyword when required by the language—
-* for example, in a closure, or when parameter names conflict:
+* Only include the explicit keyword when required by the language
+	* for example, in a closure, or when parameter names conflict:
 
 	```
 extension History {
@@ -226,12 +226,12 @@ extension History {
         }
     }
 }
-```
+	```
 Rationale: This makes the capturing semantics of self stand out more in closures, and avoids verbosity elsewhere.
 
-## Prefer implicit getters on read-only properties and subscripts
+* Prefer implicit getters on read-only properties and subscripts
 
-* When possible, omit the get keyword on read-only computed properties and read-only subscripts. (The intent and meaning of the first version is clear, and results in less code.)
+	* When possible, omit the get keyword on read-only computed properties and read-only subscripts. (The intent and meaning of the first version is clear, and results in less code.)
 
 	```	
 	// bad
@@ -259,9 +259,9 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	```
 
-## Always specify access control explicitly for top-level definitions
+* Always specify access control explicitly for top-level definitions
 
-* Top-level functions, types, and variables should always have explicit access control specifiers:
+	* Top-level functions, types, and variables should always have explicit access control specifiers:
 
 	```
 	public var whoopsGlobalState: Int
