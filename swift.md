@@ -420,6 +420,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
    * `Resources/`
       * `Fonts/`
       * `Images/` (contains some sort of internal folder structure and uses sane naming conventions)
+      * `Images.xcassets`
       * `Strings/` (contains plists for localized strings)
-   * `Supporting Files/` (AppDelegate, InfoPlist, Images.xcassets, ProjectName-Info.plist, ProjectName-Prefix.pch)
+   * `Supporting Files/` (AppDelegate, InfoPlist, ProjectName-Info.plist, ProjectName-Prefix.pch, bridging-headers)
 * When possible, always turn on "Treat Warnings as Errors" in the target's Build Settings and enable as many [additional warnings](http://boredzo.org/blog/archives/2009-11-07/warnings) as possible. If you need to ignore a specific warning, use [Clang's pragma feature](http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas).
