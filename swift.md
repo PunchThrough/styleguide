@@ -231,23 +231,11 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 ## Prefer implicit getters on read-only properties and subscripts
 
-* When possible, omit the get keyword on read-only computed properties and read-only subscripts.
-
-	So, write these:
+* When possible, omit the get keyword on read-only computed properties and read-only subscripts. (The intent and meaning of the first version is clear, and results in less code.)
 
 	```	
-	var myGreatProperty: Int {
-   	  return 4
-	}
-
-	subscript(index: Int) -> T {
-	    return objects[index]
-	}
-	```
+	// bad
 	
-	… not these:
-
-	```
 	var myGreatProperty: Int {
 	    get {
 	        return 4
@@ -259,9 +247,17 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 	        return objects[index]
 	    }
 	}
-	```
 	
-	Rationale: The intent and meaning of the first version is clear, and results in less code.
+	// good
+	var myGreatProperty: Int {
+   	  return 4
+	}
+
+	subscript(index: Int) -> T {
+	    return objects[index]
+	}
+
+	```
 
 ## Always specify access control explicitly for top-level definitions
 
@@ -299,8 +295,11 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	```
 	myOptional?.anotherOne?.optionalView?.setNeedsDisplay()
-	Use optional binding when it's more convenient to unwrap once and perform multiple operations:
+	```
+	
+* Use optional binding when it's more convenient to unwrap once and perform multiple operations:
 
+	```
 	if let view = self.optionalView {
   	// do many things with view
 	}
