@@ -31,7 +31,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * [Xcode Project](#xcode-project)
 
 ## Organization
-* Use `//MARK:`s to categorize methods into functional groupings and protocol implementations, following this general structure:
+* Use `// MARK:`s to categorize methods into functional groupings and protocol implementations, following this general structure:
 
     ```objc
     #MARK: initialize
@@ -383,12 +383,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 	```
 	
 	Rationale: Value types are simpler, easier to reason about, and behave as expected with the let keyword.
-
-## Common Method Structures
-
-* `init` TBD
-
-    
+  
 ## Miscellany
 
 * Don't commit code that will never execute; just delete it. You probably won't ever want it back, and if you do, you'll likely want to rewrite it anyway. And you can always retrieve it from an earlier commit if you have to. This applies to:
