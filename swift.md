@@ -66,7 +66,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Method braces and other braces (if/else/switch/while etc.) always open on the same line as the statement but close on a new line.
 
-	```swift
+	```
 	// bad
 	if user.isHappy
 	{
@@ -89,7 +89,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Separate binary operands with a single space, but unary operands and casts with none.
 
-    ```swift
+    ```
     // bad
     NewType a = (NewType) b;
 
@@ -108,7 +108,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement (preceded by a space) but close on a new line. `else` occupies the same line as the `if`'s closing brace.
 
-    ```swift
+    ```
     // bad
     if (user.isHappy){
         ...
@@ -144,7 +144,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * The ternary operator `?` should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables. The condition of a ternary expression should be enclosed in parentheses for clarity.
 
-    ```swift
+    ```
     // bad
     result = a > b ? x = c > d ? c : d : y
 
@@ -165,7 +165,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Avoid block comments inline with code, as the code should be as self-documenting as possible. Exception: This does not apply to those comments used to generate documentation.
 * Syntax as below supports quick help in xcode when placed before a class or method name:
 
-	```swift
+	```
 	/** comment */
 	```
 
@@ -173,7 +173,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
 
-	```swift
+	```
 	// bad
 
 	let width: NSNumber = 120.0                                 // NSNumber
@@ -187,7 +187,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * When specifying the type of an identifier, always put the colon immediately after the identifier, followed by a space and then the type name.
 
-	```swift
+	```
 	class SmallBatchSustainableFairtrade: Coffee { ... }
 
 	let timeToCoffee: NSTimeInterval = 2
@@ -200,7 +200,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * When accessing properties or methods on self, leave the reference to self implicit by default:
 
-	```swift
+	```
 	private class History {
     	var events: [Event]
 
@@ -214,7 +214,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Only include the explicit keyword when required by the language
 	* for example, in a closure, or when parameter names conflict:
 
-	```swift
+	```
 extension History {
     init(events: [Event]) {
         self.events = events
@@ -233,7 +233,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	* When possible, omit the get keyword on read-only computed properties and read-only subscripts. (The intent and meaning of the first version is clear, and results in less code.)
 
-	```swift
+	```
 	// bad
 
 	var myGreatProperty: Int {
@@ -263,7 +263,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	* Top-level functions, types, and variables should always have explicit access control specifiers:
 
-	```swift
+	```
 	public var whoopsGlobalState: Int
 	internal struct TheFez {}
 	private func doTheThings(things: [Thing]) {}
@@ -271,7 +271,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	However, definitions within those can leave access control implicit, where appropriate:
 
-	```swift
+	```
 	internal struct TheFez {
 	    var owner: Person = Joshaber()
 	}
@@ -293,13 +293,13 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 * When accessing an optional value, use optional chaining if the value is only accessed once or if there are many optionals in the chain:
 
-	```swift
+	```
 	myOptional?.anotherOne?.optionalView?.setNeedsDisplay()
 	```
 
 * Use optional binding when it's more convenient to unwrap once and perform multiple operations:
 
-	```swift
+	```
 	if let view = self.optionalView {
   	// do many things with view
 	}
@@ -310,7 +310,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 * Use the camelcase `Bool` to indicate boolean types.
 * Swift requires explicit comparison to `nil` to resolve to `false`.
 
-    ```swift
+    ```
     // required
     if (someObject == nil) ...
     ```
@@ -319,7 +319,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 * The Enum in swift has additional capabilities so enums can have methods and switches on them must be exhaustive
 
-    ```swift
+    ```
     enum MenuControllerEndpoint {
     	case ItemMenu
     	case MainContentMenu
@@ -334,7 +334,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 * For example, this class hierarchy:
 
-	```swift
+	```
 	class Vehicle {
 	    let numberOfWheels: Int
 
@@ -362,7 +362,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	could be refactored into these definitions:
 
-	```swift
+	```
 	protocol Vehicle {
 	    var numberOfWheels: Int { get }
 	}
