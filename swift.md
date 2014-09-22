@@ -32,7 +32,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 ## Organization
 * Use `// MARK:`s to categorize methods into functional groupings and protocol implementations, following this general structure:
 
-    ```objc
+    ```
     #MARK: initialize
 
     + (id)objectWithThing:(id)thing
@@ -65,8 +65,8 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Never use spaces between parentheses and their contents.
 
 * Method braces and other braces (if/else/switch/while etc.) always open on the same line as the statement but close on a new line.
-	
-	```
+
+	```swift
 	// bad
 	if user.isHappy
 	{
@@ -75,7 +75,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 	else {
 	    //Do something else
 	}
-		
+
 	// good
 	if user.isHappy {
 	  //Do something
@@ -89,7 +89,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Separate binary operands with a single space, but unary operands and casts with none.
 
-    ```
+    ```swift
     // bad
     NewType a = (NewType) b;
 
@@ -108,7 +108,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement (preceded by a space) but close on a new line. `else` occupies the same line as the `if`'s closing brace.
 
-    ```
+    ```swift
     // bad
     if (user.isHappy){
         ...
@@ -144,7 +144,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * The ternary operator `?` should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an if statement, or refactored into instance variables. The condition of a ternary expression should be enclosed in parentheses for clarity.
 
-    ```
+    ```swift
     // bad
     result = a > b ? x = c > d ? c : d : y
 
@@ -165,7 +165,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Avoid block comments inline with code, as the code should be as self-documenting as possible. Exception: This does not apply to those comments used to generate documentation.
 * Syntax as below supports quick help in xcode when placed before a class or method name:
 
-	```
+	```swift
 	/** comment */
 	```
 
@@ -173,12 +173,12 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
 
-	```
+	```swift
 	// bad
 
 	let width: NSNumber = 120.0                                 // NSNumber
 	let widthString: NSString = width.stringValue               // NSString
-	
+
 	// good
 
 	let width = 120.0                                    // Double
@@ -187,7 +187,7 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 
 * When specifying the type of an identifier, always put the colon immediately after the identifier, followed by a space and then the type name.
 
-	```
+	```swift
 	class SmallBatchSustainableFairtrade: Coffee { ... }
 
 	let timeToCoffee: NSTimeInterval = 2
@@ -199,8 +199,8 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * Only explicitly refer to self when required
 
 * When accessing properties or methods on self, leave the reference to self implicit by default:
-	
-	```
+
+	```swift
 	private class History {
     	var events: [Event]
 
@@ -208,13 +208,13 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
         	events = []
     	}
 	}
-	
+
 	```
-	
+
 * Only include the explicit keyword when required by the language
 	* for example, in a closure, or when parameter names conflict:
 
-	```
+	```swift
 extension History {
     init(events: [Event]) {
         self.events = events
@@ -233,21 +233,21 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	* When possible, omit the get keyword on read-only computed properties and read-only subscripts. (The intent and meaning of the first version is clear, and results in less code.)
 
-	```	
+	```swift
 	// bad
-	
+
 	var myGreatProperty: Int {
 	    get {
 	        return 4
 	    }
 	}
-	
+
 	subscript(index: Int) -> T {
 	    get {
 	        return objects[index]
 	    }
 	}
-	
+
 	// good
 	var myGreatProperty: Int {
    	  return 4
@@ -263,7 +263,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	* Top-level functions, types, and variables should always have explicit access control specifiers:
 
-	```
+	```swift
 	public var whoopsGlobalState: Int
 	internal struct TheFez {}
 	private func doTheThings(things: [Thing]) {}
@@ -271,12 +271,12 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 	However, definitions within those can leave access control implicit, where appropriate:
 
-	```
+	```swift
 	internal struct TheFez {
 	    var owner: Person = Joshaber()
 	}
 	```
-	
+
 	Rationale: It's rarely appropriate for top-level definitions to be specifically internal, and being explicit ensures that careful thought goes into that decision. Within a definition, reusing the same access control specifier is just duplicative, and the default is usually reasonable.
 
 ## Constants
@@ -293,24 +293,24 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 * When accessing an optional value, use optional chaining if the value is only accessed once or if there are many optionals in the chain:
 
-	```
+	```swift
 	myOptional?.anotherOne?.optionalView?.setNeedsDisplay()
 	```
-	
+
 * Use optional binding when it's more convenient to unwrap once and perform multiple operations:
 
-	```
+	```swift
 	if let view = self.optionalView {
   	// do many things with view
 	}
 	```
-	
+
 ## Booleans
 
 * Use the camelcase `Bool` to indicate boolean types.
 * Swift requires explicit comparison to `nil` to resolve to `false`.
 
-    ```
+    ```swift
     // required
     if (someObject == nil) ...
     ```
@@ -319,7 +319,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 * The Enum in swift has additional capabilities so enums can have methods and switches on them must be exhaustive
 
-    ```
+    ```swift
     enum MenuControllerEndpoint {
     	case ItemMenu
     	case MainContentMenu
@@ -334,54 +334,54 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 * For example, this class hierarchy:
 
-	```
+	```swift
 	class Vehicle {
 	    let numberOfWheels: Int
-	
+
 	    init(numberOfWheels: Int) {
 	        self.numberOfWheels = numberOfWheels;
 	    }
-	
+
 	    func maximumTotalTirePressure(pressurePerWheel: Float) -> Float {
 	        return pressurePerWheel * numberOfWheels
 	    }
 	}
-	
+
 	class Bicycle: Vehicle {
 	    init() {
 	        super.init(numberOfWheels: 2)
 	    }
 	}
-	
+
 	class Car: Vehicle {
 	    init() {
 	        super.init(numberOfWheels: 4)
 	    }
 	}
 	```
-	
+
 	could be refactored into these definitions:
-	
-	```
+
+	```swift
 	protocol Vehicle {
 	    var numberOfWheels: Int { get }
 	}
-	
+
 	func maximumTotalTirePressure(vehicle: Vehicle, pressurePerWheel: Float) -> Float {
 	    return pressurePerWheel * vehicle.numberOfWheels
 	}
-	
+
 	struct Bicycle: Vehicle {
 	    let numberOfWheels = 2
 	}
-	
+
 	struct Car: Vehicle {
 	    let numberOfWheels = 4
 	}
 	```
-	
+
 	Rationale: Value types are simpler, easier to reason about, and behave as expected with the let keyword.
-  
+
 ## Miscellany
 
 * Don't commit code that will never execute; just delete it. You probably won't ever want it back, and if you do, you'll likely want to rewrite it anyway. And you can always retrieve it from an earlier commit if you have to. This applies to:
@@ -408,7 +408,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
       * `Editable/` (if using mogenerator)
       * `Generated/` (if using mogenerator)
       * `ProjectName.xcdatamodeld` (if using Core Data)
-   * `Views/` (contains `.xib`s, and UI subclasses within a folder structure that mirrors the app navigation)   
+   * `Views/` (contains `.xib`s, and UI subclasses within a folder structure that mirrors the app navigation)
    * `Storyboards/` (contains `.storyboards`s)
    * `Controllers/` (contains view controllers within a folder structure that mirrors the app navigation)
    * `Base.lproj/` (if using localized strings)
