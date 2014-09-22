@@ -26,7 +26,6 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * [Optionals](#optionals)
 * [Booleans](#booleans)
 * [Enumerated Types](#enumerated-types)
-* [Common Method Structures](#common-method-structures)
 * [Miscellany](#miscellany)
 * [Xcode Project](#xcode-project)
 
