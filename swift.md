@@ -26,6 +26,8 @@ Cocoa](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/Co
 * [Optionals](#optionals)
 * [Booleans](#booleans)
 * [Enumerated Types](#enumerated-types)
+* [Methods](#methods)
+* [Singletons](#singletons)
 * [Miscellany](#miscellany)
 * [Xcode Project](#xcode-project)
 
@@ -381,6 +383,66 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 	```
 
 	Rationale: Value types are simpler, easier to reason about, and behave as expected with the let keyword.
+
+## Methods
+
+* We want a method to be named concisely but need enough information to know parameters.
+
+* We could name it very simply:
+
+```
+  darkBackground(frame: CGRect) // We don't know the parameters easily.
+```
+
+* We could name it similar to objective-C style:
+
+```
+  darkBackgroundForRect:(frame: CGRect) // This is overly wordy.
+```
+
+* We prefer to name it as follows:
+
+```
+  darkBackground(#frame: CGRect) // Autocomplete will prompt us for the parameter
+```
+
+
+## Singletons
+
+The pattern should use 'let' and create an accessor:
+```
+private let sharedInstance = Analytics()
+
+public class Analytics {
+
+    /// The shared instance of the Logger class
+    class private var instance: Analytics {
+        return sharedInstance
+    }
+}
+```
+
+Additionally if you need to trigger an init() method and want to stay with class methods (vs referencing an instance externally) do the following:
+
+```
+private let sharedInstance = Analytics()
+public class Analytics {
+   private init() {  }
+   private var tracker: GAITracker? {
+        return  GAI.sharedInstance().defaultTracker
+   }
+   public class var analyticsTracker: GAITracker? {
+        return  instance.tracker
+   }
+   public class func menuOpen(menuName: String) {
+       if let tracker = Analytics.analyticsTracker { }
+	}
+  class var instance: Analytics {
+    return sharedInstance
+  }
+}
+```
+The call to Analytics.menuOpen("mymenu") from outside this method will call the 'analyticsTracker' which in turn will will use 'instance' to get the 'sharedInstance' which will cause the init() method to execute.
 
 ## Miscellany
 
