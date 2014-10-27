@@ -409,7 +409,7 @@ Rationale: This makes the capturing semantics of self stand out more in closures
 
 ## Singletons
 
-The patter should use 'let' and create an accessor:
+The pattern should use 'let' and create an accessor:
 ```
 private let sharedInstance = Analytics()
 
