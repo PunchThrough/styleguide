@@ -48,7 +48,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-        {{ content }}
+          {{ content }}
         </div>
       </div>
     </div>
@@ -58,5 +58,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ ASSET_PATH }}/js/toc.js"></script>
+    <script>
+      $('.toc').toc();
+    </script>
   </body>
 </html>
