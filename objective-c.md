@@ -26,7 +26,6 @@ UIColor *myColor = [UIColor whiteColor];
 UIColor *myColour = [UIColor whiteColor];
 ```
 
-
 ## Code Organization
 
 Use `#pragma mark -` to categorize methods in functional groupings and protocol/delegate implementations following this general structure.
@@ -684,11 +683,11 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 ```objc
 - (void)someMethod {
-  if (![someOther boolValue]) {
-    return;
-  }
+    if (![someOther boolValue]) {
+        return;
+    }
 
-  //Do something important
+    //Do something important
 }
 ```
 
@@ -696,9 +695,9 @@ When coding with conditionals, the left hand margin of the code should be the "g
 
 ```objc
 - (void)someMethod {
-  if ([someOther boolValue]) {
-    //Do something important
-  }
+    if ([someOther boolValue]) {
+        //Do something important
+    }
 }
 ```
 
@@ -711,7 +710,7 @@ When methods return an error parameter by reference, switch on the returned valu
 ```objc
 NSError *error;
 if (![self trySomethingWithError:&error]) {
-  // Handle Error
+    // Handle Error
 }
 ```
 
@@ -721,7 +720,7 @@ if (![self trySomethingWithError:&error]) {
 NSError *error;
 [self trySomethingWithError:&error];
 if (error) {
-  // Handle Error
+    // Handle Error
 }
 ```
 
