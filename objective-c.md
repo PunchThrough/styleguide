@@ -8,23 +8,7 @@ group: navigation
 
 ## Introduction
 
-The reason we made this style guide was so that we could keep the code in our books, tutorials, and starter kits nice and consistent - even though we have many different authors working on the books.
-
-This style guide is different from other Objective-C style guides you may see, because the focus is centered on readability for print and the web. Many of the decisions were made with an eye toward conserving space for print, easy legibility, and tutorial writing.
-
-## Credits
-
-This guide is based on the [raywenderlich.com Objective-C Style Guide](https://github.com/raywenderlich/objective-c-style-guide). We used the [Jekyll style guide built by sportngin](https://github.com/sportngin/styleguide). Thanks for all your hard work!
-
-## Background
-
-Here are some of the documents from Apple that informed the style guide. If something isn't mentioned here, it's probably covered in great detail in one of these:
-
-* [The Objective-C Programming Language](http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/ObjectiveC/Introduction/introObjectiveC.html)
-* [Cocoa Fundamentals Guide](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html)
-* [Coding Guidelines for Cocoa](https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html)
-* [iOS App Programming Guide](http://developer.apple.com/library/ios/#documentation/iphone/conceptual/iphoneosprogrammingguide/Introduction/Introduction.html)
-
+This style guide serves as a way to standardize Objective-C code we write at Punch Through Design.
 
 ## Language
 
@@ -184,9 +168,9 @@ for ( int i = 0; i < PTConstant; i++ ) {
 ```
 
 
-No bueno:
+Not Preferred:
 
-```
+```objc
 for (int i=0;i<PTConstant;i++) {
     int newIndex=i+thatOtherVariable;
     bool doSomethingAmazing=false;
@@ -794,3 +778,7 @@ When possible, always turn on "Treat Warnings as Errors" in the target's Build S
 * Matthew Lewis
 * Kevin Marx
 * Zeke Shearer
+
+## Credits
+
+This guide is based on the [raywenderlich.com Objective-C Style Guide](https://github.com/raywenderlich/objective-c-style-guide). We used the [Jekyll style guide built by sportngin](https://github.com/sportngin/styleguide). Thanks for all your hard work!
