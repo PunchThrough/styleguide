@@ -1,32 +1,41 @@
-# Sport Ngin Styleguide Site
+# [Punch Through Design Style Guide](https://punchthrough.github.io/styleguide)
 ---
 
-This is the styleguide for Sport Ngin. You can view it in github pages at http://sportngin.github.io/styleguide
+This is the style guide used for code written by Punch Through Design.
 
-## Contributing to the Styleguide
-Sport Ngin employees can make a pull request with changes.
+## Contributing to the Style Guide
+
+PTD employees can suggest changes in a branch or fork, then open a pull request for discussion and integration.
 
 ## Setting up the project
-This project has the gh-pages branch as a submodule for deployment. This needs to be set up. There is a rake task to do this.
+
+This project has the `gh-pages` branch set up as a submodule for deployment. To set up the submodule, run the following command:
 
 ```sh
 rake setup
 ```
 
 ## Running locally
-This project is built with jekyll. To run locally on port 4000:
+This project is built with Jekyll.
+
+To run a development server locally, first install necessary gems:
 
 ```sh
 bundle
-jekyll server -w
 ```
 
-## Deploying to github pages
+Then start the Jekyll server to watch the source for changes and recompile automatically:
 
-Commit all changes and push to the master branch.
+```sh
+jekyll server --watch
+```
+
+Your server will be running on [localhost:4000](http://localhost:4000/).
+
+## Deploying to GitHub Pages
+
+Commit your source code changes to `master`, then Run the following command to commit all changes and push your changes to the `gh_pages` branch:
 
 ```sh
 rake deploy
 ```
-
-Then add the _site directory and commit.
