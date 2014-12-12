@@ -730,6 +730,7 @@ Some of Apple’s APIs write garbage values to the error parameter (if non-NULL)
 ## Singletons
 
 Singleton objects should use a thread-safe pattern for creating their shared instance.
+
 ```objc
 + (instancetype)sharedInstance {
   static id sharedInstance = nil;
@@ -742,24 +743,23 @@ Singleton objects should use a thread-safe pattern for creating their shared ins
   return sharedInstance;
 }
 ```
+
 This will prevent [possible and sometimes prolific crashes](http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html).
 
 
 ## Line Breaks
 
-Line breaks are an important topic since this style guide is focused for print and online readability.
-
-For example:
+Lines of code longer than 120 characters should be wrapped to the next line for readability. For example:
 
 ```objc
-self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers];
+self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers andProductSelectors:productSelectors];
 ```
 
 A long line of code like this should be carried on to the second line adhering to this style guide's Spacing section (four spaces).
 
 ```objc
-self.productsRequest = [[SKProductsRequest alloc] 
-    initWithProductIdentifiers:productIdentifiers];
+self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIdentifiers
+    andProductSelectors:productSelectors];
 ```
 
 
