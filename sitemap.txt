@@ -1,4 +1,4 @@
 
-http://sportngin.github.io/styleguide/index.html
-http://sportngin.github.io/styleguide/objective-c.html
-http://sportngin.github.io/styleguide/sitemap.txt
+http://punchthrough.github.io/styleguide/index.html
+http://punchthrough.github.io/styleguide/objective-c.html
+http://punchthrough.github.io/styleguide/sitemap.txt
