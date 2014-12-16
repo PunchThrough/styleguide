@@ -64,6 +64,14 @@
   
     
       
+      	
+      	<li><a href="http://punchthrough.github.io/styleguide/python.html">Python</a></li>
+      	
+      
+    
+  
+    
+      
     
   
 
@@ -240,12 +248,14 @@
 <p><strong>Not Preferred:</strong></p>
 <div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">UIButton</span> <span class="o">*</span><span class="n">setBut</span><span class="p">;</span>
 </code></pre></div>
-<p>A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix &#39;RWT&#39; should be used.</p>
+<p>A three letter prefix should always be used for class names and constants. This may be omitted for Core Data entity names.</p>
+
+<p>The default prefix for Punch Through Design projects should be &quot;PTD&quot;.</p>
 
 <p>Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">RWTTutorialViewControllerNavigationFadeAnimationDuration</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">PTDTutorialViewControllerNavigationFadeAnimationDuration</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
 </code></pre></div>
 <p><strong>Not Preferred:</strong></p>
 <div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">fadetime</span> <span class="o">=</span> <span class="mf">1.7</span><span class="p">;</span>
@@ -303,14 +313,14 @@
 <p>Direct access to instance variables that &#39;back&#39; properties should be avoided except in initializer methods (<code>init</code>, <code>initWithCoder:</code>, etc…), <code>dealloc</code> methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6">here</a>.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">RWTTutorial</span> : <span class="nc">NSObject</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PTDTutorial</span> : <span class="nc">NSObject</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
 
 <span class="k">@end</span>
 </code></pre></div>
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">RWTTutorial</span> : <span class="nc">NSObject</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PTDTutorial</span> : <span class="nc">NSObject</span> <span class="p">{</span>
     <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='property-attributes'><a class='reference' href='#property-attributes'><i class='icon-map-marker'></i></a>Property Attributes</h2>
@@ -364,30 +374,30 @@ Why? Even if you declared a property as <code>NSString</code>, somebody might pa
 <p>Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as <code>static</code> constants and not <code>#define</code>s unless explicitly being used as a macro.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">RWTAboutViewControllerCompanyName</span> <span class="o">=</span> <span class="s">@&quot;RayWenderlich.com&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">PTDAboutViewControllerCompanyName</span> <span class="o">=</span> <span class="s">@&quot;Punch Through Design&quot;</span><span class="p">;</span>
 
-<span class="k">static</span> <span class="n">CGFloat</span> <span class="k">const</span> <span class="n">RWTImageThumbnailHeight</span> <span class="o">=</span> <span class="mf">50.0</span><span class="p">;</span>
+<span class="k">static</span> <span class="n">CGFloat</span> <span class="k">const</span> <span class="n">PTDImageThumbnailHeight</span> <span class="o">=</span> <span class="mf">50.0</span><span class="p">;</span>
 </code></pre></div>
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="cp">#define CompanyName @&quot;RayWenderlich.com&quot;</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="cp">#define CompanyName @&quot;Punch Through Design&quot;</span>
 
 <span class="cp">#define thumbnailHeight 2</span>
 </code></pre></div><h2 id='enumerated-types'><a class='reference' href='#enumerated-types'><i class='icon-map-marker'></i></a>Enumerated Types</h2>
 <p>When using <code>enum</code>s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: <code>NS_ENUM()</code></p>
 
 <p><strong>For Example:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">RWTLeftMenuTopItemType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">RWTLeftMenuTopItemMain</span><span class="p">,</span>
-    <span class="n">RWTLeftMenuTopItemShows</span><span class="p">,</span>
-    <span class="n">RWTLeftMenuTopItemSchedule</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">PTDLeftMenuTopItemType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">PTDLeftMenuTopItemMain</span><span class="p">,</span>
+    <span class="n">PTDLeftMenuTopItemShows</span><span class="p">,</span>
+    <span class="n">PTDLeftMenuTopItemSchedule</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>You can also make explicit value assignments (showing older k-style constant definition):</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">RWTGlobalConstants</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">RWTPinSizeMin</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="n">RWTPinSizeMax</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="n">RWTPinCountMin</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="n">RWTPinCountMax</span> <span class="o">=</span> <span class="mi">500</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">PTDGlobalConstants</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">PTDPinSizeMin</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">PTDPinSizeMax</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">PTDPinCountMin</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">PTDPinCountMax</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="p">};</span>
 </code></pre></div>
 <p>Older k-style constant definitions should be <strong>avoided</strong> unless writing CoreFoundation C code (unlikely).</p>
@@ -430,16 +440,16 @@ When a case contains more than one line, braces should be added.</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>When using an enumerated type for a switch, <strong>always</strong> include a &#39;default&#39; case that logs unexpected behavior or throws an error. For example:</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">RWTLeftMenuTopItemType</span> <span class="n">menuType</span> <span class="o">=</span> <span class="n">RWTLeftMenuTopItemMain</span><span class="p">;</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">PTDLeftMenuTopItemType</span> <span class="n">menuType</span> <span class="o">=</span> <span class="n">PTDLeftMenuTopItemMain</span><span class="p">;</span>
 
 <span class="k">switch</span> <span class="p">(</span><span class="n">menuType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">RWTLeftMenuTopItemMain</span>:
+    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemMain</span>:
         <span class="c1">// ...</span>
         <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">RWTLeftMenuTopItemShows</span>:
+    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemShows</span>:
         <span class="c1">// ...</span>
         <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">RWTLeftMenuTopItemSchedule</span>:
+    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemSchedule</span>:
         <span class="c1">// ...</span>
         <span class="k">break</span><span class="p">;</span>
     <span class="nl">default:</span>
@@ -447,10 +457,10 @@ When a case contains more than one line, braces should be added.</p>
         <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='private-properties'><a class='reference' href='#private-properties'><i class='icon-map-marker'></i></a>Private Properties</h2>
-<p>Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as <code>RWTPrivate</code> or <code>private</code>) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.</p>
+<p>Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as <code>PTDPrivate</code> or <code>private</code>) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.</p>
 
 <p><strong>For Example:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">RWTDetailViewController</span> <span class="p">()</span>
+<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PTDDetailViewController</span> <span class="p">()</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">GADBannerView</span> <span class="o">*</span><span class="n">googleAdView</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">ADBannerView</span> <span class="o">*</span><span class="n">iAdView</span><span class="p">;</span>
@@ -523,7 +533,7 @@ When a case contains more than one line, braces should be added.</p>
 <h2 id='class-constructor-methods'><a class='reference' href='#class-constructor-methods'><i class='icon-map-marker'></i></a>Class Constructor Methods</h2>
 <p>Where class constructor methods are used, these should always return type of &#39;instancetype&#39; and never &#39;id&#39;. This ensures the compiler correctly infers the result type. </p>
 <div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">Airplane</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">airplaneWithType:</span><span class="p">(</span><span class="n">RWTAirplaneType</span><span class="p">)</span><span class="nv">type</span><span class="p">;</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">airplaneWithType:</span><span class="p">(</span><span class="n">PTDAirplaneType</span><span class="p">)</span><span class="nv">type</span><span class="p">;</span>
 <span class="k">@end</span>
 </code></pre></div>
 <p>More information on instancetype can be found on <a href="http://nshipster.com/instancetype/">NSHipster.com</a>.</p>
