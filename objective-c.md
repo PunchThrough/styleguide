@@ -208,14 +208,16 @@ UIButton *settingsButton;
 UIButton *setBut;
 ```
 
-A three letter prefix should always be used for class names and constants, however may be omitted for Core Data entity names. For any official raywenderlich.com books, starter kits, or tutorials, the prefix 'RWT' should be used.
+A three letter prefix should always be used for class names and constants. This may be omitted for Core Data entity names.
+
+The default prefix for Punch Through Design projects should be "PTD".
 
 Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.
 
 **Preferred:**
 
 ```objc
-static NSTimeInterval const RWTTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
+static NSTimeInterval const PTDTutorialViewControllerNavigationFadeAnimationDuration = 0.3;
 ```
 
 **Not Preferred:**
@@ -304,7 +306,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 **Preferred:**
 
 ```objc
-@interface RWTTutorial : NSObject
+@interface PTDTutorial : NSObject
 
 @property (strong, nonatomic) NSString *tutorialName;
 
@@ -314,7 +316,7 @@ Direct access to instance variables that 'back' properties should be avoided exc
 **Not Preferred:**
 
 ```objc
-@interface RWTTutorial : NSObject {
+@interface PTDTutorial : NSObject {
     NSString *tutorialName;
 }
 ```
@@ -404,15 +406,15 @@ Constants are preferred over in-line string literals or numbers, as they allow f
 **Preferred:**
 
 ```objc
-static NSString * const RWTAboutViewControllerCompanyName = @"RayWenderlich.com";
+static NSString * const PTDAboutViewControllerCompanyName = @"Punch Through Design";
 
-static CGFloat const RWTImageThumbnailHeight = 50.0;
+static CGFloat const PTDImageThumbnailHeight = 50.0;
 ```
 
 **Not Preferred:**
 
 ```objc
-#define CompanyName @"RayWenderlich.com"
+#define CompanyName @"Punch Through Design"
 
 #define thumbnailHeight 2
 ```
@@ -424,21 +426,21 @@ When using `enum`s, it is recommended to use the new fixed underlying type speci
 **For Example:**
 
 ```objc
-typedef NS_ENUM(NSInteger, RWTLeftMenuTopItemType) {
-    RWTLeftMenuTopItemMain,
-    RWTLeftMenuTopItemShows,
-    RWTLeftMenuTopItemSchedule
+typedef NS_ENUM(NSInteger, PTDLeftMenuTopItemType) {
+    PTDLeftMenuTopItemMain,
+    PTDLeftMenuTopItemShows,
+    PTDLeftMenuTopItemSchedule
 };
 ```
 
 You can also make explicit value assignments (showing older k-style constant definition):
 
 ```objc
-typedef NS_ENUM(NSInteger, RWTGlobalConstants) {
-    RWTPinSizeMin  = 1,
-    RWTPinSizeMax  = 5,
-    RWTPinCountMin = 100,
-    RWTPinCountMax = 500
+typedef NS_ENUM(NSInteger, PTDGlobalConstants) {
+    PTDPinSizeMin  = 1,
+    PTDPinSizeMax  = 5,
+    PTDPinCountMin = 100,
+    PTDPinCountMax = 500
 };
 ```
 
@@ -498,16 +500,16 @@ switch (condition) {
 When using an enumerated type for a switch, **always** include a 'default' case that logs unexpected behavior or throws an error. For example:
 
 ```objc
-RWTLeftMenuTopItemType menuType = RWTLeftMenuTopItemMain;
+PTDLeftMenuTopItemType menuType = PTDLeftMenuTopItemMain;
 
 switch (menuType) {
-    case RWTLeftMenuTopItemMain:
+    case PTDLeftMenuTopItemMain:
         // ...
         break;
-    case RWTLeftMenuTopItemShows:
+    case PTDLeftMenuTopItemShows:
         // ...
         break;
-    case RWTLeftMenuTopItemSchedule:
+    case PTDLeftMenuTopItemSchedule:
         // ...
         break;
     default:
@@ -519,12 +521,12 @@ switch (menuType) {
 
 ## Private Properties
 
-Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `RWTPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
+Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as `PTDPrivate` or `private`) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.
 
 **For Example:**
 
 ```objc
-@interface RWTDetailViewController ()
+@interface PTDDetailViewController ()
 
 @property (strong, nonatomic) GADBannerView *googleAdView;
 @property (strong, nonatomic) ADBannerView *iAdView;
@@ -639,7 +641,7 @@ Where class constructor methods are used, these should always return type of 'in
 
 ```objc
 @interface Airplane
-+ (instancetype)airplaneWithType:(RWTAirplaneType)type;
++ (instancetype)airplaneWithType:(PTDAirplaneType)type;
 @end
 ```
 
