@@ -100,59 +100,51 @@
 
 <div class="toc"></div>
 
+<h2 id='introduction'><a class='reference' href='#introduction'><i class='icon-map-marker'></i></a>Introduction</h2>
+<p>This style guide serves as a way to standardize JavaScript code we write at Punch Through Design.</p>
+
 <p>If you can&#39;t find an answer in here, use your best judgement and keep things readable. Strive for terse, readable code.</p>
-<h2 id='table-of-contents'><a class='reference' href='#table-of-contents'><i class='icon-map-marker'></i></a>Table of Contents</h2>
-<ul>
-<li id='table-of-contents_L1'><a class='reference' href='#table-of-contents_L1'><i class='icon-map-marker'></i></a><a href="#semicolons">Semicolons</a>
-</li><li id='table-of-contents_L2'><a class='reference' href='#table-of-contents_L2'><i class='icon-map-marker'></i></a><a href="#code-layout">Code Layout</a>
-</li><li id='table-of-contents_L3'><a class='reference' href='#table-of-contents_L3'><i class='icon-map-marker'></i></a><a href="#naming">Naming</a>
-</li><li id='table-of-contents_L4'><a class='reference' href='#table-of-contents_L4'><i class='icon-map-marker'></i></a><a href="#variable-declarations">Variable Declarations</a>
-</li><li id='table-of-contents_L5'><a class='reference' href='#table-of-contents_L5'><i class='icon-map-marker'></i></a><a href="#block-style">Block Style</a>
-</li><li id='table-of-contents_L6'><a class='reference' href='#table-of-contents_L6'><i class='icon-map-marker'></i></a><a href="#comments">Comments</a>
-</li><li id='table-of-contents_L7'><a class='reference' href='#table-of-contents_L7'><i class='icon-map-marker'></i></a><a href="#whitespace">Whitespace</a>
-</li><li id='table-of-contents_L8'><a class='reference' href='#table-of-contents_L8'><i class='icon-map-marker'></i></a><a href="#object-literals">Object Literals</a>
-</li><li id='table-of-contents_L9'><a class='reference' href='#table-of-contents_L9'><i class='icon-map-marker'></i></a><a href="#array-literals">Array Literals</a>
-</li></ul>
 <h2 id='semicolons'><a class='reference' href='#semicolons'><i class='icon-map-marker'></i></a>Semicolons</h2>
-<ul>
-<li id='semicolons_L1'><a class='reference' href='#semicolons_L1'><i class='icon-map-marker'></i></a><p><strong>Don&#39;t use them.</strong> ASI takes care of 99.9995% of cases where a semicolon is required.</p>
+<p><strong>Don&#39;t use them.</strong> ASI takes care of 99.9995% of cases where a semicolon is required.</p>
 
-<p>The only edge case is when a new line starts with a left (open) parenthesis &#39;(&#39;. And the only reason to start a new
-line with an open paren is to wrap a file in a self executing function to create a closure. If you have to start a
-line with an open paren for any other reason, you&#39;re doing it wrong.</p>
-</li></ul>
+<p>The only edge case is when a new line starts with a left (open) parenthesis &#39;(&#39;. And the only reason to start a new line with an open paren is to wrap a file in a self executing function to create a closure. If you have to start a line with an open paren for any other reason, you&#39;re doing it wrong.</p>
 <h2 id='code-layout'><a class='reference' href='#code-layout'><i class='icon-map-marker'></i></a>Code Layout</h2>
+<p>Use two <strong>spaces</strong> per indentation level. No hard tabs.</p>
+<h3 id='what-to-indent'><a class='reference' href='#what-to-indent'><i class='icon-map-marker'></i></a>What to Indent</h3>
 <ul>
-<li id='code-layout_L1'><a class='reference' href='#code-layout_L1'><i class='icon-map-marker'></i></a><p>Use two <strong>spaces</strong> per indentation level. No hard tabs.</p>
-</li><li id='code-layout_L5'><a class='reference' href='#code-layout_L5'><i class='icon-map-marker'></i></a><p><strong>What to indent</strong></p>
-
-<ul>
-<li id='code-layout_L2'><a class='reference' href='#code-layout_L2'><i class='icon-map-marker'></i></a>Contents of a block
-</li><li id='code-layout_L3'><a class='reference' href='#code-layout_L3'><i class='icon-map-marker'></i></a>Contents of a multiline object literal
-</li><li id='code-layout_L4'><a class='reference' href='#code-layout_L4'><i class='icon-map-marker'></i></a>Contents of a multiline array literal
+<li id='what-to-indent_L1'><a class='reference' href='#what-to-indent_L1'><i class='icon-map-marker'></i></a>Contents of a block
+</li><li id='what-to-indent_L2'><a class='reference' href='#what-to-indent_L2'><i class='icon-map-marker'></i></a>Contents of a multiline object literal
+</li><li id='what-to-indent_L3'><a class='reference' href='#what-to-indent_L3'><i class='icon-map-marker'></i></a>Contents of a multiline array literal
 </li></ul>
-</li><li id='code-layout_L6'><a class='reference' href='#code-layout_L6'><i class='icon-map-marker'></i></a><p><strong>Line length:</strong> Try and stay under 80 characters per line. Don&#39;t break up expressions within an if statement
-whenever possible.</p>
-</li></ul>
+<h3 id='line-length'><a class='reference' href='#line-length'><i class='icon-map-marker'></i></a>Line Length</h3>
+<p>Try and stay under 80 characters per line. Don&#39;t break up expressions within an if statement whenever possible.</p>
 <h2 id='naming'><a class='reference' href='#naming'><i class='icon-map-marker'></i></a>Naming</h2>
-<ul>
-<li id='naming_L1'><a class='reference' href='#naming_L1'><i class='icon-map-marker'></i></a><p>Don&#39;t use single letter variable names if you can avoid it. It&#39;s not necessary to be overly descriptive either. A
-single letter name in the scope of a very small function probably isn&#39;t a big deal. Nor is using i for an iterator.
-<em>Just don&#39;t be a bad programmer and everything will be fine.</em></p>
-</li><li id='naming_L2'><a class='reference' href='#naming_L2'><i class='icon-map-marker'></i></a><p>Variables and functions use lower camel case: <code>thisIsLowerCamelCase</code></p>
-</li><li id='naming_L3'><a class='reference' href='#naming_L3'><i class='icon-map-marker'></i></a><p>Constructors use upper camel case: <code>ThisIsUpperCamelCase</code></p>
-</li><li id='naming_L4'><a class='reference' href='#naming_L4'><i class='icon-map-marker'></i></a><p><strong>Do not</strong> use underscores whenever possible.</p>
-</li></ul>
+<p>Don&#39;t use single letter variable names if you can avoid it. It&#39;s not necessary to be overly descriptive either.</p>
+
+<p>A single letter name in the scope of a very small function probably isn&#39;t a big deal. Nor is using i for an iterator. <em>Just don&#39;t be a bad programmer and everything will be fine.</em></p>
+
+<p>Variables and functions use lower camel case: <code>thisIsLowerCamelCase</code></p>
+
+<p>Constructors use upper camel case (Pascal case): <code>ThisIsUpperCamelCase</code></p>
+
+<p><strong>Do not</strong> use underscores whenever possible.</p>
 <h2 id='variable-declarations'><a class='reference' href='#variable-declarations'><i class='icon-map-marker'></i></a>Variable Declarations</h2>
-<ul>
-<li id='variable-declarations_L1'><a class='reference' href='#variable-declarations_L1'><i class='icon-map-marker'></i></a><p>Use mulitple var statements:</p>
+<p>Use multiple var statements to declare multiple variables.</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="kd">var</span> <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="kd">var</span> <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div></li></ul>
-<h2 id='block-style'><a class='reference' href='#block-style'><i class='icon-map-marker'></i></a>Block style</h2>
-<ul>
-<li id='block-style_L1'><a class='reference' href='#block-style_L1'><i class='icon-map-marker'></i></a><p>Conditional blocks should be formatted with an <em>&#39;uncuddled&#39;</em> <code>else</code> in the case of larger blocks of code:</p>
+</code></pre></div>
+<p><strong>Not Preferred:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre></div><h2 id='block-style'><a class='reference' href='#block-style'><i class='icon-map-marker'></i></a>Block Style</h2><h3 id='conditional-blocks'><a class='reference' href='#conditional-blocks'><i class='icon-map-marker'></i></a>Conditional Blocks</h3>
+<p>Conditional blocks should be formatted with an <em>&#39;uncuddled&#39;</em> <code>else</code> in the case of larger blocks of code:</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">doSomthing</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
   <span class="nx">callMethod</span><span class="p">()</span>
@@ -165,115 +157,151 @@ single letter name in the scope of a very small function probably isn&#39;t a bi
   <span class="nx">x</span><span class="o">++</span>
   <span class="nx">someMethod</span><span class="p">()</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='block-style_L2'><a class='reference' href='#block-style_L2'><i class='icon-map-marker'></i></a><p>In the case of smaller blocks containing only one or two lines, use a <em>&#39;cuddled&#39;</em> <code>else</code>:</p>
+</code></pre></div>
+<p>In the case of smaller blocks containing only one or two lines, use a <em>&#39;cuddled&#39;</em> <code>else</code>:</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">x</span>
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">y</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='block-style_L3'><a class='reference' href='#block-style_L3'><i class='icon-map-marker'></i></a><p>You may also omit the braces in the case of single line conditions. This is mostly a grandfathered style,
-as remember: If someone adds a statement to the block, it will break without braces.</p>
+</code></pre></div>
+<p><strong>Do not</strong> use if statements without braces. <a href="/objective-c.html#conditionals">Read more on why here</a>.</p>
+
+<p>The SparkNotes edition of that page:</p>
+
+<ul>
+<li id='conditional-blocks_L1'><a class='reference' href='#conditional-blocks_L1'><i class='icon-map-marker'></i></a>Conditional bodies should always use braces even when a conditional body could be written without braces.
+</li><li id='conditional-blocks_L2'><a class='reference' href='#conditional-blocks_L2'><i class='icon-map-marker'></i></a>One-liner if statements without braces are <strong>dangerous.</strong>
+</li><li id='conditional-blocks_L3'><a class='reference' href='#conditional-blocks_L3'><i class='icon-map-marker'></i></a>One-liner if statements with braces are acceptable.
+</li></ul>
+
+<p><strong>Not Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span>
   <span class="k">return</span> <span class="nx">x</span>
 <span class="k">else</span>
   <span class="k">return</span> <span class="nx">y</span>
-</code></pre></div></li><li id='block-style_L4'><a class='reference' href='#block-style_L4'><i class='icon-map-marker'></i></a><p>All <code>switch</code> statement cases must end with <code>break</code>, <code>throw</code>, <code>return</code>, or a comment indicating a fall-through.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">//bad</span>
-<span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-<span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-    <span class="nx">doSomething</span><span class="p">();</span>
+</code></pre></div><h3 id='switch/case-statements'><a class='reference' href='#switch/case-statements'><i class='icon-map-marker'></i></a>Switch/Case Statements</h3>
+<p>Be mindful in the use of <code>switch</code> at all.</p>
 
-<span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+<p><code>switch</code> statements in JavaScript, C, and other languages (excluding Ruby) exhibit behavior akin to <a href="http://en.wikipedia.org/wiki/Goto">goto statements</a> due to their fallthrough nature. This goes against principles of <a href="http://en.wikipedia.org/wiki/Structured_programming">structured programming</a>. There is always a different control structure which will do the job.</p>
+
+<p><strong>Unless it is blatantly obvious to use <code>switch</code>, use an alternative such as an if statement.</strong></p>
+
+<p>Read <a href="https://files.ifi.uzh.ch/rerg/arvo/courses/kvse/uebungen/Dijkstra_Goto.pdf">Dijkstra&#39;s paper</a> on goto and structured programming if you&#39;re curious about this topic.</p>
+
+<hr>
+
+<p>All <code>switch</code> statement cases must end with <code>break</code>, <code>throw</code>, <code>return</code>, or a comment indicating a fall-through.</p>
+
+<p><strong>Preferred:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+    <span class="nx">doSomething</span><span class="p">();</span>
+    <span class="c1">// falls through</span>
+
+  <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
     <span class="nx">doSomethingElse</span><span class="p">();</span>
     <span class="k">break</span><span class="p">;</span>
 
-<span class="k">default</span><span class="o">:</span>
+  <span class="k">default</span><span class="o">:</span>
     <span class="nx">doDefaultThing</span><span class="p">();</span>
+    <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
-
-<span class="c1">//good</span>
-<span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div>
+<p><strong>Not Preferred:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-      <span class="nx">doSomething</span><span class="p">();</span>
-      <span class="c1">//falls through</span>
+    <span class="nx">doSomething</span><span class="p">();</span>
 
   <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
-      <span class="nx">doSomethingElse</span><span class="p">();</span>
-      <span class="k">break</span><span class="p">;</span>
+    <span class="nx">doSomethingElse</span><span class="p">();</span>
+    <span class="k">break</span><span class="p">;</span>
 
   <span class="k">default</span><span class="o">:</span>
-      <span class="nx">doDefaultThing</span><span class="p">();</span>
+    <span class="nx">doDefaultThing</span><span class="p">();</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='block-style_L5'><a class='reference' href='#block-style_L5'><i class='icon-map-marker'></i></a><p>In addition to the previous rule on <code>switch</code> format, be mindful in the use of <code>switch</code> at all. <code>switch</code> statements in
-JavaScript, C, and other languages (excluding Ruby) exhibit behavior akin to <a href="http://en.wikipedia.org/wiki/Goto">goto statements</a>
-due to their fallthrough nature. This goes against principles of <a href="http://en.wikipedia.org/wiki/Structured_programming">structured programming</a>.
-There is always a different control structure which will do the job. Unless it is blatantly obvious to use <code>switch</code>, don&#39;t use it. 
-Read <a href="https://files.ifi.uzh.ch/rerg/arvo/courses/kvse/uebungen/Dijkstra_Goto.pdf">Dijkstra&#39;s paper</a> on goto and structured programming
-if you&#39;re curious about this topic.</p>
-</li></ul>
-<h2 id='comments'><a class='reference' href='#comments'><i class='icon-map-marker'></i></a>Comments</h2>
+</code></pre></div><h2 id='comments'><a class='reference' href='#comments'><i class='icon-map-marker'></i></a>Comments</h2>
+<p>Block comments should only be used as a banner for a file, or as documentation of a function.</p>
+
+<p>Function documentation should be well formatted for automatic parsing and generation of documentation. One blank space should be inserted between the block comment and the prior function, as well as between the block comment and the function it is describing.</p>
+
+<p>The golden rule: <strong>Code says how, comments say why.</strong></p>
+
 <ul>
-<li id='comments_L1'><a class='reference' href='#comments_L1'><i class='icon-map-marker'></i></a><p>Block comments should only be used as a banner for a file, or as documentation of a function.</p>
-</li><li id='comments_L2'><a class='reference' href='#comments_L2'><i class='icon-map-marker'></i></a><p>Function documentation should be well formatted for automatic parsing and generation of documentation. One blank space
-should be inserted between the block comment and the prior function, as well as between the block comment and the
-function it is describing.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
-<span class="cm">* Description of the method</span>
-<span class="cm">*</span>
-<span class="cm">* @param {Type} paramName</span>
-<span class="cm">* @param {Type} paramName2</span>
-<span class="cm">* @return {Type}</span>
-<span class="cm">* @api public|private</span>
-<span class="cm">*/</span>
+<li id='comments_L1'><a class='reference' href='#comments_L1'><i class='icon-map-marker'></i></a>Code should be written in a way that makes it easy for another programer to understand how it works.
+</li><li id='comments_L2'><a class='reference' href='#comments_L2'><i class='icon-map-marker'></i></a>Comments should describe why the code does what it does, not serve as a line-by-line rundown of what the code does.
+</li></ul>
+<h3 id='format-of-block-comments'><a class='reference' href='#format-of-block-comments'><i class='icon-map-marker'></i></a>Format of Block Comments</h3><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
+<span class="cm"> * Description of the method</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param {Type} paramName</span>
+<span class="cm"> * @param {Type} paramName2</span>
+<span class="cm"> * @return {Type}</span>
+<span class="cm"> * @api public|private</span>
+<span class="cm"> */</span>
 
 <span class="kd">function</span> <span class="nx">doStuff</span><span class="p">(</span><span class="nx">paramName</span><span class="p">,</span> <span class="nx">paramName2</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
   <span class="k">return</span> <span class="nx">something</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><strong>Examples</strong></p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
-<span class="cm">* Squares the given number</span>
-<span class="cm">*</span>
-<span class="cm">* @param {Number} number</span>
-<span class="cm">* @return {Number}</span>
-<span class="cm">* @api public</span>
-<span class="cm">*/</span>
-
-<span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div><h3 id='examples-of-block-comments'><a class='reference' href='#examples-of-block-comments'><i class='icon-map-marker'></i></a>Examples of Block Comments</h3><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
+<span class="cm"> * Squares the given number</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param {Number} number</span>
+<span class="cm"> * @return {Number}</span>
+<span class="cm"> * @api public</span>
+<span class="cm"> */</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span>
 <span class="p">}</span>
-
-<span class="cm">/**</span>
-<span class="cm">* Cleans up any long lived resources</span>
-<span class="cm">*</span>
-<span class="cm">* @api private</span>
-<span class="cm">*/</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
+<span class="cm"> * Cleans up any long-lived resources</span>
+<span class="cm"> *</span>
+<span class="cm"> * @api private</span>
+<span class="cm"> */</span>
 
 <span class="kd">function</span> <span class="nx">cleanUp</span><span class="p">()</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='comments_L3'><a class='reference' href='#comments_L3'><i class='icon-map-marker'></i></a><p>Single line comments should appear as documentation within methods and around larger blocks of code.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// multiply the number by itself</span>
-  <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span>
+</code></pre></div>
+<p>Single line comments should appear as documentation within methods and around larger blocks of code.</p>
+
+<p>When writing single line comments, remember the golden rule: <strong>Code says how, comments say why.</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// We need to baz the frobbed number because of RFC 4200, Proper Fooing with Bazzed Frob</span>
+  <span class="c1">// Baz is provided by the baz library (node-baz)</span>
+  <span class="k">return</span> <span class="nx">bazManager</span><span class="p">.</span><span class="nx">baz</span><span class="p">(</span><span class="nx">number</span><span class="p">.</span><span class="nx">frobbed</span><span class="p">())</span>
 <span class="p">}</span>
-</code></pre></div></li></ul>
-<h3 id='whitespace'><a class='reference' href='#whitespace'><i class='icon-map-marker'></i></a>Whitespace</h3>
+</code></pre></div><h3 id='whitespace'><a class='reference' href='#whitespace'><i class='icon-map-marker'></i></a>Whitespace</h3><h4 id='named-functions'><a class='reference' href='#named-functions'><i class='icon-map-marker'></i></a>Named Functions</h4>
 <ul>
-<li id='whitespace_L1'><a class='reference' href='#whitespace_L1'><i class='icon-map-marker'></i></a><p><strong>Named functions:</strong> Space after <code>function</code>. No space between the method name and opening paren. One space after
-each comma in the signature. One space after the closing paren.</p>
+<li id='named-functions_L1'><a class='reference' href='#named-functions_L1'><i class='icon-map-marker'></i></a>Space after <code>function</code>.
+</li><li id='named-functions_L2'><a class='reference' href='#named-functions_L2'><i class='icon-map-marker'></i></a>No space between the method name and opening paren.
+</li><li id='named-functions_L3'><a class='reference' href='#named-functions_L3'><i class='icon-map-marker'></i></a>One space after each comma in the signature.
+</li><li id='named-functions_L4'><a class='reference' href='#named-functions_L4'><i class='icon-map-marker'></i></a>One space after the closing paren.
+</li></ul>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">methodName</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='whitespace_L2'><a class='reference' href='#whitespace_L2'><i class='icon-map-marker'></i></a><p><strong>Anonymous functions:</strong> No spacebetween function and opening paren. One space after each comma in the signature.
-One space after the closing paren.</p>
+</code></pre></div><h4 id='anonymous-functions'><a class='reference' href='#anonymous-functions'><i class='icon-map-marker'></i></a>Anonymous functions</h4>
+<ul>
+<li id='anonymous-functions_L1'><a class='reference' href='#anonymous-functions_L1'><i class='icon-map-marker'></i></a>No space between function and opening paren.
+</li><li id='anonymous-functions_L2'><a class='reference' href='#anonymous-functions_L2'><i class='icon-map-marker'></i></a>One space after each comma in the signature.
+</li><li id='anonymous-functions_L3'><a class='reference' href='#anonymous-functions_L3'><i class='icon-map-marker'></i></a>One space after the closing paren.
+</li></ul>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='whitespace_L3'><a class='reference' href='#whitespace_L3'><i class='icon-map-marker'></i></a><p><strong>Operators:</strong> One space on either side of the operator except for increment, decrement, bitwise not and logical not.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="c1">// operators wrapped in spaces</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div><h4 id='operators'><a class='reference' href='#operators'><i class='icon-map-marker'></i></a>Operators</h4>
+<p>Use one space on either side of the operator except for increment, decrement, bitwise not and logical not.</p>
+
+<p><strong>Operators wrapped in spaces:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="nx">x</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">1</span>
 <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span>
@@ -282,54 +310,62 @@ One space after the closing paren.</p>
 <span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span>
 <span class="nx">x</span> <span class="o">||</span> <span class="nx">y</span>
 <span class="nx">x</span> <span class="o">|</span> <span class="mi">0</span>
-
-<span class="c1">// operators without spaces</span>
-<span class="nx">x</span><span class="o">++</span>
+</code></pre></div>
+<p><strong>Operators without spaces:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">x</span><span class="o">++</span>
 <span class="nx">x</span><span class="o">--</span>
 <span class="o">~</span><span class="nx">x</span>
 <span class="o">!</span><span class="nx">x</span>
-
-<span class="c1">// example</span>
-<span class="nx">x</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">?</span> <span class="nx">x</span><span class="o">++</span> <span class="o">:</span> <span class="nx">x</span><span class="o">--</span>
 </code></pre></div>
-<p><strong>Exceptions:</strong> When converting a type (Date to String, for example) the addition operator is often used as a
-shortcut. It is permissible to omit the space between the operator and operand in this case. Example:</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">x</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">?</span> <span class="nx">x</span><span class="o">++</span> <span class="o">:</span> <span class="nx">x</span><span class="o">--</span>
+</code></pre></div>
+<p><strong>Exceptions:</strong> When converting a type (Date to String, for example) the addition operator is often used as a shortcut. It is permissible to omit the space between the operator and operand in this case. Example:</p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">msSinceEpoch</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span>
-</code></pre></div></li></ul>
-<h2 id='object-literals'><a class='reference' href='#object-literals'><i class='icon-map-marker'></i></a>Object Literals</h2>
-<ul>
-<li id='object-literals_L1'><a class='reference' href='#object-literals_L1'><i class='icon-map-marker'></i></a><p>New empty object literals should be instantiated with <code>{}</code> instead of <code>new Object()</code></p>
-</li><li id='object-literals_L2'><a class='reference' href='#object-literals_L2'><i class='icon-map-marker'></i></a><p>With data, place a space after the opening brace, before the ending brace, and after each comma. Spaces around
-the colon can be omitted for brevity and still remain quite readable.</p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span><span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="nx">city</span><span class="o">:</span><span class="s1">&#39;Minneapolis&#39;</span> <span class="p">}</span>
-</code></pre></div></li><li id='object-literals_L3'><a class='reference' href='#object-literals_L3'><i class='icon-map-marker'></i></a><p>If the declaration runs over 80 characters, or contains an anonymous function declaration, it is best to break
-the statement up into multiple lines. Line breaks should appear after the opening brace, after each comma and
-before the closing brace. The content of the object literal should be indented two spaces and the closing brace
-should not be indented.</p>
+</code></pre></div><h2 id='object-literals'><a class='reference' href='#object-literals'><i class='icon-map-marker'></i></a>Object Literals</h2><h3 id='the-basics'><a class='reference' href='#the-basics'><i class='icon-map-marker'></i></a>The Basics</h3>
+<p>New empty object literals should be instantiated with <code>{}</code> instead of <code>new Object()</code></p>
+
+<p>With data, place a space after the opening brace, before the ending brace, and after each comma. Keep a space after the colon.</p>
+
+<p>Remember the golden rule: <strong>Let your code breathe.</strong></p>
+
+<p><strong>Preferred:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;Minneapolis&#39;</span> <span class="p">}</span>
+</code></pre></div><h3 id='long-literals'><a class='reference' href='#long-literals'><i class='icon-map-marker'></i></a>Long Literals</h3>
+<p>If the declaration runs over 80 characters, or contains an anonymous function declaration, it is best to break the statement up into multiple lines. Line breaks should appear after the opening brace, after each comma and before the closing brace. The content of the object literal should be indented two spaces and the closing brace should not be indented.</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">firstname</span><span class="o">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span>
   <span class="nx">lastname</span><span class="o">:</span> <span class="s1">&#39;Doe&#39;</span><span class="p">,</span>
   <span class="nx">city</span><span class="o">:</span> <span class="s1">&#39;Minneapolis&#39;</span><span class="p">,</span>
   <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://tstmedia.com&#39;</span>
 <span class="p">}</span>
-</code></pre></div></li><li id='array-literals_L1'><a class='reference' href='#array-literals_L1'><i class='icon-map-marker'></i></a><p>A blank space should precede each function property if the object is a definition for a class prototype or
-contains several function properties.</p>
+</code></pre></div><h3 id='prototypes-and-function-containers'><a class='reference' href='#prototypes-and-function-containers'><i class='icon-map-marker'></i></a>Prototypes and Function Containers</h3>
+<p>A newline should precede each function property if the object is a definition for a class prototype or contains several function properties.</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
 
   <span class="nx">walk</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">...</span>
+    <span class="p">...</span>
   <span class="p">},</span>
 
   <span class="nx">talk</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">phrase</span><span class="p">)</span> <span class="p">{</span>
-      <span class="p">...</span>
+    <span class="p">...</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='array-literals'><a class='reference' href='#array-literals'><i class='icon-map-marker'></i></a>Array Literals</h2></li><li id='array-literals_L2'><a class='reference' href='#array-literals_L2'><i class='icon-map-marker'></i></a><p>New empty array literals should be instantiated with <code>[]</code> instead of <code>new Array()</code></p>
-</li><li id='array-literals_L3'><a class='reference' href='#array-literals_L3'><i class='icon-map-marker'></i></a><p>Place a space after the opening bracket, before the closing bracket, and after each comma.</p>
+</code></pre></div><h2 id='array-literals'><a class='reference' href='#array-literals'><i class='icon-map-marker'></i></a>Array Literals</h2><h3 id='the-basics'><a class='reference' href='#the-basics'><i class='icon-map-marker'></i></a>The Basics</h3>
+<p>New empty array literals should be instantiated with <code>[]</code> instead of <code>new Array()</code>.</p>
+
+<p>Place a space after the opening bracket, before the closing bracket, and after each comma.</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]</span>
-</code></pre></div></li><li id='array-literals_L4'><a class='reference' href='#array-literals_L4'><i class='icon-map-marker'></i></a><p>If the declaration runs over 80 characters or contains anonymous functions, it is best to break the statement
-up into multiple lines. Line breaks should appear after the opening bracket, after each comma, and before the
-closing bracket. The array content should be indented two spaces and the closing bracket should not be indented.</p>
+</code></pre></div><h3 id='long-literals'><a class='reference' href='#long-literals'><i class='icon-map-marker'></i></a>Long Literals</h3>
+<p>If the declaration runs over 80 characters or contains anonymous functions, it is best to break the statement up into multiple lines. Line breaks should appear after the opening bracket, after each comma, and before the closing bracket. The array content should be indented two spaces and the closing bracket should not be indented.</p>
+
+<p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">whitelist</span> <span class="o">=</span> <span class="p">[</span>
   <span class="s1">&#39;teamID&#39;</span><span class="p">,</span>
   <span class="s1">&#39;name&#39;</span><span class="p">,</span>
@@ -337,8 +373,7 @@ closing bracket. The array content should be indented two spaces and the closing
   <span class="s1">&#39;color1&#39;</span><span class="p">,</span>
   <span class="s1">&#39;color2&#39;</span>
 <span class="p">]</span>
-</code></pre></div></li></ul>
-<h2 id='credits'><a class='reference' href='#credits'><i class='icon-map-marker'></i></a>Credits</h2>
+</code></pre></div><h2 id='credits'><a class='reference' href='#credits'><i class='icon-map-marker'></i></a>Credits</h2>
 <p>This guide is based on the <a href="http://sportngin.github.io/styleguide/javascript.html">Sport Ngin JavaScript Style Guide</a>. Thanks for all your hard work!</p>
 
 
