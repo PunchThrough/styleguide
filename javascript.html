@@ -142,23 +142,28 @@
     <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div><h2 id='block-style'><a class='reference' href='#block-style'><i class='icon-map-marker'></i></a>Block Style</h2><h3 id='conditional-blocks'><a class='reference' href='#conditional-blocks'><i class='icon-map-marker'></i></a>Conditional Blocks</h3>
-<p>Conditional blocks should be formatted with an <em>&#39;uncuddled&#39;</em> <code>else</code> in the case of larger blocks of code:</p>
+<p>Conditional blocks should be formatted with a &quot;cuddled&quot; <code>else</code>:</p>
 
 <p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">doSomthing</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+  <span class="nx">doSomething</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
   <span class="nx">callMethod</span><span class="p">()</span>
   <span class="nx">x</span> <span class="o">+=</span> <span class="nx">y</span>
   <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="nx">doSomethingElse</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
-<span class="p">}</span>
-<span class="k">else</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
   <span class="nx">callMethod2</span><span class="p">()</span>
   <span class="nx">x</span><span class="o">++</span>
   <span class="nx">someMethod</span><span class="p">()</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>In the case of smaller blocks containing only one or two lines, use a <em>&#39;cuddled&#39;</em> <code>else</code>:</p>
+<p>It&#39;s OK to write single line if statements with or without braces.</p>
+
+<p><strong>Preferred:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="k">return</span> <span class="nx">c</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span> <span class="p">}</span>
+</code></pre></div>
+<p><strong>Do not</strong> write multi line if statements without braces. <a href="objective-c.html#conditionals">Read more on why here</a>.</p>
 
 <p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
@@ -167,16 +172,6 @@
   <span class="k">return</span> <span class="nx">y</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Do not</strong> use if statements without braces. <a href="/objective-c.html#conditionals">Read more on why here</a>.</p>
-
-<p>The SparkNotes edition of that page:</p>
-
-<ul>
-<li id='conditional-blocks_L1'><a class='reference' href='#conditional-blocks_L1'><i class='icon-map-marker'></i></a>Conditional bodies should always use braces even when a conditional body could be written without braces.
-</li><li id='conditional-blocks_L2'><a class='reference' href='#conditional-blocks_L2'><i class='icon-map-marker'></i></a>One-liner if statements without braces are <strong>dangerous.</strong>
-</li><li id='conditional-blocks_L3'><a class='reference' href='#conditional-blocks_L3'><i class='icon-map-marker'></i></a>One-liner if statements with braces are acceptable.
-</li></ul>
-
 <p><strong>Not Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span>
   <span class="k">return</span> <span class="nx">x</span>
