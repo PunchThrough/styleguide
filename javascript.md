@@ -72,26 +72,37 @@ var pointX = 2, pointY = 4, pointZ = 0
 
 ### Conditional Blocks
 
-Conditional blocks should be formatted with an *'uncuddled'* `else` in the case of larger blocks of code:
+Conditional blocks should be formatted with a "cuddled" `else`:
 
 **Preferred:**
 
 ```javascript
 if (x == y) {
-  doSomthing(x)
+  doSomething(x)
   callMethod()
   x += y
   y = 0
   doSomethingElse(y)
-}
-else {
+} else {
   callMethod2()
   x++
   someMethod()
 }
 ```
 
-In the case of smaller blocks containing only one or two lines, use a *'cuddled'* `else`:
+It's OK to write single line if statements with or without braces.
+
+**Preferred:**
+
+```javascript
+if (a == b) return c
+```
+
+```javascript
+if (a == b) { return c }
+```
+
+**Do not** write multi line if statements without braces. [Read more on why here](objective-c.html#conditionals).
 
 **Preferred:**
 
@@ -102,14 +113,6 @@ if (x == y) {
   return y
 }
 ```
-
-**Do not** use if statements without braces. [Read more on why here](/objective-c.html#conditionals).
-
-The SparkNotes edition of that page:
-
-* Conditional bodies should always use braces even when a conditional body could be written without braces.
-* One-liner if statements without braces are **dangerous.**
-* One-liner if statements with braces are acceptable.
 
 **Not Preferred:**
 
