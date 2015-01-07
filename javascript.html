@@ -141,7 +141,7 @@
     <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
     <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
 </code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre></div><h2 id='block-style'><a class='reference' href='#block-style'><i class='icon-map-marker'></i></a>Block Style</h2><h3 id='conditional-blocks'><a class='reference' href='#conditional-blocks'><i class='icon-map-marker'></i></a>Conditional Blocks</h3>
+</code></pre></div><h2 id='conditional-blocks'><a class='reference' href='#conditional-blocks'><i class='icon-map-marker'></i></a>Conditional Blocks</h2>
 <p>Conditional blocks should be formatted with a &quot;cuddled&quot; <code>else</code>:</p>
 
 <p><strong>Preferred:</strong></p>
@@ -156,7 +156,7 @@
   <span class="nx">x</span><span class="o">++</span>
   <span class="nx">someMethod</span><span class="p">()</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div><h3 id='use-of-braces'><a class='reference' href='#use-of-braces'><i class='icon-map-marker'></i></a>Use of Braces</h3>
 <p>It&#39;s OK to write single line if statements with or without braces.</p>
 
 <p><strong>Preferred:</strong></p>
@@ -177,7 +177,7 @@
   <span class="k">return</span> <span class="nx">x</span>
 <span class="k">else</span>
   <span class="k">return</span> <span class="nx">y</span>
-</code></pre></div><h3 id='switch/case-statements'><a class='reference' href='#switch/case-statements'><i class='icon-map-marker'></i></a>Switch/Case Statements</h3>
+</code></pre></div><h2 id='switch/case-statements'><a class='reference' href='#switch/case-statements'><i class='icon-map-marker'></i></a>Switch/Case Statements</h2>
 <p>Be mindful in the use of <code>switch</code> at all.</p>
 
 <p><code>switch</code> statements in JavaScript, C, and other languages (excluding Ruby) exhibit behavior akin to <a href="http://en.wikipedia.org/wiki/Goto">goto statements</a> due to their fallthrough nature. This goes against principles of <a href="http://en.wikipedia.org/wiki/Structured_programming">structured programming</a>. There is always a different control structure which will do the job.</p>
@@ -218,17 +218,26 @@
     <span class="nx">doDefaultThing</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div><h2 id='comments'><a class='reference' href='#comments'><i class='icon-map-marker'></i></a>Comments</h2>
-<p>Block comments should only be used as a banner for a file, or as documentation of a function.</p>
-
-<p>Function documentation should be well formatted for automatic parsing and generation of documentation. One blank space should be inserted between the block comment and the prior function, as well as between the block comment and the function it is describing.</p>
-
-<p>The golden rule: <strong>Code says how, comments say why.</strong></p>
+<p>When writing comments, remember the golden rule: <strong>Code says how, comments say why.</strong></p>
 
 <ul>
 <li id='comments_L1'><a class='reference' href='#comments_L1'><i class='icon-map-marker'></i></a>Code should be written in a way that makes it easy for another programer to understand how it works.
 </li><li id='comments_L2'><a class='reference' href='#comments_L2'><i class='icon-map-marker'></i></a>Comments should describe why the code does what it does, not serve as a line-by-line rundown of what the code does.
 </li></ul>
-<h3 id='format-of-block-comments'><a class='reference' href='#format-of-block-comments'><i class='icon-map-marker'></i></a>Format of Block Comments</h3><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
+<h3 id='single-line-comments'><a class='reference' href='#single-line-comments'><i class='icon-map-marker'></i></a>Single Line Comments</h3>
+<p>Single line comments should appear as documentation within methods and around larger blocks of code.</p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// We need to baz the frobbed number because of RFC 4200, Proper Fooing with Bazzed Frob</span>
+  <span class="c1">// Baz is provided by the baz library (node-baz)</span>
+  <span class="k">return</span> <span class="nx">bazManager</span><span class="p">.</span><span class="nx">baz</span><span class="p">(</span><span class="nx">number</span><span class="p">.</span><span class="nx">frobbed</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div><h3 id='block-comments'><a class='reference' href='#block-comments'><i class='icon-map-marker'></i></a>Block Comments</h3>
+<p>Block comments should only be used as a banner for a file or as documentation of a function.</p>
+
+<p>Function documentation should be well formatted for automatic parsing and generation of documentation. One blank line should be inserted between the block comment and the prior function, as well as between the block comment and the function it is describing.</p>
+
+<p><strong>Examples:</strong></p>
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
 <span class="cm"> * Description of the method</span>
 <span class="cm"> *</span>
 <span class="cm"> * @param {Type} paramName</span>
@@ -241,14 +250,15 @@
   <span class="p">...</span>
   <span class="k">return</span> <span class="nx">something</span>
 <span class="p">}</span>
-</code></pre></div><h3 id='examples-of-block-comments'><a class='reference' href='#examples-of-block-comments'><i class='icon-map-marker'></i></a>Examples of Block Comments</h3><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
+</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
 <span class="cm"> * Squares the given number</span>
 <span class="cm"> *</span>
 <span class="cm"> * @param {Number} number</span>
 <span class="cm"> * @return {Number}</span>
 <span class="cm"> * @api public</span>
 <span class="cm"> */</span>
-</code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="cm">/**</span>
@@ -260,39 +270,30 @@
 <span class="kd">function</span> <span class="nx">cleanUp</span><span class="p">()</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Single line comments should appear as documentation within methods and around larger blocks of code.</p>
-
-<p>When writing single line comments, remember the golden rule: <strong>Code says how, comments say why.</strong></p>
-<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// We need to baz the frobbed number because of RFC 4200, Proper Fooing with Bazzed Frob</span>
-  <span class="c1">// Baz is provided by the baz library (node-baz)</span>
-  <span class="k">return</span> <span class="nx">bazManager</span><span class="p">.</span><span class="nx">baz</span><span class="p">(</span><span class="nx">number</span><span class="p">.</span><span class="nx">frobbed</span><span class="p">())</span>
-<span class="p">}</span>
-</code></pre></div><h3 id='whitespace'><a class='reference' href='#whitespace'><i class='icon-map-marker'></i></a>Whitespace</h3><h4 id='named-functions'><a class='reference' href='#named-functions'><i class='icon-map-marker'></i></a>Named Functions</h4>
+</code></pre></div><h2 id='whitespace'><a class='reference' href='#whitespace'><i class='icon-map-marker'></i></a>Whitespace</h2><h3 id='named-functions'><a class='reference' href='#named-functions'><i class='icon-map-marker'></i></a>Named Functions</h3>
 <ul>
-<li id='named-functions_L1'><a class='reference' href='#named-functions_L1'><i class='icon-map-marker'></i></a>Space after <code>function</code>.
-</li><li id='named-functions_L2'><a class='reference' href='#named-functions_L2'><i class='icon-map-marker'></i></a>No space between the method name and opening paren.
-</li><li id='named-functions_L3'><a class='reference' href='#named-functions_L3'><i class='icon-map-marker'></i></a>One space after each comma in the signature.
-</li><li id='named-functions_L4'><a class='reference' href='#named-functions_L4'><i class='icon-map-marker'></i></a>One space after the closing paren.
+<li id='named-functions_L1'><a class='reference' href='#named-functions_L1'><i class='icon-map-marker'></i></a>Add a space after <code>function</code>.
+</li><li id='named-functions_L2'><a class='reference' href='#named-functions_L2'><i class='icon-map-marker'></i></a>Don&#39;t add a space between the method name and opening paren.
+</li><li id='named-functions_L3'><a class='reference' href='#named-functions_L3'><i class='icon-map-marker'></i></a>Add one space after each comma in the signature.
+</li><li id='named-functions_L4'><a class='reference' href='#named-functions_L4'><i class='icon-map-marker'></i></a>Add one space after the closing paren.
 </li></ul>
 
 <p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">methodName</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div><h4 id='anonymous-functions'><a class='reference' href='#anonymous-functions'><i class='icon-map-marker'></i></a>Anonymous functions</h4>
+</code></pre></div><h3 id='anonymous-functions'><a class='reference' href='#anonymous-functions'><i class='icon-map-marker'></i></a>Anonymous functions</h3>
 <ul>
-<li id='anonymous-functions_L1'><a class='reference' href='#anonymous-functions_L1'><i class='icon-map-marker'></i></a>No space between function and opening paren.
-</li><li id='anonymous-functions_L2'><a class='reference' href='#anonymous-functions_L2'><i class='icon-map-marker'></i></a>One space after each comma in the signature.
-</li><li id='anonymous-functions_L3'><a class='reference' href='#anonymous-functions_L3'><i class='icon-map-marker'></i></a>One space after the closing paren.
+<li id='anonymous-functions_L1'><a class='reference' href='#anonymous-functions_L1'><i class='icon-map-marker'></i></a>Don&#39;t add a space between the function and opening paren.
+</li><li id='anonymous-functions_L2'><a class='reference' href='#anonymous-functions_L2'><i class='icon-map-marker'></i></a>Add one space after each comma in the signature.
+</li><li id='anonymous-functions_L3'><a class='reference' href='#anonymous-functions_L3'><i class='icon-map-marker'></i></a>Add one space after the closing paren.
 </li></ul>
 
 <p><strong>Preferred:</strong></p>
 <div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="kd">function</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
-</code></pre></div><h4 id='operators'><a class='reference' href='#operators'><i class='icon-map-marker'></i></a>Operators</h4>
+</code></pre></div><h3 id='operators'><a class='reference' href='#operators'><i class='icon-map-marker'></i></a>Operators</h3>
 <p>Use one space on either side of the operator except for increment, decrement, bitwise not and logical not.</p>
 
 <p><strong>Operators wrapped in spaces:</strong></p>
