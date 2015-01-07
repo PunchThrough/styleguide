@@ -68,9 +68,7 @@ var pointX = 2,
 var pointX = 2, pointY = 4, pointZ = 0
 ```
 
-## Block Style
-
-### Conditional Blocks
+## Conditional Blocks
 
 Conditional blocks should be formatted with a "cuddled" `else`:
 
@@ -89,6 +87,8 @@ if (x == y) {
   someMethod()
 }
 ```
+
+### Use of Braces
 
 It's OK to write single line if statements with or without braces.
 
@@ -123,7 +123,7 @@ else
   return y
 ```
 
-### Switch/Case Statements
+## Switch/Case Statements
 
 Be mindful in the use of `switch` at all.
 
@@ -173,16 +173,30 @@ switch(value) {
 
 ## Comments
 
-Block comments should only be used as a banner for a file, or as documentation of a function.
-
-Function documentation should be well formatted for automatic parsing and generation of documentation. One blank space should be inserted between the block comment and the prior function, as well as between the block comment and the function it is describing.
-
-The golden rule: **Code says how, comments say why.**
+When writing comments, remember the golden rule: **Code says how, comments say why.**
 
 * Code should be written in a way that makes it easy for another programer to understand how it works.
 * Comments should describe why the code does what it does, not serve as a line-by-line rundown of what the code does.
 
-### Format of Block Comments
+### Single Line Comments
+
+Single line comments should appear as documentation within methods and around larger blocks of code.
+
+```javascript
+function foo(number) {
+  // We need to baz the frobbed number because of RFC 4200, Proper Fooing with Bazzed Frob
+  // Baz is provided by the baz library (node-baz)
+  return bazManager.baz(number.frobbed())
+}
+```
+
+### Block Comments
+
+Block comments should only be used as a banner for a file or as documentation of a function.
+
+Function documentation should be well formatted for automatic parsing and generation of documentation. One blank line should be inserted between the block comment and the prior function, as well as between the block comment and the function it is describing.
+
+**Examples:**
 
 ```javascript
 /**
@@ -200,8 +214,6 @@ function doStuff(paramName, paramName2) {
 }
 ```
 
-### Examples of Block Comments
-
 ```javascript
 /**
  * Squares the given number
@@ -210,9 +222,7 @@ function doStuff(paramName, paramName2) {
  * @return {Number}
  * @api public
  */
- ```
 
-```javascript
 function square(number) {
   return number * number
 }
@@ -230,26 +240,14 @@ function cleanUp() {
 }
 ```
 
-Single line comments should appear as documentation within methods and around larger blocks of code.
+## Whitespace
 
-When writing single line comments, remember the golden rule: **Code says how, comments say why.**
+### Named Functions
 
-```javascript
-function foo(number) {
-  // We need to baz the frobbed number because of RFC 4200, Proper Fooing with Bazzed Frob
-  // Baz is provided by the baz library (node-baz)
-  return bazManager.baz(number.frobbed())
-}
-```
-
-### Whitespace
-
-#### Named Functions
-
-* Space after `function`.
-* No space between the method name and opening paren.
-* One space after each comma in the signature.
-* One space after the closing paren.
+* Add a space after `function`.
+* Don't add a space between the method name and opening paren.
+* Add one space after each comma in the signature.
+* Add one space after the closing paren.
 
 **Preferred:**
 
@@ -259,11 +257,11 @@ function methodName(param1, param2) {
 }
 ```
 
-#### Anonymous functions
+### Anonymous functions
 
-* No space between function and opening paren.
-* One space after each comma in the signature.
-* One space after the closing paren.
+* Don't add a space between the function and opening paren.
+* Add one space after each comma in the signature.
+* Add one space after the closing paren.
 
 **Preferred:**
 
@@ -273,7 +271,7 @@ function(param1, param2) {
 }
 ```
 
-#### Operators
+### Operators
 
 Use one space on either side of the operator except for increment, decrement, bitwise not and logical not.
 
