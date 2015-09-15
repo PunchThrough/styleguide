@@ -24,7 +24,7 @@ environment: development
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 
-markdown: redcarpet
+markdown: kramdown
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
