@@ -15,6 +15,7 @@ rake setup
 ```
 
 ## Running locally
+
 This project is built with Jekyll.
 
 To run a development server locally, first install necessary gems:
