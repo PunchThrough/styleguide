@@ -27,4 +27,4 @@ The following standards apply to code we own:
 2. This will be enforced by automated testing and linting
 3. All changes to this code must go through peer review
 
-Code that we do not own, such as third-party library code, does not need to follow these rules.
+Code that we do not own, such as third-party library code **still linked to the upstream source**, does not need to follow these rules.
