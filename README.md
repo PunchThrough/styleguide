@@ -1,5 +1,4 @@
 # [Punch Through Design Style Guide](https://punchthrough.github.io/styleguide)
----
 
 This is the style guide used for code written by Punch Through Design.
 
@@ -16,6 +15,7 @@ rake setup
 ```
 
 ## Running locally
+
 This project is built with Jekyll.
 
 To run a development server locally, first install necessary gems:
