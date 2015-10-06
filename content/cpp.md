@@ -7,48 +7,45 @@ group: navigation
 
 {% include JB/setup %}
 
-## Introduction
+## Style Guide
 
----
+We use the [Google C++ Style Guide](https://google-styleguide.googlecode.com/svn/trunk/cppguide.html).
 
-This guide is a living document.  If there is ever a question related to style that is not
-present in this guide, refer to the [Official Google C++ Style Guide](https://google-styleguide.googlecode.com/svn/trunk/cppguide.html).
+Our continuous integration server lints all code when it's pushed to a branch or added to a pull request. Your build will fail if it does not meet our style standards.
 
-## Style and Formatting
+Here are the basic rules of the Google C++ Style Guide:
 
----
-
-#### Basics
-
-* Spaces instead of tabs
+* Spaces, not tabs
 * 2-space indentation
-* Keep line length around 80-100 characters
-
-## Development
-
----
-
-#### Best Practices
-
-Try to exercise these best practices while working on a C/C++ project.
+* Keep line length under 100 characters
  
-* **Linting and automatic formatting**
+## Linting and automatic formatting
     
-    Most of our projects should be using a CI server to enforce proper format but it's also
-    a good idea to get familiar with the tools yourself.  For C/C++ projects we use `cpplint`
-    which was developed by google and `clang-format` for automated formatting.
-    
-    Here is how you install and run these tools
-    
-    ```
-    $ brew install clang-format
-    $ pip install cpp-lint
-    ```
-    
-    Typical usage
-    
-    ```
-    $ cpp-lint [file(s) or directory]
-    $ clang-format -i [file(s) or directory]
-    ```
-  
+It's a good idea to get familiar with the tools used by our CI server so you can lint and reformat your code locally.
+
+We lint C++ projects with cpplint and reformat code with clang-format.
+
+### Installing Linters
+
+```bash
+brew install clang-format
+pip install cpplint
+```
+
+### Usage
+
+```bash
+# Lint files for Google style
+cpplint [FILES...] [DIRECTORIES...]
+
+# Reformat files using Google style
+clang-format -style=Google -i [FILES...] [DIRECTORIES...]
+```
+
+### Configuration
+
+Individual projects may have configurations for cpplint or clang-format already included.
+
+clang-format uses the `.clang-format` file to set formatting style. See the [clang-format docs](http://clang.llvm.org/docs/ClangFormat.html) for more info.
+
+cpplint is configured in `CPPLINT.cfg`. See the [cpplint.py source](https://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py) for more info on configuration options and linter filters.
