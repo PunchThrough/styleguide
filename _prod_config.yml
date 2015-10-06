@@ -5,7 +5,6 @@ source: content
 permalink: /:categories/:year/:month/:day/:title
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
 
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
@@ -13,7 +12,7 @@ pygments: true
 title : Style Guide
 tagline: 
 author :
-  name : Punch Through Design
+  name : Punch Through
   github : PunchThrough
   twitter : PunchThrough
 environment: production
@@ -27,8 +26,9 @@ environment: production
 #
 
 markdown: kramdown
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables"]
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 production_url : http://punchthrough.github.io/styleguide
 
