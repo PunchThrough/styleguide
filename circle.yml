@@ -1,0 +1,22 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+
+machine:
+  node:
+    version: 0.12.0
+  ruby:
+    version: 2.2.3
+
+test:
+  override:
+    - exit 0  # dummy test
+
+deployment:
+  release:  # docs are released when master is updated
+    branch: master
+    commands:
+      - git config --global user.email 'circleci@punchthrough.com'
+      - git config --global user.name 'CircleCI Automated Build'
+      - npm run gulp deploy
