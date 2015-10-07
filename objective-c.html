@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <meta name="author" content="Punch Through Design">
+    <meta name="author" content="Punch Through">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Objective-C</title>
+    <title>Objective-C Style Guide</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://punchthrough.github.io/styleguide/assets/themes/twitter-bs3/bootstrap/css/bootstrap.3.3.1.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
           </button>
           <a class="navbar-brand" href="http://punchthrough.github.io/styleguide">
             <img src="http://punchthrough.github.io/styleguide/assets/themes/twitter-bs3/img/logo.png" alt="" class="logo">
-            PTD Style Guide
+            Style Guide
           </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -52,6 +52,14 @@
   
     
       
+      	
+      	<li><a href="http://punchthrough.github.io/styleguide/bean-voice.html">Bean Voice</a></li>
+      	
+      
+    
+  
+    
+  
     
   
     
@@ -71,14 +79,12 @@
     
   
     
+  
+    
       
       	
       	<li><a href="http://punchthrough.github.io/styleguide/python.html">Python</a></li>
       	
-      
-    
-  
-    
       
     
   
@@ -95,550 +101,790 @@
         <div class="col-md-12">
           
 <div class="page-header">
-  <h1>Objective-C </h1>
+  <h1>Objective-C Style Guide </h1>
 </div>
 
 <div class="toc"></div>
 
-<h2 id='introduction'><a class='reference' href='#introduction'><i class='icon-map-marker'></i></a>Introduction</h2>
+
+<h2 id="introduction">Introduction</h2>
+
 <p>This style guide serves as a way to standardize Objective-C code we write at Punch Through Design.</p>
-<h2 id='language'><a class='reference' href='#language'><i class='icon-map-marker'></i></a>Language</h2>
+
+<h2 id="language">Language</h2>
+
 <p>US English should be used.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">UIColor</span> <span class="o">*</span><span class="n">myColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">UIColor</span> <span class="o">*</span><span class="n">myColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">whiteColor</span><span class="p">];</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">UIColor</span> <span class="o">*</span><span class="n">myColour</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">whiteColor</span><span class="p">];</span>
-</code></pre></div><h2 id='code-organization'><a class='reference' href='#code-organization'><i class='icon-map-marker'></i></a>Code Organization</h2>
-<p>Use <code>#pragma mark -</code> to categorize methods in functional groupings and protocol/delegate implementations following this general structure.</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="cp">#pragma mark - Lifecycle</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">init</span> <span class="p">{}</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">dealloc</span> <span class="p">{}</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{}</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">viewWillAppear:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">animated</span> <span class="p">{}</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">didReceiveMemoryWarning</span> <span class="p">{}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">UIColor</span> <span class="o">*</span><span class="n">myColour</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">whiteColor</span><span class="p">];</span>
+</code></pre>
+</div>
 
-<span class="cp">#pragma mark - Custom Accessors</span>
+<h2 id="code-organization">Code Organization</h2>
 
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setCustomProperty:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">value</span> <span class="p">{}</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">customProperty</span> <span class="p">{}</span>
+<p>Use <code class="highlighter-rouge">#pragma mark -</code> to categorize methods in functional groupings and protocol/delegate implementations following this general structure.</p>
 
-<span class="cp">#pragma mark - IBActions</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#pragma mark - Lifecycle
+</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span> <span class="p">{}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">dealloc</span> <span class="p">{}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewDidLoad</span> <span class="p">{}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">viewWillAppear</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">animated</span> <span class="p">{}</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">didReceiveMemoryWarning</span> <span class="p">{}</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="kt">IBAction</span><span class="p">)</span><span class="nf">submitData:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">sender</span> <span class="p">{}</span>
+<span class="cp">#pragma mark - Custom Accessors
+</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">setCustomProperty</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">value</span> <span class="p">{}</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">customProperty</span> <span class="p">{}</span>
 
-<span class="cp">#pragma mark - Public</span>
+<span class="cp">#pragma mark - IBActions
+</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">IBAction</span><span class="p">)</span><span class="n">submitData</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">sender</span> <span class="p">{}</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">publicMethod</span> <span class="p">{}</span>
+<span class="cp">#pragma mark - Public
+</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">publicMethod</span> <span class="p">{}</span>
 
-<span class="cp">#pragma mark - Private</span>
+<span class="cp">#pragma mark - Private
+</span>
+<span class="o">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">privateMethod</span> <span class="p">{}</span>
 
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">privateMethod</span> <span class="p">{}</span>
+<span class="cp">#pragma mark - Protocol conformance
+#pragma mark - UITextFieldDelegate
+#pragma mark - UITableViewDataSource
+#pragma mark - UITableViewDelegate
+</span>
+<span class="cp">#pragma mark - NSCopying
+</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">copyWithZone</span><span class="o">:</span><span class="p">(</span><span class="n">NSZone</span> <span class="o">*</span><span class="p">)</span><span class="n">zone</span> <span class="p">{}</span>
 
-<span class="cp">#pragma mark - Protocol conformance</span>
-<span class="cp">#pragma mark - UITextFieldDelegate</span>
-<span class="cp">#pragma mark - UITableViewDataSource</span>
-<span class="cp">#pragma mark - UITableViewDelegate</span>
+<span class="cp">#pragma mark - NSObject
+</span>
+<span class="o">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">description</span> <span class="p">{}</span>
+</code></pre>
+</div>
 
-<span class="cp">#pragma mark - NSCopying</span>
+<h2 id="spacing">Spacing</h2>
 
-<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">copyWithZone:</span><span class="p">(</span><span class="n">NSZone</span> <span class="o">*</span><span class="p">)</span><span class="nv">zone</span> <span class="p">{}</span>
-
-<span class="cp">#pragma mark - NSObject</span>
-
-<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">description</span> <span class="p">{}</span>
-</code></pre></div><h2 id='spacing'><a class='reference' href='#spacing'><i class='icon-map-marker'></i></a>Spacing</h2>
 <ul>
-<li id='spacing_L1'><a class='reference' href='#spacing_L1'><i class='icon-map-marker'></i></a>Indent using 4 spaces. Never indent with tabs. This is the default setting in Xcode.
-</li><li id='spacing_L2'><a class='reference' href='#spacing_L2'><i class='icon-map-marker'></i></a>Method braces and other braces (<code>if</code>/<code>else</code>/<code>switch</code>/<code>while</code> etc.) always open on the same line as the statement but close on a new line.
-</li></ul>
+  <li>Indent using 4 spaces. Never indent with tabs. This is the default setting in Xcode.</li>
+  <li>Method braces and other braces (<code class="highlighter-rouge">if</code>/<code class="highlighter-rouge">else</code>/<code class="highlighter-rouge">switch</code>/<code class="highlighter-rouge">while</code> etc.) always open on the same line as the statement but close on a new line.</li>
+</ul>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">isHappy</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Do something</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// Do something else</span>
-<span class="p">}</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">isHappy</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do something
+</span><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Do something else
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">isHappy</span><span class="p">)</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">user</span><span class="p">.</span><span class="n">isHappy</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// Do something</span>
-<span class="p">}</span>
+  <span class="c1">// Do something
+</span><span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-  <span class="c1">// Do something else</span>
-<span class="p">}</span>
-</code></pre></div>
+  <span class="c1">// Do something else
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <ul>
-<li id='spacing_L3'><a class='reference' href='#spacing_L3'><i class='icon-map-marker'></i></a>There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.
-</li><li id='spacing_L4'><a class='reference' href='#spacing_L4'><i class='icon-map-marker'></i></a>Prefer using auto-synthesis. But if necessary, <code>@synthesize</code> and <code>@dynamic</code> should each be declared on new lines in the implementation.
-</li></ul>
-<h3 id='colon-aligning'><a class='reference' href='#colon-aligning'><i class='icon-map-marker'></i></a>Colon Aligning</h3>
+  <li>There should be exactly one blank line between methods to aid in visual clarity and organization. Whitespace within methods should separate functionality, but often there should probably be new methods.</li>
+  <li>Prefer using auto-synthesis. But if necessary, <code class="highlighter-rouge">@synthesize</code> and <code class="highlighter-rouge">@dynamic</code> should each be declared on new lines in the implementation.</li>
+</ul>
+
+<h3 id="colon-aligning">Colon Aligning</h3>
+
 <ul>
-<li id='colon-aligning_L1'><a class='reference' href='#colon-aligning_L1'><i class='icon-map-marker'></i></a>There are cases where a method signature may have &gt;= 3 colons and colon-aligning makes the code more readable.
-</li><li id='colon-aligning_L2'><a class='reference' href='#colon-aligning_L2'><i class='icon-map-marker'></i></a>Do <strong>NOT</strong> colon align methods containing blocks because Xcode&#39;s indenting makes it illegible. 
-</li><li id='colon-aligning_L3'><a class='reference' href='#colon-aligning_L3'><i class='icon-map-marker'></i></a>Use your best judgement on when to colon-align and when not to colon-align.
-</li></ul>
+  <li>There are cases where a method signature may have &gt;= 3 colons and colon-aligning makes the code more readable.</li>
+  <li>Do <strong>NOT</strong> colon align methods containing blocks because Xcode’s indenting makes it illegible.</li>
+  <li>Use your best judgement on when to colon-align and when not to colon-align.</li>
+</ul>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="c1">// blocks are easily readable</span>
-<span class="p">[</span><span class="n">UIView</span> <span class="n">animateWithDuration</span><span class="o">:</span><span class="mf">1.0</span> <span class="n">animations</span><span class="o">:^</span><span class="p">{</span>
-    <span class="c1">// something</span>
-<span class="p">}</span> <span class="n">completion</span><span class="o">:^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// something</span>
-<span class="p">}];</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// blocks are easily readable
+</span><span class="p">[</span><span class="n">UIView</span> <span class="nf">animateWithDuration</span><span class="p">:</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="nf">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+    <span class="c1">// something
+</span><span class="p">}</span> <span class="nf">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// something
+</span><span class="p">}];</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="c1">// colon-aligning makes the block indentation hard to read</span>
-<span class="p">[</span><span class="n">UIView</span> <span class="n">animateWithDuration</span><span class="o">:</span><span class="mf">1.0</span>
-                 <span class="nl">animations:</span><span class="o">^</span><span class="p">{</span>
-                     <span class="c1">// something</span>
-                 <span class="p">}</span>
-                 <span class="nl">completion:</span><span class="o">^</span><span class="p">(</span><span class="kt">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
-                     <span class="c1">// something</span>
-                 <span class="p">}];</span>
-</code></pre></div><h3 id='the-golden-rule-of-spacing'><a class='reference' href='#the-golden-rule-of-spacing'><i class='icon-map-marker'></i></a>The Golden Rule of Spacing</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// colon-aligning makes the block indentation hard to read
+</span><span class="p">[</span><span class="n">UIView</span> <span class="nf">animateWithDuration</span><span class="p">:</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span>
+                 <span class="nf">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                     <span class="c1">// something
+</span>                 <span class="p">}</span>
+                 <span class="nf">completion</span><span class="p">:</span><span class="o">^</span><span class="p">(</span><span class="n">BOOL</span> <span class="n">finished</span><span class="p">)</span> <span class="p">{</span>
+                     <span class="c1">// something
+</span>                 <span class="p">}];</span>
+</code></pre>
+</div>
+
+<h3 id="the-golden-rule-of-spacing">The Golden Rule of Spacing</h3>
+
 <p><strong>Let your code breathe.</strong> Spaces are your friend.  Use them liberally.  They help your code look more organized and easier for most people to read.</p>
 
 <p>Place an extra line between sections of code to create related sections to make your code easier to read.</p>
 
 <p>Preferred:</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">PTConstant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">PTConstant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">newIndex</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">thatOtherVariable</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">doSomethingAmazing</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">doSomethingAmazing</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">newIndex</span> <span class="o">&lt;</span> <span class="n">PTMaxLimitOfSomething</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">doSomethingAmazing</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">doSomethingAmazing</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">[</span><span class="n">self</span> <span class="n">doThatAmazingThingWithIndex</span><span class="o">:</span><span class="n">newIndex</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">doThatAmazingThingWithIndex</span><span class="p">:</span><span class="n">newIndex</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">PTConstant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">PTConstant</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">newIndex</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">thatOtherVariable</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">doSomethingAmazing</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">doSomethingAmazing</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">newIndex</span> <span class="o">&lt;</span> <span class="n">PTMaxLimitOfSomething</span> <span class="p">)</span> <span class="p">{</span>
         <span class="n">doSomethingAmazing</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">(</span> <span class="n">doSomethingAmazing</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="p">[</span><span class="n">self</span> <span class="n">doThatAmazingThingWithIndex</span><span class="o">:</span><span class="n">newIndex</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">doThatAmazingThingWithIndex</span><span class="p">:</span><span class="n">newIndex</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Not Preferred:</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">PTConstant</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">PTConstant</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">newIndex</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="n">thatOtherVariable</span><span class="p">;</span>
-    <span class="kt">bool</span> <span class="n">doSomethingAmazing</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
+    <span class="n">bool</span> <span class="n">doSomethingAmazing</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">newIndex</span><span class="o">&lt;</span><span class="n">PTMaxLimitOfSomething</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">doSomethingAmazing</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">doSomethingAmazing</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">[</span><span class="n">self</span> <span class="n">doThatAmazingThingWithIndex</span><span class="o">:</span><span class="n">newIndex</span><span class="p">];</span>
+        <span class="p">[</span><span class="n">self</span> <span class="nf">doThatAmazingThingWithIndex</span><span class="p">:</span><span class="n">newIndex</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='comments'><a class='reference' href='#comments'><i class='icon-map-marker'></i></a>Comments</h2>
+</code></pre>
+</div>
+
+<h2 id="comments">Comments</h2>
+
 <p>When they are needed, comments should be used to explain <strong>why</strong> a particular piece of code does something. Any comments that are used must be kept up-to-date or deleted.</p>
 
 <p>Block comments should generally be avoided, as code should be as self-documenting as possible, with only the need for intermittent, few-line explanations. <em>Exception: This does not apply to those comments used to generate documentation.</em></p>
 
 <p>The golden rule: <strong>Code says how, comments say why.</strong></p>
-<h2 id='naming'><a class='reference' href='#naming'><i class='icon-map-marker'></i></a>Naming</h2>
+
+<h2 id="naming">Naming</h2>
+
 <p>Apple naming conventions should be adhered to wherever possible, especially those related to <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html">memory management rules</a> (<a href="http://stackoverflow.com/a/2865194/340508">NARC</a>).</p>
 
 <p>Long, descriptive method and variable names are good.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">UIButton</span> <span class="o">*</span><span class="n">settingsButton</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">UIButton</span> <span class="o">*</span><span class="n">settingsButton</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">UIButton</span> <span class="o">*</span><span class="n">setBut</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">UIButton</span> <span class="o">*</span><span class="n">setBut</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p>A three letter prefix should always be used for class names and constants. This may be omitted for Core Data entity names.</p>
 
-<p>The default prefix for Punch Through Design projects should be &quot;PTD&quot;.</p>
+<p>The default prefix for Punch Through Design projects should be “PTD”.</p>
 
 <p>Constants should be camel-case with all words capitalized and prefixed by the related class name for clarity.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">PTDTutorialViewControllerNavigationFadeAnimationDuration</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">PTDTutorialViewControllerNavigationFadeAnimationDuration</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">fadetime</span> <span class="o">=</span> <span class="mf">1.7</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">static</span> <span class="n">NSTimeInterval</span> <span class="k">const</span> <span class="n">fadetime</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">7</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p>Properties should be camel-case with the leading word being lowercase. Use auto-synthesis for properties rather than manual @synthesize statements unless you have good reason.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">descriptiveVariableName</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">descriptiveVariableName</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="kt">id</span> <span class="n">varnm</span><span class="p">;</span>
-</code></pre></div><h3 id='underscores'><a class='reference' href='#underscores'><i class='icon-map-marker'></i></a>Underscores</h3>
-<p>When using properties, instance variables should always be accessed and mutated using <code>self.</code>. This means that all properties will be visually distinct, as they will all be prefaced with <code>self.</code>. </p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">id</span> <span class="n">varnm</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="underscores">Underscores</h3>
+
+<p>When using properties, instance variables should always be accessed and mutated using <code class="highlighter-rouge">self.</code>. This means that all properties will be visually distinct, as they will all be prefaced with <code class="highlighter-rouge">self.</code>.</p>
 
 <p>An exception to this: inside initializers, the backing instance variable (i.e. _variableName) should be used directly to avoid any potential side effects of the getters/setters.</p>
 
 <p>Local variables should not contain underscores.</p>
-<h2 id='methods'><a class='reference' href='#methods'><i class='icon-map-marker'></i></a>Methods</h2>
-<p>In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple&#39;s style).  Always include a keyword and be descriptive with the word before the argument which describes the argument.</p>
 
-<p>The usage of the word &quot;and&quot; is reserved.  It should not be used for multiple parameters as illustrated in the <code>initWithWidth:height:</code> example below.</p>
+<h2 id="methods">Methods</h2>
+
+<p>In method signatures, there should be a space after the method type (-/+ symbol). There should be a space between the method segments (matching Apple’s style).  Always include a keyword and be descriptive with the word before the argument which describes the argument.</p>
+
+<p>The usage of the word “and” is reserved.  It should not be used for multiple parameters as illustrated in the <code class="highlighter-rouge">initWithWidth:height:</code> example below.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setExampleText:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">image:</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAction:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">aSelector</span> <span class="nf">to:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nv">anObject</span> <span class="nf">forAllCells:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">flag</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">viewWithTag:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">tag</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithWidth:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">width</span> <span class="nf">height:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">height</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setExampleText</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">image</span><span class="p">:(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAction</span><span class="p">:(</span><span class="n">SEL</span><span class="p">)</span><span class="nv">aSelector</span> <span class="nf">to</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">anObject</span> <span class="nf">forAllCells</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">flag</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">viewWithTag</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">tag</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithWidth</span><span class="p">:(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">width</span> <span class="nf">height</span><span class="p">:(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">height</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setT:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">i:</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAction:</span><span class="p">(</span><span class="kt">SEL</span><span class="p">)</span><span class="nv">aSelector</span> <span class="o">:</span><span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="n">anObject</span> <span class="o">:</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">flag</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="kt">id</span><span class="p">)</span><span class="nf">taggedView:</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">tag</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithWidth:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">width</span> <span class="nf">andHeight:</span><span class="p">(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">height</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWith:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nv">width</span> <span class="nf">and:</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="nv">height</span><span class="p">;</span>  <span class="c1">// Never do this.</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setT</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">i</span><span class="p">:(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">sendAction</span><span class="p">:(</span><span class="n">SEL</span><span class="p">)</span><span class="nv">aSelector</span> <span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">anObject</span> <span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">flag</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">taggedView</span><span class="p">:(</span><span class="n">NSInteger</span><span class="p">)</span><span class="nv">tag</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWithWidth</span><span class="p">:(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">width</span> <span class="nf">andHeight</span><span class="p">:(</span><span class="n">CGFloat</span><span class="p">)</span><span class="nv">height</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">initWith</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">width</span> <span class="nf">and</span><span class="p">:(</span><span class="kt">int</span><span class="p">)</span><span class="nv">height</span><span class="p">;</span>  <span class="c1">// Never do this.
+</span></code></pre>
+</div>
+
 <p>When writing method implementations, opening brackets go on their own line.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setExampleText:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">image:</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setExampleText</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">image</span><span class="p">:(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span>
 <span class="p">{</span>
-    <span class="c1">// code goes here</span>
-<span class="p">}</span>
-</code></pre></div>
+    <span class="c1">// code goes here
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setExampleText:</span><span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">image:</span><span class="p">(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span> <span class="p">{</span>
-    <span class="c1">// code goes here</span>
-<span class="p">}</span>
-</code></pre></div><h2 id='variables'><a class='reference' href='#variables'><i class='icon-map-marker'></i></a>Variables</h2>
-<p>Variables should be named as descriptively as possible. Single letter variable names should be avoided except in <code>for()</code> loops.</p>
 
-<p>Asterisks indicating pointers belong with the variable, e.g., <code>NSString *text</code> not <code>NSString* text</code> or <code>NSString * text</code>, except in the case of constants.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setExampleText</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">text</span> <span class="nf">image</span><span class="p">:(</span><span class="n">UIImage</span> <span class="o">*</span><span class="p">)</span><span class="nv">image</span> <span class="p">{</span>
+    <span class="c1">// code goes here
+</span><span class="p">}</span>
+</code></pre>
+</div>
 
-<p><a href="#private-properties">Private properties</a> should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent. </p>
+<h2 id="variables">Variables</h2>
 
-<p>Direct access to instance variables that &#39;back&#39; properties should be avoided except in initializer methods (<code>init</code>, <code>initWithCoder:</code>, etc…), <code>dealloc</code> methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6">here</a>.</p>
+<p>Variables should be named as descriptively as possible. Single letter variable names should be avoided except in <code class="highlighter-rouge">for()</code> loops.</p>
+
+<p>Asterisks indicating pointers belong with the variable, e.g., <code class="highlighter-rouge">NSString *text</code> not <code class="highlighter-rouge">NSString* text</code> or <code class="highlighter-rouge">NSString * text</code>, except in the case of constants.</p>
+
+<p><a href="#private-properties">Private properties</a> should be used in place of instance variables whenever possible. Although using instance variables is a valid way of doing things, by agreeing to prefer properties our code will be more consistent.</p>
+
+<p>Direct access to instance variables that ‘back’ properties should be avoided except in initializer methods (<code class="highlighter-rouge">init</code>, <code class="highlighter-rouge">initWithCoder:</code>, etc…), <code class="highlighter-rouge">dealloc</code> methods and within custom setters and getters. For more information on using Accessor Methods in Initializer Methods and dealloc, see <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/mmPractical.html#//apple_ref/doc/uid/TP40004447-SW6">here</a>.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PTDTutorial</span> : <span class="nc">NSObject</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">PTDTutorial</span> <span class="p">:</span> <span class="nc">NSObject</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
 
 <span class="k">@end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PTDTutorial</span> : <span class="nc">NSObject</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">PTDTutorial</span> <span class="p">:</span> <span class="nc">NSObject</span> <span class="p">{</span>
     <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='property-attributes'><a class='reference' href='#property-attributes'><i class='icon-map-marker'></i></a>Property Attributes</h2>
+</code></pre>
+</div>
+
+<h2 id="property-attributes">Property Attributes</h2>
+
 <p>Property attributes should be explicitly listed, and will help new programmers when reading the code.  The order of properties should be storage then atomicity, which is consistent with automatically generated code when connecting UI elements from Interface Builder.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">containerView</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">weak</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">containerView</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="kt">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">containerView</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">IBOutlet</span> <span class="n">UIView</span> <span class="o">*</span><span class="n">containerView</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
-</code></pre></div>
-<p>Properties with mutable counterparts (e.g. NSString) should prefer <code>copy</code> instead of <code>strong</code>. 
-Why? Even if you declared a property as <code>NSString</code>, somebody might pass in an instance of an <code>NSMutableString</code> and then change it without you noticing that.  </p>
+</code></pre>
+</div>
+
+<p>Properties with mutable counterparts (e.g. NSString) should prefer <code class="highlighter-rouge">copy</code> instead of <code class="highlighter-rouge">strong</code>. <br />
+Why? Even if you declared a property as <code class="highlighter-rouge">NSString</code>, somebody might pass in an instance of an <code class="highlighter-rouge">NSMutableString</code> and then change it without you noticing that.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">copy</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
-</code></pre></div><h2 id='dot-notation-syntax'><a class='reference' href='#dot-notation-syntax'><i class='icon-map-marker'></i></a>Dot-Notation Syntax</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">tutorialName</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h2 id="dot-notation-syntax">Dot-Notation Syntax</h2>
+
 <p>Dot syntax is purely a convenient wrapper around accessor method calls. When you use dot syntax, the property is still accessed or changed using getter and setter methods.  Read more <a href="https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/EncapsulatingData/EncapsulatingData.html">here</a></p>
 
 <p>Dot-notation should <strong>always</strong> be used for accessing and mutating properties, as it makes code more concise. Bracket notation is preferred in all other instances.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSInteger</span> <span class="n">arrayCount</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
-<span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="n">orangeColor</span><span class="p">];</span>
-<span class="p">[</span><span class="n">UIApplication</span> <span class="n">sharedApplication</span><span class="p">].</span><span class="n">delegate</span><span class="p">;</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSInteger</span> <span class="n">arrayCount</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">array</span><span class="p">.</span><span class="n">count</span><span class="p">;</span>
+<span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">orangeColor</span><span class="p">];</span>
+<span class="p">[</span><span class="n">UIApplication</span> <span class="nf">sharedApplication</span><span class="p">].</span><span class="n">delegate</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSInteger</span> <span class="n">arrayCount</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">array</span> <span class="n">count</span><span class="p">];</span>
-<span class="p">[</span><span class="n">view</span> <span class="n">setBackgroundColor</span><span class="o">:</span><span class="p">[</span><span class="n">UIColor</span> <span class="n">orangeColor</span><span class="p">]];</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSInteger</span> <span class="n">arrayCount</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">array</span> <span class="nf">count</span><span class="p">];</span>
+<span class="p">[</span><span class="n">view</span> <span class="nf">setBackgroundColor</span><span class="p">:[</span><span class="n">UIColor</span> <span class="nf">orangeColor</span><span class="p">]];</span>
 <span class="n">UIApplication</span><span class="p">.</span><span class="n">sharedApplication</span><span class="p">.</span><span class="n">delegate</span><span class="p">;</span>
-</code></pre></div><h2 id='literals'><a class='reference' href='#literals'><i class='icon-map-marker'></i></a>Literals</h2>
-<p><code>NSString</code>, <code>NSDictionary</code>, <code>NSArray</code>, and <code>NSNumber</code> literals should be used whenever creating immutable instances of those objects. Pay special care that <code>nil</code> values can not be passed into <code>NSArray</code> and <code>NSDictionary</code> literals, as this will cause a crash.</p>
+</code></pre>
+</div>
+
+<h2 id="literals">Literals</h2>
+
+<p><code class="highlighter-rouge">NSString</code>, <code class="highlighter-rouge">NSDictionary</code>, <code class="highlighter-rouge">NSArray</code>, and <code class="highlighter-rouge">NSNumber</code> literals should be used whenever creating immutable instances of those objects. Pay special care that <code class="highlighter-rouge">nil</code> values can not be passed into <code class="highlighter-rouge">NSArray</code> and <code class="highlighter-rouge">NSDictionary</code> literals, as this will cause a crash.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSArray</span> <span class="o">*</span><span class="n">names</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span><span class="s">@&quot;Brian&quot;</span><span class="p">,</span> <span class="s">@&quot;Matt&quot;</span><span class="p">,</span> <span class="s">@&quot;Chris&quot;</span><span class="p">,</span> <span class="s">@&quot;Alex&quot;</span><span class="p">,</span> <span class="s">@&quot;Steve&quot;</span><span class="p">,</span> <span class="s">@&quot;Paul&quot;</span><span class="p">];</span>
-<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">productManagers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@&quot;iPhone&quot;</span><span class="o">:</span> <span class="s">@&quot;Kate&quot;</span><span class="p">,</span> <span class="s">@&quot;iPad&quot;</span><span class="o">:</span> <span class="s">@&quot;Kamal&quot;</span><span class="p">,</span> <span class="s">@&quot;Mobile Web&quot;</span><span class="o">:</span> <span class="s">@&quot;Bill&quot;</span><span class="p">};</span>
-<span class="n">NSNumber</span> <span class="o">*</span><span class="n">shouldUseLiterals</span> <span class="o">=</span> <span class="err">@</span><span class="nb">YES</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSArray</span> <span class="o">*</span><span class="n">names</span> <span class="o">=</span> <span class="p">@[</span><span class="s">@"Brian"</span><span class="p">,</span> <span class="s">@"Matt"</span><span class="p">,</span> <span class="s">@"Chris"</span><span class="p">,</span> <span class="s">@"Alex"</span><span class="p">,</span> <span class="s">@"Steve"</span><span class="p">,</span> <span class="s">@"Paul"</span><span class="p">];</span>
+<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">productManagers</span> <span class="o">=</span> <span class="err">@</span><span class="p">{</span><span class="s">@"iPhone"</span><span class="o">:</span> <span class="s">@"Kate"</span><span class="p">,</span> <span class="s">@"iPad"</span><span class="o">:</span> <span class="s">@"Kamal"</span><span class="p">,</span> <span class="s">@"Mobile Web"</span><span class="o">:</span> <span class="s">@"Bill"</span><span class="p">};</span>
+<span class="n">NSNumber</span> <span class="o">*</span><span class="n">shouldUseLiterals</span> <span class="o">=</span> <span class="nb">@YES</span><span class="p">;</span>
 <span class="n">NSNumber</span> <span class="o">*</span><span class="n">buildingStreetNumber</span> <span class="o">=</span> <span class="mi">@10018</span><span class="p">;</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSArray</span> <span class="o">*</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="n">arrayWithObjects</span><span class="o">:</span><span class="s">@&quot;Brian&quot;</span><span class="p">,</span> <span class="s">@&quot;Matt&quot;</span><span class="p">,</span> <span class="s">@&quot;Chris&quot;</span><span class="p">,</span> <span class="s">@&quot;Alex&quot;</span><span class="p">,</span> <span class="s">@&quot;Steve&quot;</span><span class="p">,</span> <span class="s">@&quot;Paul&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
-<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">productManagers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="n">dictionaryWithObjectsAndKeys</span><span class="o">:</span> <span class="s">@&quot;Kate&quot;</span><span class="p">,</span> <span class="s">@&quot;iPhone&quot;</span><span class="p">,</span> <span class="s">@&quot;Kamal&quot;</span><span class="p">,</span> <span class="s">@&quot;iPad&quot;</span><span class="p">,</span> <span class="s">@&quot;Bill&quot;</span><span class="p">,</span> <span class="s">@&quot;Mobile Web&quot;</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
-<span class="n">NSNumber</span> <span class="o">*</span><span class="n">shouldUseLiterals</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="n">numberWithBool</span><span class="o">:</span><span class="nb">YES</span><span class="p">];</span>
-<span class="n">NSNumber</span> <span class="o">*</span><span class="n">buildingStreetNumber</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="n">numberWithInteger</span><span class="o">:</span><span class="mi">10018</span><span class="p">];</span>
-</code></pre></div><h2 id='constants'><a class='reference' href='#constants'><i class='icon-map-marker'></i></a>Constants</h2>
-<p>Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as <code>static</code> constants and not <code>#define</code>s unless explicitly being used as a macro.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSArray</span> <span class="o">*</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSArray</span> <span class="nf">arrayWithObjects</span><span class="p">:</span><span class="s">@"Brian"</span><span class="p">,</span> <span class="s">@"Matt"</span><span class="p">,</span> <span class="s">@"Chris"</span><span class="p">,</span> <span class="s">@"Alex"</span><span class="p">,</span> <span class="s">@"Steve"</span><span class="p">,</span> <span class="s">@"Paul"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class="n">NSDictionary</span> <span class="o">*</span><span class="n">productManagers</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSDictionary</span> <span class="nf">dictionaryWithObjectsAndKeys</span><span class="p">:</span> <span class="s">@"Kate"</span><span class="p">,</span> <span class="s">@"iPhone"</span><span class="p">,</span> <span class="s">@"Kamal"</span><span class="p">,</span> <span class="s">@"iPad"</span><span class="p">,</span> <span class="s">@"Bill"</span><span class="p">,</span> <span class="s">@"Mobile Web"</span><span class="p">,</span> <span class="nb">nil</span><span class="p">];</span>
+<span class="n">NSNumber</span> <span class="o">*</span><span class="n">shouldUseLiterals</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithBool</span><span class="p">:</span><span class="nb">YES</span><span class="p">];</span>
+<span class="n">NSNumber</span> <span class="o">*</span><span class="n">buildingStreetNumber</span> <span class="o">=</span> <span class="p">[</span><span class="n">NSNumber</span> <span class="nf">numberWithInteger</span><span class="p">:</span><span class="mi">10018</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h2 id="constants">Constants</h2>
+
+<p>Constants are preferred over in-line string literals or numbers, as they allow for easy reproduction of commonly used variables and can be quickly changed without the need for find and replace. Constants should be declared as <code class="highlighter-rouge">static</code> constants and not <code class="highlighter-rouge">#define</code>s unless explicitly being used as a macro.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">PTDAboutViewControllerCompanyName</span> <span class="o">=</span> <span class="s">@&quot;Punch Through Design&quot;</span><span class="p">;</span>
 
-<span class="k">static</span> <span class="n">CGFloat</span> <span class="k">const</span> <span class="n">PTDImageThumbnailHeight</span> <span class="o">=</span> <span class="mf">50.0</span><span class="p">;</span>
-</code></pre></div>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">static</span> <span class="n">NSString</span> <span class="o">*</span> <span class="k">const</span> <span class="n">PTDAboutViewControllerCompanyName</span> <span class="o">=</span> <span class="s">@"Punch Through Design"</span><span class="p">;</span>
+
+<span class="k">static</span> <span class="n">CGFloat</span> <span class="k">const</span> <span class="n">PTDImageThumbnailHeight</span> <span class="o">=</span> <span class="mi">50</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="cp">#define CompanyName @&quot;Punch Through Design&quot;</span>
 
-<span class="cp">#define thumbnailHeight 2</span>
-</code></pre></div><h2 id='enumerated-types'><a class='reference' href='#enumerated-types'><i class='icon-map-marker'></i></a>Enumerated Types</h2>
-<p>When using <code>enum</code>s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: <code>NS_ENUM()</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cp">#define CompanyName @"Punch Through Design"
+</span>
+<span class="cp">#define thumbnailHeight 2
+</span></code></pre>
+</div>
+
+<h2 id="enumerated-types">Enumerated Types</h2>
+
+<p>When using <code class="highlighter-rouge">enum</code>s, it is recommended to use the new fixed underlying type specification because it has stronger type checking and code completion. The SDK now includes a macro to facilitate and encourage use of fixed underlying types: <code class="highlighter-rouge">NS_ENUM()</code></p>
 
 <p><strong>For Example:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">PTDLeftMenuTopItemType</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">PTDLeftMenuTopItemType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">PTDLeftMenuTopItemMain</span><span class="p">,</span>
     <span class="n">PTDLeftMenuTopItemShows</span><span class="p">,</span>
     <span class="n">PTDLeftMenuTopItemSchedule</span>
 <span class="p">};</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>You can also make explicit value assignments (showing older k-style constant definition):</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">PTDGlobalConstants</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">typedef</span> <span class="nf">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">PTDGlobalConstants</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">PTDPinSizeMin</span>  <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
     <span class="n">PTDPinSizeMax</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
     <span class="n">PTDPinCountMin</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
     <span class="n">PTDPinCountMax</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="p">};</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Older k-style constant definitions should be <strong>avoided</strong> unless writing CoreFoundation C code (unlikely).</p>
 
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">enum</span> <span class="n">GlobalConstants</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">enum</span> <span class="n">GlobalConstants</span> <span class="p">{</span>
     <span class="n">kMaxPinSize</span>  <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
     <span class="n">kMaxPinCount</span> <span class="o">=</span> <span class="mi">500</span>
 <span class="p">};</span>
-</code></pre></div><h2 id='case-statements'><a class='reference' href='#case-statements'><i class='icon-map-marker'></i></a>Case Statements</h2>
-<p>Braces are not required for case statements, unless enforced by the complier.<br>
+</code></pre>
+</div>
+
+<h2 id="case-statements">Case Statements</h2>
+
+<p>Braces are not required for case statements, unless enforced by the complier.  <br />
 When a case contains more than one line, braces should be added.</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">switch</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">1</span>:
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">2</span>: <span class="p">{</span>
-        <span class="c1">// ...</span>
-        <span class="c1">// Multi-line example using braces</span>
-        <span class="k">break</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span> <span class="p">{</span>
+        <span class="c1">// ...
+</span>        <span class="c1">// Multi-line example using braces
+</span>        <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">case</span> <span class="mi">3</span>:
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="nl">default:</span> 
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span> 
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>There are times when the same code can be used for multiple cases, and a fall-through should be used.  A fall-through is the removal of the &#39;break&#39; statement for a case thus allowing the flow of execution to pass to the next case value.  A fall-through should be commented for coding clarity.</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">switch</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">1</span>:
-        <span class="c1">// ** fall-through! **</span>
-    <span class="k">case</span> <span class="mi">2</span>:
-        <span class="c1">// code executed for values 1 and 2</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="nl">default:</span> 
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
+
+</code></pre>
+</div>
+
+<p>There are times when the same code can be used for multiple cases, and a fall-through should be used.  A fall-through is the removal of the ‘break’ statement for a case thus allowing the flow of execution to pass to the next case value.  A fall-through should be commented for coding clarity.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1">// ** fall-through! **
+</span>    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1">// code executed for values 1 and 2
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span> 
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>When using an enumerated type for a switch, <strong>always</strong> include a &#39;default&#39; case that logs unexpected behavior or throws an error. For example:</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">PTDLeftMenuTopItemType</span> <span class="n">menuType</span> <span class="o">=</span> <span class="n">PTDLeftMenuTopItemMain</span><span class="p">;</span>
+
+</code></pre>
+</div>
+
+<p>When using an enumerated type for a switch, <strong>always</strong> include a ‘default’ case that logs unexpected behavior or throws an error. For example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">PTDLeftMenuTopItemType</span> <span class="n">menuType</span> <span class="o">=</span> <span class="n">PTDLeftMenuTopItemMain</span><span class="p">;</span>
 
 <span class="k">switch</span> <span class="p">(</span><span class="n">menuType</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemMain</span>:
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemShows</span>:
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemSchedule</span>:
-        <span class="c1">// ...</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="nl">default:</span>
-        <span class="n">NSLog</span><span class="p">(</span><span class="s">@&quot;This shouldn&#39;t happen!&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemMain</span><span class="p">:</span>
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemShows</span><span class="p">:</span>
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">PTDLeftMenuTopItemSchedule</span><span class="p">:</span>
+        <span class="c1">// ...
+</span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="n">NSLog</span><span class="p">(</span><span class="s">@"This shouldn't happen!"</span><span class="p">)</span>
         <span class="k">break</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='private-properties'><a class='reference' href='#private-properties'><i class='icon-map-marker'></i></a>Private Properties</h2>
-<p>Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as <code>PTDPrivate</code> or <code>private</code>) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.</p>
+</code></pre>
+</div>
+
+<h2 id="private-properties">Private Properties</h2>
+
+<p>Private properties should be declared in class extensions (anonymous categories) in the implementation file of a class. Named categories (such as <code class="highlighter-rouge">PTDPrivate</code> or <code class="highlighter-rouge">private</code>) should never be used unless extending another class.   The Anonymous category can be shared/exposed for testing using the <headerfile>+Private.h file naming convention.</headerfile></p>
 
 <p><strong>For Example:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">PTDDetailViewController</span> <span class="p">()</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">PTDDetailViewController</span> <span class="p">()</span>
 
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">GADBannerView</span> <span class="o">*</span><span class="n">googleAdView</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">ADBannerView</span> <span class="o">*</span><span class="n">iAdView</span><span class="p">;</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">strong</span><span class="p">,</span> <span class="n">nonatomic</span><span class="p">)</span> <span class="n">UIWebView</span> <span class="o">*</span><span class="n">adXWebView</span><span class="p">;</span>
 
 <span class="k">@end</span>
-</code></pre></div><h2 id='booleans'><a class='reference' href='#booleans'><i class='icon-map-marker'></i></a>Booleans</h2>
-<p>Objective-C uses <code>YES</code> and <code>NO</code>.  Therefore <code>true</code> and <code>false</code> should only be used for CoreFoundation, C or C++ code.  Since <code>nil</code> resolves to <code>NO</code> it is unnecessary to compare it in conditions. Never compare something directly to <code>YES</code>, because <code>YES</code> is defined to 1 and a <code>BOOL</code> can be up to 8 bits.</p>
+</code></pre>
+</div>
+
+<h2 id="booleans">Booleans</h2>
+
+<p>Objective-C uses <code class="highlighter-rouge">YES</code> and <code class="highlighter-rouge">NO</code>.  Therefore <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code> should only be used for CoreFoundation, C or C++ code.  Since <code class="highlighter-rouge">nil</code> resolves to <code class="highlighter-rouge">NO</code> it is unnecessary to compare it in conditions. Never compare something directly to <code class="highlighter-rouge">YES</code>, because <code class="highlighter-rouge">YES</code> is defined to 1 and a <code class="highlighter-rouge">BOOL</code> can be up to 8 bits.</p>
 
 <p>This allows for more consistency across files and greater visual clarity.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="n">someObject</span><span class="p">)</span> <span class="p">{}</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">anotherObject</span> <span class="n">boolValue</span><span class="p">])</span> <span class="p">{}</span>
-</code></pre></div>
-<p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="n">someObject</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{}</span>
-<span class="k">if</span> <span class="p">([</span><span class="n">anotherObject</span> <span class="n">boolValue</span><span class="p">]</span> <span class="o">==</span> <span class="nb">NO</span><span class="p">)</span> <span class="p">{}</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">isAwesome</span> <span class="o">==</span> <span class="nb">YES</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// Never do this.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">isAwesome</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// Never do this.</span>
-</code></pre></div>
-<p>If the name of a <code>BOOL</code> property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isEditable</span><span class="p">)</span> <span class="kt">BOOL</span> <span class="n">editable</span><span class="p">;</span>
-</code></pre></div>
-<p>Text and example taken from the <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE">Cocoa Naming Guidelines</a>.</p>
-<h2 id='conditionals'><a class='reference' href='#conditionals'><i class='icon-map-marker'></i></a>Conditionals</h2>
-<p>Conditional bodies should <strong>always</strong> use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, <a href="http://programmers.stackexchange.com/a/16530">even more dangerous defect</a> may happen where the line &quot;inside&quot; the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.</p>
 
-<p>One-liner if statements without braces are <strong><a href="https://www.imperialviolet.org/2014/02/22/applebug.html">dangerous</a></strong>. One-liner if statements with braces are acceptable, as long as there&#39;s space between the braces for the single statement. You should still consider adding newlines if it increases readability.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">someObject</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">anotherObject</span> <span class="nf">boolValue</span><span class="p">])</span> <span class="p">{}</span>
+</code></pre>
+</div>
+
+<p><strong>Not Preferred:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">someObject</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="p">([</span><span class="n">anotherObject</span> <span class="nf">boolValue</span><span class="p">]</span> <span class="o">==</span> <span class="nb">NO</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">isAwesome</span> <span class="o">==</span> <span class="nb">YES</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// Never do this.
+</span><span class="k">if</span> <span class="p">(</span><span class="n">isAwesome</span> <span class="o">==</span> <span class="nb">true</span><span class="p">)</span> <span class="p">{}</span> <span class="c1">// Never do this.
+</span></code></pre>
+</div>
+
+<p>If the name of a <code class="highlighter-rouge">BOOL</code> property is expressed as an adjective, the property can omit the “is” prefix but specifies the conventional name for the get accessor, for example:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">assign</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isEditable</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">editable</span><span class="p">;</span>
+</code></pre>
+</div>
+<p>Text and example taken from the <a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CodingGuidelines/Articles/NamingIvarsAndTypes.html#//apple_ref/doc/uid/20001284-BAJGIIJE">Cocoa Naming Guidelines</a>.</p>
+
+<h2 id="conditionals">Conditionals</h2>
+
+<p>Conditional bodies should <strong>always</strong> use braces even when a conditional body could be written without braces (e.g., it is one line only) to prevent errors. These errors include adding a second line and expecting it to be part of the if-statement. Another, <a href="http://programmers.stackexchange.com/a/16530">even more dangerous defect</a> may happen where the line “inside” the if-statement is commented out, and the next line unwittingly becomes part of the if-statement. In addition, this style is more consistent with all other conditionals, and therefore more easily scannable.</p>
+
+<p>One-liner if statements without braces are <strong><a href="https://www.imperialviolet.org/2014/02/22/applebug.html">dangerous</a></strong>. One-liner if statements with braces are acceptable, as long as there’s space between the braces for the single statement. You should still consider adding newlines if it increases readability.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>or</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">success</span><span class="p">;</span> <span class="p">}</span>
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">success</span><span class="p">;</span> <span class="p">}</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>or</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
-</code></pre></div><h3 id='ternary-operator'><a class='reference' href='#ternary-operator'><i class='icon-map-marker'></i></a>Ternary Operator</h3>
-<p>The Ternary operator, <code>?:</code> , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an <code>if</code> statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">error</span><span class="p">)</span> <span class="k">return</span> <span class="n">success</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="ternary-operator">Ternary Operator</h3>
+
+<p>The Ternary operator, <code class="highlighter-rouge">?:</code> , should only be used when it increases clarity or code neatness. A single condition is usually all that should be evaluated. Evaluating multiple conditions is usually more understandable as an <code class="highlighter-rouge">if</code> statement, or refactored into instance variables. In general, the best use of the ternary operator is during assignment of a variable and deciding which value to use.</p>
 
 <p>Non-boolean variables should be compared against something, and parentheses are added for improved readability.  If the variable being compared is a boolean type, then no parentheses are needed.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSInteger</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="n">x</span> <span class="o">:</span> <span class="n">y</span><span class="p">;</span>
 
-<span class="kt">BOOL</span> <span class="n">isHorizontal</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">isHorizontal</span> <span class="o">?</span> <span class="n">x</span> <span class="o">:</span> <span class="n">y</span><span class="p">;</span>
-</code></pre></div>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSInteger</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">?</span> <span class="n">x</span> <span class="p">:</span> <span class="n">y</span><span class="p">;</span>
+
+<span class="n">BOOL</span> <span class="n">isHorizontal</span> <span class="o">=</span> <span class="nb">YES</span><span class="p">;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">isHorizontal</span> <span class="p">?</span> <span class="n">x</span> <span class="p">:</span> <span class="n">y</span><span class="p">;</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="o">?</span> <span class="n">x</span> <span class="o">=</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">d</span> <span class="o">?</span> <span class="n">c</span> <span class="o">:</span> <span class="n">d</span> <span class="o">:</span> <span class="n">y</span><span class="p">;</span>
-</code></pre></div><h2 id='init-methods'><a class='reference' href='#init-methods'><i class='icon-map-marker'></i></a>Init Methods</h2>
-<p>Init methods should follow the convention provided by Apple&#39;s generated code template.  A return type of &#39;instancetype&#39; should also be used instead of &#39;id&#39;.</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">init</span> <span class="p">{</span>
-    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="n">init</span><span class="p">];</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span> <span class="p">?</span> <span class="n">x</span> <span class="o">=</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="n">d</span> <span class="p">?</span> <span class="n">c</span> <span class="p">:</span> <span class="n">d</span> <span class="p">:</span> <span class="n">y</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h2 id="init-methods">Init Methods</h2>
+
+<p>Init methods should follow the convention provided by Apple’s generated code template.  A return type of ‘instancetype’ should also be used instead of ‘id’.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">init</span> <span class="p">{</span>
+    <span class="n">self</span> <span class="o">=</span> <span class="p">[</span><span class="n">super</span> <span class="nf">init</span><span class="p">];</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// ...</span>
-    <span class="p">}</span>
+        <span class="c1">// ...
+</span>    <span class="p">}</span>
     <span class="k">return</span> <span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>See <a href="#class-constructor-methods">Class Constructor Methods</a> for link to article on instancetype.</p>
-<h2 id='class-constructor-methods'><a class='reference' href='#class-constructor-methods'><i class='icon-map-marker'></i></a>Class Constructor Methods</h2>
-<p>Where class constructor methods are used, these should always return type of &#39;instancetype&#39; and never &#39;id&#39;. This ensures the compiler correctly infers the result type. </p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">@interface</span> <span class="nc">Airplane</span>
-<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">airplaneWithType:</span><span class="p">(</span><span class="n">PTDAirplaneType</span><span class="p">)</span><span class="nv">type</span><span class="p">;</span>
+
+<h2 id="class-constructor-methods">Class Constructor Methods</h2>
+
+<p>Where class constructor methods are used, these should always return type of ‘instancetype’ and never ‘id’. This ensures the compiler correctly infers the result type.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">@interface</span> <span class="nc">Airplane</span>
+<span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">airplaneWithType</span><span class="p">:(</span><span class="n">PTDAirplaneType</span><span class="p">)</span><span class="nv">type</span><span class="p">;</span>
 <span class="k">@end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>More information on instancetype can be found on <a href="http://nshipster.com/instancetype/">NSHipster.com</a>.</p>
-<h2 id='cgrect-functions'><a class='reference' href='#cgrect-functions'><i class='icon-map-marker'></i></a>CGRect Functions</h2>
-<p>When accessing the <code>x</code>, <code>y</code>, <code>width</code>, or <code>height</code> of a <code>CGRect</code>, always use the <a href="http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html"><code>CGGeometry</code> functions</a> instead of direct struct member access. From Apple&#39;s <code>CGGeometry</code> reference:</p>
+
+<h2 id="cgrect-functions">CGRect Functions</h2>
+
+<p>When accessing the <code class="highlighter-rouge">x</code>, <code class="highlighter-rouge">y</code>, <code class="highlighter-rouge">width</code>, or <code class="highlighter-rouge">height</code> of a <code class="highlighter-rouge">CGRect</code>, always use the <a href="http://developer.apple.com/library/ios/#documentation/graphicsimaging/reference/CGGeometry/Reference/reference.html"><code class="highlighter-rouge">CGGeometry</code> functions</a> instead of direct struct member access. From Apple’s <code class="highlighter-rouge">CGGeometry</code> reference:</p>
 
 <blockquote>
-<p>All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.</p>
+  <p>All functions described in this reference that take CGRect data structures as inputs implicitly standardize those rectangles before calculating their results. For this reason, your applications should avoid directly reading and writing the data stored in the CGRect data structure. Instead, use the functions described here to manipulate rectangles and to retrieve their characteristics.</p>
 </blockquote>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
 
 <span class="n">CGFloat</span> <span class="n">x</span> <span class="o">=</span> <span class="n">CGRectGetMinX</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
 <span class="n">CGFloat</span> <span class="n">y</span> <span class="o">=</span> <span class="n">CGRectGetMinY</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
 <span class="n">CGFloat</span> <span class="n">width</span> <span class="o">=</span> <span class="n">CGRectGetWidth</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
 <span class="n">CGFloat</span> <span class="n">height</span> <span class="o">=</span> <span class="n">CGRectGetHeight</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
-<span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
-</code></pre></div>
+<span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">;</span>
 
 <span class="n">CGFloat</span> <span class="n">x</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
 <span class="n">CGFloat</span> <span class="n">y</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
 <span class="n">CGFloat</span> <span class="n">width</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">width</span><span class="p">;</span>
 <span class="n">CGFloat</span> <span class="n">height</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span><span class="p">.</span><span class="n">height</span><span class="p">;</span>
 <span class="n">CGRect</span> <span class="n">frame</span> <span class="o">=</span> <span class="p">(</span><span class="n">CGRect</span><span class="p">){</span> <span class="p">.</span><span class="n">origin</span> <span class="o">=</span> <span class="n">CGPointZero</span><span class="p">,</span> <span class="p">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">frame</span><span class="p">.</span><span class="n">size</span> <span class="p">};</span>
-</code></pre></div><h2 id='golden-path'><a class='reference' href='#golden-path'><i class='icon-map-marker'></i></a>Golden Path</h2>
-<p>When coding with conditionals, the left hand margin of the code should be the &quot;golden&quot; or &quot;happy&quot; path.  That is, don&#39;t nest <code>if</code> statements.  Multiple return statements are OK.</p>
+</code></pre>
+</div>
+
+<h2 id="golden-path">Golden Path</h2>
+
+<p>When coding with conditionals, the left hand margin of the code should be the “golden” or “happy” path.  That is, don’t nest <code class="highlighter-rouge">if</code> statements.  Multiple return statements are OK.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">someMethod</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">someOther</span> <span class="n">boolValue</span><span class="p">])</span> <span class="p">{</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">someMethod</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">someOther</span> <span class="nf">boolValue</span><span class="p">])</span> <span class="p">{</span>
         <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="c1">//Do something important</span>
-<span class="p">}</span>
-</code></pre></div>
+    <span class="c1">//Do something important
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">someMethod</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">([</span><span class="n">someOther</span> <span class="n">boolValue</span><span class="p">])</span> <span class="p">{</span>
-        <span class="c1">//Do something important</span>
-    <span class="p">}</span>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">someMethod</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">([</span><span class="n">someOther</span> <span class="nf">boolValue</span><span class="p">])</span> <span class="p">{</span>
+        <span class="c1">//Do something important
+</span>    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h2 id='error-handling'><a class='reference' href='#error-handling'><i class='icon-map-marker'></i></a>Error handling</h2>
+</code></pre>
+</div>
+
+<h2 id="error-handling">Error handling</h2>
+
 <p>When methods return an error parameter by reference, switch on the returned value, not the error variable.</p>
 
 <p><strong>Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">self</span> <span class="n">trySomethingWithError</span><span class="o">:&amp;</span><span class="n">error</span><span class="p">])</span> <span class="p">{</span>
-    <span class="c1">// Handle Error</span>
-<span class="p">}</span>
-</code></pre></div>
-<p><strong>Not Preferred:</strong></p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
-<span class="p">[</span><span class="n">self</span> <span class="n">trySomethingWithError</span><span class="o">:&amp;</span><span class="n">error</span><span class="p">];</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Handle Error</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).</p>
-<h2 id='singletons'><a class='reference' href='#singletons'><i class='icon-map-marker'></i></a>Singletons</h2>
-<p>Singleton objects should use a thread-safe pattern for creating their shared instance.</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="nf">sharedInstance</span> <span class="p">{</span>
-  <span class="k">static</span> <span class="kt">id</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
 
-  <span class="k">static</span> <span class="kt">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">[</span><span class="n">self</span> <span class="nf">trySomethingWithError</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">])</span> <span class="p">{</span>
+    <span class="c1">// Handle Error
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p><strong>Not Preferred:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">NSError</span> <span class="o">*</span><span class="n">error</span><span class="p">;</span>
+<span class="p">[</span><span class="n">self</span> <span class="nf">trySomethingWithError</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Handle Error
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Some of Apple’s APIs write garbage values to the error parameter (if non-NULL) in successful cases, so switching on the error can cause false negatives (and subsequently crash).</p>
+
+<h2 id="singletons">Singletons</h2>
+
+<p>Singleton objects should use a thread-safe pattern for creating their shared instance.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">+</span> <span class="p">(</span><span class="n">instancetype</span><span class="p">)</span><span class="n">sharedInstance</span> <span class="p">{</span>
+  <span class="k">static</span> <span class="n">id</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+
+  <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">onceToken</span><span class="p">;</span>
   <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">onceToken</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
-    <span class="n">sharedInstance</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">init</span><span class="p">];</span>
+    <span class="n">sharedInstance</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
   <span class="p">});</span>
 
   <span class="k">return</span> <span class="n">sharedInstance</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>This will prevent <a href="http://cocoasamurai.blogspot.com/2011/04/singletons-your-doing-them-wrong.html">possible and sometimes prolific crashes</a>.</p>
-<h2 id='line-breaks'><a class='reference' href='#line-breaks'><i class='icon-map-marker'></i></a>Line Breaks</h2>
+
+<h2 id="line-breaks">Line Breaks</h2>
+
 <p>Lines of code longer than 120 characters should be wrapped to the next line for readability. For example:</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">self</span><span class="p">.</span><span class="n">productsRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SKProductsRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithProductIdentifiers</span><span class="o">:</span><span class="n">productIdentifiers</span> <span class="n">andProductSelectors</span><span class="o">:</span><span class="n">productSelectors</span><span class="p">];</span>
-</code></pre></div>
-<p>A long line of code like this should be carried on to the second line adhering to this style guide&#39;s Spacing section (four spaces).</p>
-<div class="highlight"><pre><code class="objc language-objc" data-lang="objc"><span class="n">self</span><span class="p">.</span><span class="n">productsRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SKProductsRequest</span> <span class="n">alloc</span><span class="p">]</span> <span class="n">initWithProductIdentifiers</span><span class="o">:</span><span class="n">productIdentifiers</span>
-    <span class="nl">andProductSelectors:</span><span class="n">productSelectors</span><span class="p">];</span>
-</code></pre></div><h2 id='xcode-project'><a class='reference' href='#xcode-project'><i class='icon-map-marker'></i></a>Xcode project</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">self</span><span class="p">.</span><span class="n">productsRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SKProductsRequest</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithProductIdentifiers</span><span class="p">:</span><span class="n">productIdentifiers</span> <span class="nf">andProductSelectors</span><span class="p">:</span><span class="n">productSelectors</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<p>A long line of code like this should be carried on to the second line adhering to this style guide’s Spacing section (four spaces).</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">self</span><span class="p">.</span><span class="n">productsRequest</span> <span class="o">=</span> <span class="p">[[</span><span class="n">SKProductsRequest</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithProductIdentifiers</span><span class="p">:</span><span class="n">productIdentifiers</span>
+    <span class="nf">andProductSelectors</span><span class="p">:</span><span class="n">productSelectors</span><span class="p">];</span>
+</code></pre>
+</div>
+
+<h2 id="xcode-project">Xcode project</h2>
+
 <p>The physical files should be kept in sync with the Xcode project files in order to avoid file sprawl. Any Xcode groups created should be reflected by folders in the filesystem. Code should be grouped not only by type, but also by feature for greater clarity.</p>
 
-<p>When possible, always turn on &quot;Treat Warnings as Errors&quot; in the target&#39;s Build Settings and enable as many <a href="http://boredzo.org/blog/archives/2009-11-07/warnings">additional warnings</a> as possible. If you need to ignore a specific warning, use <a href="http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas">Clang&#39;s pragma feature</a>.</p>
-<h2 id='contributors'><a class='reference' href='#contributors'><i class='icon-map-marker'></i></a>Contributors</h2>
+<p>When possible, always turn on “Treat Warnings as Errors” in the target’s Build Settings and enable as many <a href="http://boredzo.org/blog/archives/2009-11-07/warnings">additional warnings</a> as possible. If you need to ignore a specific warning, use <a href="http://clang.llvm.org/docs/UsersManual.html#controlling-diagnostics-via-pragmas">Clang’s pragma feature</a>.</p>
+
+<h2 id="contributors">Contributors</h2>
+
 <ul>
-<li id='contributors_L1'><a class='reference' href='#contributors_L1'><i class='icon-map-marker'></i></a>Connor Dunne
-</li><li id='contributors_L2'><a class='reference' href='#contributors_L2'><i class='icon-map-marker'></i></a>Ray Kampmeier
-</li><li id='contributors_L3'><a class='reference' href='#contributors_L3'><i class='icon-map-marker'></i></a>Chris Keller
-</li><li id='contributors_L4'><a class='reference' href='#contributors_L4'><i class='icon-map-marker'></i></a>Matthew Lewis
-</li><li id='contributors_L5'><a class='reference' href='#contributors_L5'><i class='icon-map-marker'></i></a>Kevin Marx
-</li><li id='contributors_L6'><a class='reference' href='#contributors_L6'><i class='icon-map-marker'></i></a>Zeke Shearer
-</li></ul>
-<h2 id='credits'><a class='reference' href='#credits'><i class='icon-map-marker'></i></a>Credits</h2>
+  <li>Connor Dunne</li>
+  <li>Ray Kampmeier</li>
+  <li>Chris Keller</li>
+  <li>Matthew Lewis</li>
+  <li>Kevin Marx</li>
+  <li>Zeke Shearer</li>
+</ul>
+
+<h2 id="credits">Credits</h2>
+
 <p>This guide is based on the <a href="https://github.com/raywenderlich/objective-c-style-guide">raywenderlich.com Objective-C Style Guide</a>. We used the <a href="https://github.com/sportngin/styleguide">Jekyll style guide built by sportngin</a>. Thanks for all your hard work!</p>
 
 

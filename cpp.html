@@ -9,7 +9,7 @@
     <meta name="author" content="Punch Through">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Style Guide</title>
+    <title>C++</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://punchthrough.github.io/styleguide/assets/themes/twitter-bs3/bootstrap/css/bootstrap.3.3.1.min.css" rel="stylesheet">
@@ -101,29 +101,56 @@
         <div class="col-md-12">
           
 <div class="page-header">
-  <h1>Style Guide </h1>
+  <h1>C++ </h1>
 </div>
 
 <div class="toc"></div>
 
 
+<h2 id="style-guide">Style Guide</h2>
+
+<p>We use the <a href="https://google-styleguide.googlecode.com/svn/trunk/cppguide.html">Google C++ Style Guide</a>.</p>
+
+<p>Our continuous integration server lints all code when it’s pushed to a branch or added to a pull request. Your build will fail if it does not meet our style standards.</p>
+
+<p>Here are the basic rules of the Google C++ Style Guide:</p>
+
 <ul>
-  <li>
-    <p>Each section should start with a second-level header (<code class="highlighter-rouge">##</code>). Tables of contents will be generated automatically from each section’s headers.</p>
-  </li>
-  <li>
-    <p>Use three backticks (<code>```</code>) to begin and end code blocks.</p>
-  </li>
-  <li>
-    <p>Add language names to the start of code blocks (<code>```objc</code>) to enable syntax highlighting.</p>
-  </li>
-  <li>
-    <p>All code block examples should have code-level comments marking good/bad examples as <strong>Preferred</strong> or <strong>Not Preferred</strong>.</p>
-  </li>
-  <li>
-    <p>When referencing methods/operators in the rule description, escape with backticks (<code>\`</code>) like <code class="highlighter-rouge">this</code>.</p>
-  </li>
+  <li>Spaces, not tabs</li>
+  <li>2-space indentation</li>
+  <li>Keep line length under 100 characters</li>
 </ul>
+
+<h2 id="linting-and-automatic-formatting">Linting and automatic formatting</h2>
+
+<p>It’s a good idea to get familiar with the tools used by our CI server so you can lint and reformat your code locally.</p>
+
+<p>We lint C++ projects with cpplint and reformat code with clang-format.</p>
+
+<h3 id="installing-linters">Installing Linters</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew install clang-format
+pip install cpplint
+</code></pre>
+</div>
+
+<h3 id="usage">Usage</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c"># Lint files for Google style</span>
+cpplint <span class="o">[</span>FILES...] <span class="o">[</span>DIRECTORIES...]
+
+<span class="c"># Reformat files using Google style</span>
+clang-format -style<span class="o">=</span>Google -i <span class="o">[</span>FILES...] <span class="o">[</span>DIRECTORIES...]
+</code></pre>
+</div>
+
+<h3 id="configuration">Configuration</h3>
+
+<p>Individual projects may have configurations for cpplint or clang-format already included.</p>
+
+<p>clang-format uses the <code class="highlighter-rouge">.clang-format</code> file to set formatting style. See the <a href="http://clang.llvm.org/docs/ClangFormat.html">clang-format docs</a> for more info.</p>
+
+<p>cpplint is configured in <code class="highlighter-rouge">CPPLINT.cfg</code>. See the <a href="https://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py">cpplint.py source</a> for more info on configuration options and linter filters.</p>
 
 
 
