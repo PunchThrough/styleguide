@@ -1,20 +1,12 @@
-# [Punch Through Design Style Guide](https://punchthrough.github.io/styleguide)
+# [Punch Through Style Guide](https://punchthrough.github.io/styleguide)
 
-This is the style guide used for code written by Punch Through Design.
+This is the style guide used for code written by Punch Through.
 
-## Contributing to the Style Guide
+## Contributing
 
-PTD employees can suggest changes in a branch or fork, then open a pull request for discussion and integration.
+Punch Through employees can suggest changes in a branch or fork, then open a pull request for discussion and integration.
 
-## Setting up the project
-
-This project has the `gh-pages` branch set up as a submodule for deployment. To set up the submodule, run the following command:
-
-```sh
-rake setup
-```
-
-## Running locally
+## Building Locally
 
 This project is built with Jekyll.
 
@@ -34,8 +26,9 @@ Your server will be running on [localhost:4000](http://localhost:4000/).
 
 ## Deploying to GitHub Pages
 
-Commit your source code changes to `master`, then Run the following command to commit all changes and push your changes to the `gh_pages` branch:
+You shouldn't have to do this yourself. CircleCI will build the project and push to GitHub Pages automatically when master is updated.
 
-```sh
-rake deploy
+```bash
+npm install          # Install dependencies
+npm run gulp deploy  # Build project and push to GitHub Pages
 ```
