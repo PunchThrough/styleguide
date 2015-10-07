@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Objective-C
-header: Objective-C Style Guide
+title: Objective-C Style Guide
+nickname: Objective-C
 group: navigation
 ---
 {% include JB/setup %}
