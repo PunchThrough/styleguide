@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Python
-header: Python Style Guide
+title: Python Style Guide
+nickname: Python
 group: navigation
 ---
 {% include JB/setup %}

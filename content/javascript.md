@@ -1,7 +1,7 @@
 ---
 layout: page
-title: JavaScript
-header: JavaScript Style Guide
+title: JavaScript Style Guide
+nickname: JavaScript
 group: navigation
 ---
 {% include JB/setup %}
