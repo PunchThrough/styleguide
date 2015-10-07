@@ -277,20 +277,6 @@ def theme_from_git_url(url)
   manifest
 end
 
-task :deploy do
-  commit = `git rev-parse HEAD`.strip
-  `jekyll build --config _prod_config.yml`
-  `(cd _site && git add -A && git commit -m "Deploy #{commit}" && git pull --rebase && git push)`
-  `git add -u && git commit -m "Deployed #{commit}"`
-end
-
-task :setup do
-  `git submodule init`
-  `git submodule update`
-  `(cd _site && git checkout gh-pages && git pull)`
-end
-
-
 # Internal: Process theme package manifest file.
 #
 # theme_path - String, Required. File path to theme package.
