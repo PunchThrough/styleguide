@@ -6,7 +6,7 @@ var config = {
   push: true
 }
 
-var build_cmd = 'jekyll build --config _prod_config.yml'
+var build_cmd = 'bundle exec jekyll build --config _prod_config.yml'
 
 gulp.task('build', function(done) {
   exec(build_cmd, function(err, stdout, stderr) {
