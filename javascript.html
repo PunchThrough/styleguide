@@ -119,6 +119,8 @@
 
 <p>The only edge case is when a new line starts with a left (open) parenthesis ‘(‘. And the only reason to start a new line with an open paren is to wrap a file in a self executing function to create a closure. If you have to start a line with an open paren for any other reason, you’re doing it wrong.</p>
 
+<p>See <strong>Appendix A</strong> to configure WebStorm to ignore unterminated lines.</p>
+
 <h2 id="code-layout">Code Layout</h2>
 
 <p>Use two <strong>spaces</strong> per indentation level. No hard tabs.</p>
@@ -498,6 +500,16 @@
 <span class="p">]</span>
 </code></pre>
 </div>
+
+<h2 id="appendix">Appendix</h2>
+
+<h3 id="a---webstorm-configuration">A - WebStorm Configuration</h3>
+
+<p>By default, WebStorm will complain about missing semicolons at the end of a line. To turn that off, go to the WebStorm preferences:</p>
+
+<p><strong>Preferences &gt; Editor &gt; Inspections &gt; JavaScript</strong></p>
+
+<p><img src="./content/assets/js-silence-unterminated-lines.png" alt="WebStorm Inspections" /></p>
 
 <h2 id="credits">Credits</h2>
 
