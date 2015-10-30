@@ -18,6 +18,8 @@ If you can't find an answer in here, use your best judgement and keep things rea
 
 The only edge case is when a new line starts with a left (open) parenthesis '('. And the only reason to start a new line with an open paren is to wrap a file in a self executing function to create a closure. If you have to start a line with an open paren for any other reason, you're doing it wrong.
 
+See **Appendix A** to configure WebStorm to ignore unterminated lines.
+
 ## Code Layout
 
 Use two **spaces** per indentation level. No hard tabs.
@@ -389,6 +391,16 @@ var whitelist = [
   'color2'
 ]
 ```
+
+## Appendix
+
+### A - WebStorm Configuration
+
+By default, WebStorm will complain about missing semicolons at the end of a line. To turn that off, go to the WebStorm preferences:
+
+**Preferences > Editor > Inspections > JavaScript**
+
+![WebStorm Inspections](./content/assets/js-silence-unterminated-lines.png)
 
 ## Credits
 
