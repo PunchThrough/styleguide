@@ -113,407 +113,104 @@
 
 <p>If you can’t find an answer in here, use your best judgement and keep things readable. Strive for terse, readable code.</p>
 
-<h2 id="semicolons">Semicolons</h2>
+<h2 id="use-the-standard-style">Use the Standard Style</h2>
 
-<p><strong>Don’t use them.</strong> ASI takes care of 99.9995% of cases where a semicolon is required.</p>
+<blockquote>
+  <p>One style to rule them all. No decisions to make. It just works.</p>
+</blockquote>
 
-<p>The only edge case is when a new line starts with a left (open) parenthesis ‘(‘. And the only reason to start a new line with an open paren is to wrap a file in a self executing function to create a closure. If you have to start a line with an open paren for any other reason, you’re doing it wrong.</p>
+<p>Use the <a href="http://standardjs.com/">Javascript Standard Style</a>.</p>
 
-<p>See <strong>Appendix A</strong> to configure WebStorm to ignore unterminated lines.</p>
+<p>Wondering what Standard looks like? <a href="https://github.com/feross/bittorrent-dht/blob/master/client.js">Here’s an example file written with Standard.</a></p>
 
-<h2 id="code-layout">Code Layout</h2>
+<h3 id="tldr">tl;dr</h3>
 
-<p>Use two <strong>spaces</strong> per indentation level. No hard tabs.</p>
-
-<h3 id="what-to-indent">What to Indent</h3>
-
-<ul>
-  <li>Contents of a block</li>
-  <li>Contents of a multiline object literal</li>
-  <li>Contents of a multiline array literal</li>
-</ul>
-
-<h3 id="line-length">Line Length</h3>
-
-<p>Try and stay under 80 characters per line. Don’t break up expressions within an if statement whenever possible.</p>
-
-<h2 id="naming">Naming</h2>
-
-<p>Don’t use single letter variable names if you can avoid it. It’s not necessary to be overly descriptive either.</p>
-
-<p>A single letter name in the scope of a very small function probably isn’t a big deal. Nor is using i for an iterator. <em>Just don’t be a bad programmer and everything will be fine.</em></p>
-
-<p>Variables and functions use lower camel case: <code class="highlighter-rouge">thisIsLowerCamelCase</code></p>
-
-<p>Constructors use upper camel case (Pascal case): <code class="highlighter-rouge">ThisIsUpperCamelCase</code></p>
-
-<p><strong>Do not</strong> use underscores whenever possible.</p>
-
-<h2 id="variable-declarations">Variable Declarations</h2>
-
-<p>Use multiple var statements to declare multiple variables.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="kd">var</span> <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="kd">var</span> <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre>
-</div>
-
-<p><strong>Not Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
-    <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">pointX</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">pointY</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">pointZ</span> <span class="o">=</span> <span class="mi">0</span>
-</code></pre>
-</div>
-
-<h2 id="conditional-blocks">Conditional Blocks</h2>
-
-<p>Conditional blocks should be formatted with a “cuddled” <code class="highlighter-rouge">else</code>:</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">doSomething</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
-  <span class="nx">callMethod</span><span class="p">()</span>
-  <span class="nx">x</span> <span class="o">+=</span> <span class="nx">y</span>
-  <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="nx">doSomethingElse</span><span class="p">(</span><span class="nx">y</span><span class="p">)</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">callMethod2</span><span class="p">()</span>
-  <span class="nx">x</span><span class="o">++</span>
-  <span class="nx">someMethod</span><span class="p">()</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="use-of-braces">Use of Braces</h3>
-
-<p>It’s OK to write single line if statements with or without braces.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="k">return</span> <span class="nx">c</span>
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">c</span> <span class="p">}</span>
-</code></pre>
-</div>
-
-<p><strong>Do not</strong> write multi line if statements without braces. <a href="objective-c.html#conditionals">Read more on why here</a>.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">y</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p><strong>Not Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span>
-  <span class="k">return</span> <span class="nx">x</span>
-<span class="k">else</span>
-  <span class="k">return</span> <span class="nx">y</span>
-</code></pre>
-</div>
-
-<h2 id="switchcase-statements">Switch/Case Statements</h2>
-
-<p>Be mindful in the use of <code class="highlighter-rouge">switch</code> at all.</p>
-
-<p><code class="highlighter-rouge">switch</code> statements in JavaScript, C, and other languages (excluding Ruby) exhibit behavior akin to <a href="http://en.wikipedia.org/wiki/Goto">goto statements</a> due to their fallthrough nature. This goes against principles of <a href="http://en.wikipedia.org/wiki/Structured_programming">structured programming</a>. There is always a different control structure which will do the job.</p>
-
-<p><strong>Unless it is blatantly obvious to use <code class="highlighter-rouge">switch</code>, use an alternative such as an if statement.</strong></p>
-
-<p>Read <a href="https://files.ifi.uzh.ch/rerg/arvo/courses/kvse/uebungen/Dijkstra_Goto.pdf">Dijkstra’s paper</a> on goto and structured programming if you’re curious about this topic.</p>
-
-<hr />
-
-<p>All <code class="highlighter-rouge">switch</code> statement cases must end with <code class="highlighter-rouge">break</code>, <code class="highlighter-rouge">throw</code>, <code class="highlighter-rouge">return</code>, or a comment indicating a fall-through.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="err">:</span>
-    <span class="nx">doSomething</span><span class="p">();</span>
-    <span class="c1">// falls through</span>
-
-  <span class="k">case</span> <span class="mi">2</span><span class="err">:</span>
-    <span class="nx">doSomethingElse</span><span class="p">();</span>
-    <span class="k">break</span><span class="p">;</span>
-
-  <span class="nl">default</span><span class="p">:</span>
-    <span class="nx">doDefaultThing</span><span class="p">();</span>
-    <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<p><strong>Not Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">switch</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">case</span> <span class="mi">1</span><span class="err">:</span>
-    <span class="nx">doSomething</span><span class="p">();</span>
-
-  <span class="k">case</span> <span class="mi">2</span><span class="err">:</span>
-    <span class="nx">doSomethingElse</span><span class="p">();</span>
-    <span class="k">break</span><span class="p">;</span>
-
-  <span class="nl">default</span><span class="p">:</span>
-    <span class="nx">doDefaultThing</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h2 id="comments">Comments</h2>
-
-<p>When writing comments, remember the golden rule: <strong>Code says how, comments say why.</strong></p>
+<p>Here’s a quick overview of the rules:</p>
 
 <ul>
-  <li>Code should be written in a way that makes it easy for another programer to understand how it works.</li>
-  <li>Comments should describe why the code does what it does, not serve as a line-by-line rundown of what the code does.</li>
+  <li><strong>2 spaces</strong> – for indentation</li>
+  <li><strong>Single quotes for strings</strong> – except to avoid escaping</li>
+  <li><strong>No unused variables</strong></li>
+  <li><strong>No semicolons</strong></li>
+  <li><strong>Never start a line with <code class="highlighter-rouge">(</code> or <code class="highlighter-rouge">[</code></strong></li>
+  <li><strong>Space after keywords</strong>
+    <ul>
+      <li><code class="highlighter-rouge">if (condition) { ... }</code></li>
+    </ul>
+  </li>
+  <li><strong>Space after function name</strong>
+    <ul>
+      <li><code class="highlighter-rouge">function name (arg) { ... }</code></li>
+    </ul>
+  </li>
+  <li>Always use <code class="highlighter-rouge">===</code> instead of <code class="highlighter-rouge">==</code> – but <code class="highlighter-rouge">obj == null</code> is allowed to check <code class="highlighter-rouge">null || undefined</code>.</li>
+  <li>Always handle the node.js <code class="highlighter-rouge">err</code> function parameter</li>
+  <li>Always prefix browser globals with <code class="highlighter-rouge">window</code> – except <code class="highlighter-rouge">document</code> and <code class="highlighter-rouge">navigator</code> are okay</li>
 </ul>
 
-<h3 id="single-line-comments">Single Line Comments</h3>
+<h3 id="why-standard">Why Standard?</h3>
 
-<p>Single line comments should appear as documentation within methods and around larger blocks of code.</p>
+<p>From the Standard homepage:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// We need to baz the frobbed number because of RFC 4200, Proper Fooing with Bazzed Frob</span>
-  <span class="c1">// Baz is provided by the baz library (node-baz)</span>
-  <span class="k">return</span> <span class="nx">bazManager</span><span class="p">.</span><span class="nx">baz</span><span class="p">(</span><span class="nx">number</span><span class="p">.</span><span class="nx">frobbed</span><span class="p">())</span>
-<span class="p">}</span>
+<blockquote>
+  <p>The whole point of standard is to avoid bikeshedding about style. There are lots of debates online about tabs vs. spaces, etc. that will never be resolved. These debates just distract from getting stuff done. At the end of the day you have to ‘just pick something’, and that’s the whole philosophy of standard – its a bunch of sensible ‘just pick something’ opinions. Hopefully, users see the value in that over defending their own opinions.</p>
+</blockquote>
+
+<h2 id="usage">Usage</h2>
+
+<p>Use ESLint in your projects. Enforcing style with ESLint means that WebStorm will automatically pick up on your style settings and yell at you when you make mistakes.</p>
+
+<p>If you install Sublime Linter, you can get the same experience in Sublime too.</p>
+
+<h3 id="install-eslint-and-plugins">Install ESLint and plugins</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>npm install -g eslint eslint-config-standard eslint-plugin-standard
 </code></pre>
 </div>
 
-<h3 id="block-comments">Block Comments</h3>
+<h3 id="add-an-eslint-config-file">Add an ESLint config file</h3>
 
-<p>Block comments should only be used as a banner for a file or as documentation of a function.</p>
+<p>Put the following into a file named <code class="highlighter-rouge">.eslintrc</code> into the root of each of your JS projects:</p>
 
-<p>Function documentation should be well formatted for automatic parsing and generation of documentation. One blank line should be inserted between the block comment and the prior function, as well as between the block comment and the function it is describing.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"extends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
 
-<p><strong>Examples:</strong></p>
+<h3 id="lint-files">Lint Files</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
- * Description of the method
- *
- * @param {Type} paramName
- * @param {Type} paramName2
- * @return {Type}
- * @api public|private
- */</span>
+<p>In your project directory:</p>
 
-<span class="kd">function</span> <span class="nx">doStuff</span><span class="p">(</span><span class="nx">paramName</span><span class="p">,</span> <span class="nx">paramName2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">...</span>
-  <span class="k">return</span> <span class="nx">something</span>
-<span class="p">}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>eslint my-file.js some-src-dir
 </code></pre>
 </div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
- * Squares the given number
- *
- * @param {Number} number
- * @return {Number}
- * @api public
- */</span>
+<h3 id="enable-in-your-favorite-editor">Enable in Your Favorite Editor</h3>
 
-<span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">number</span> <span class="o">*</span> <span class="nx">number</span>
-<span class="p">}</span>
-</code></pre>
-</div>
+<h4 id="webstorm">Webstorm</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
- * Cleans up any long-lived resources
- *
- * @api private
- */</span>
+<p>Enable ESLint in Webstorm Preferences:</p>
 
-<span class="kd">function</span> <span class="nx">cleanUp</span><span class="p">()</span> <span class="p">{</span>
-  <span class="p">...</span>
-<span class="p">}</span>
-</code></pre>
-</div>
+<p><strong>Preferences &gt; Languages &amp; Frameworks &gt; JavaScript &gt; Code Quality Tools &gt; ESLint</strong></p>
 
-<h2 id="whitespace">Whitespace</h2>
+<p><img src="assets/img/enable-eslint.png" alt="WebStorm ESLint" /></p>
 
-<h3 id="named-functions">Named Functions</h3>
-
-<ul>
-  <li>Add a space after <code class="highlighter-rouge">function</code>.</li>
-  <li>Don’t add a space between the method name and opening paren.</li>
-  <li>Add one space after each comma in the signature.</li>
-  <li>Add one space after the closing paren.</li>
-</ul>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">methodName</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">...</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="anonymous-functions">Anonymous functions</h3>
-
-<ul>
-  <li>Don’t add a space between the function and opening paren.</li>
-  <li>Add one space after each comma in the signature.</li>
-  <li>Add one space after the closing paren.</li>
-</ul>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span><span class="p">(</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">)</span> <span class="p">{</span>
-  <span class="p">...</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="operators">Operators</h3>
-
-<p>Use one space on either side of the operator except for increment, decrement, bitwise not and logical not.</p>
-
-<p><strong>Operators wrapped in spaces:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">x</span> <span class="o">==</span> <span class="mi">1</span>
-<span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">1</span>
-<span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span>
-<span class="nx">x</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="nx">x</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span>
-<span class="nx">x</span> <span class="o">||</span> <span class="nx">y</span>
-<span class="nx">x</span> <span class="o">|</span> <span class="mi">0</span>
-</code></pre>
-</div>
-
-<p><strong>Operators without spaces:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">x</span><span class="o">++</span>
-<span class="nx">x</span><span class="o">--</span>
-<span class="o">~</span><span class="nx">x</span>
-<span class="o">!</span><span class="nx">x</span>
-</code></pre>
-</div>
-
-<p><strong>Example:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nx">x</span> <span class="o">==</span> <span class="mi">4</span> <span class="p">?</span> <span class="nx">x</span><span class="o">++</span> <span class="p">:</span> <span class="nx">x</span><span class="o">--</span>
-</code></pre>
-</div>
-
-<p><strong>Exceptions:</strong> When converting a type (Date to String, for example) the addition operator is often used as a shortcut. It is permissible to omit the space between the operator and operand in this case. Example:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">msSinceEpoch</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span>
-</code></pre>
-</div>
-
-<h2 id="object-literals">Object Literals</h2>
-
-<h3 id="the-basics">The Basics</h3>
-
-<p>New empty object literals should be instantiated with <code class="highlighter-rouge"><span class="p">{}</span></code> instead of <code class="highlighter-rouge">new Object()</code></p>
-
-<p>With data, place a space after the opening brace, before the ending brace, and after each comma. Keep a space after the colon.</p>
-
-<p>Remember the golden rule: <strong>Let your code breathe.</strong></p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span> <span class="na">city</span><span class="p">:</span> <span class="s1">'Minneapolis'</span> <span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="long-literals">Long Literals</h3>
-
-<p>If the declaration runs over 80 characters, or contains an anonymous function declaration, it is best to break the statement up into multiple lines. Line breaks should appear after the opening brace, after each comma and before the closing brace. The content of the object literal should be indented two spaces and the closing brace should not be indented.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">firstname</span><span class="p">:</span> <span class="s1">'John'</span><span class="p">,</span>
-  <span class="na">lastname</span><span class="p">:</span> <span class="s1">'Doe'</span><span class="p">,</span>
-  <span class="na">city</span><span class="p">:</span> <span class="s1">'Minneapolis'</span><span class="p">,</span>
-  <span class="na">url</span><span class="p">:</span> <span class="s1">'http://tstmedia.com'</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h3 id="prototypes-and-function-containers">Prototypes and Function Containers</h3>
-
-<p>A newline should precede each function property if the object is a definition for a class prototype or contains several function properties.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-
-  <span class="na">walk</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-  <span class="p">},</span>
-
-  <span class="nx">talk</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">phrase</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre>
-</div>
-
-<h2 id="array-literals">Array Literals</h2>
-
-<h3 id="the-basics-1">The Basics</h3>
-
-<p>New empty array literals should be instantiated with <code class="highlighter-rouge">[]</code> instead of <code class="highlighter-rouge">new Array()</code>.</p>
-
-<p>Place a space after the opening bracket, before the closing bracket, and after each comma.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">myArr</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]</span>
-</code></pre>
-</div>
-
-<h3 id="long-literals-1">Long Literals</h3>
-
-<p>If the declaration runs over 80 characters or contains anonymous functions, it is best to break the statement up into multiple lines. Line breaks should appear after the opening bracket, after each comma, and before the closing bracket. The array content should be indented two spaces and the closing bracket should not be indented.</p>
-
-<p><strong>Preferred:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">whitelist</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s1">'teamID'</span><span class="p">,</span>
-  <span class="s1">'name'</span><span class="p">,</span>
-  <span class="s1">'abbreviation'</span><span class="p">,</span>
-  <span class="s1">'color1'</span><span class="p">,</span>
-  <span class="s1">'color2'</span>
-<span class="p">]</span>
-</code></pre>
-</div>
-
-<h2 id="appendix">Appendix</h2>
-
-<h3 id="a---webstorm-configuration">A - WebStorm Configuration</h3>
-
-<p>By default, WebStorm will complain about missing semicolons at the end of a line. To turn that off, go to the WebStorm preferences:</p>
+<p>By default, WebStorm will complain about missing semicolons at the end of a line. To turn that off, go to WebStorm Preferences:</p>
 
 <p><strong>Preferences &gt; Editor &gt; Inspections &gt; JavaScript</strong></p>
 
-<p><img src="./content/assets/js-silence-unterminated-lines.png" alt="WebStorm Inspections" /></p>
+<p><img src="assets/img/js-silence-unterminated-lines.png" alt="WebStorm Inspections" /></p>
 
-<h2 id="credits">Credits</h2>
+<p>Or highlight a missing semicolon error, press <strong>Option+Return</strong> to bring up the Quick Fix menu, and disable the inspection there:</p>
 
-<p>This guide is based on the <a href="http://sportngin.github.io/styleguide/javascript.html">Sport Ngin JavaScript Style Guide</a>. Thanks for all your hard work!</p>
+<p><img src="assets/img/missing-semi-quick-fix.png" alt="Quick Fix: Disable Inspection" /></p>
+
+<h4 id="sublime-text">Sublime Text</h4>
+
+<p><a href="http://www.sublimelinter.com/en/latest/installation.html">Install Sublime Linter.</a></p>
+
+<p><a href="https://github.com/roadhump/SublimeLinter-eslint">Then install the ESLint plugin for Sublime Linter.</a></p>
 
 
 
