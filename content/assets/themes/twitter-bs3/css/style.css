@@ -43,6 +43,10 @@ h1, h2 {
   margin-top: 40px;
 }
 
+img {
+  max-width: 80%;
+}
+
 .navbar {
   margin-bottom: 0;
   background-color: #393939;
