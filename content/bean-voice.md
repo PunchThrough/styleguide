@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Bean Guide Voice and Tone
-nickname: Bean Voice
+nickname: Voice and Tone
 group: navigation
 ---
 {% include JB/setup %}

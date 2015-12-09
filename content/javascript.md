@@ -1,7 +1,7 @@
 ---
 layout: page
 title: JavaScript Style Guide
-nickname: JavaScript
+nickname: JS
 group: navigation
 ---
 {% include JB/setup %}

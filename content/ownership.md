@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Quality
-header: Code Quality Standards
+title: Code Quality Standards
+nickname: Quality
 group: navigation
 ---
 {% include JB/setup %}

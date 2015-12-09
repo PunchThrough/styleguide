@@ -1,7 +1,7 @@
 ---
 layout: page
-title: C++
-header: C++ Style Guide
+title: C++ Style Guide
+nickname: C++
 group: navigation
 ---
 
