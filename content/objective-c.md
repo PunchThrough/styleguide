@@ -10,6 +10,16 @@ group: navigation
 
 This style guide serves as a way to standardize Objective-C code we write at Punch Through Design.
 
+## ClangFormat Config
+
+Use this with [ClangFormat](http://clang.llvm.org/docs/ClangFormat.html) to format your Objective-C code to fit this style guide.
+
+```
+Language:        Cpp
+BasedOnStyle:  LLVM
+IndentWidth:     4
+```
+
 ## Language
 
 US English should be used.
